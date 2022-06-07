@@ -1,0 +1,60 @@
+! Setting transparency and background                                                                                                                                       
+
+URxvt*depth:      32                                              
+*.foreground: white
+*.background: [90]#050505   
+! special
+*.cursorColor: #afbfbf
+
+Xft.hintstyle:          hintslight
+!! URxvt Appearance
+!URxvt.font:xft:Monospace:pixelsize=14
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.iso14755: false
+URxvt*transparency: true
+!URxvt*tintColor: Blue
+URxvt*shading : 30
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=14:antialias=true:hinting=true
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=14:antialias=true:hinting=true
+
+! black
+*.color0: #1d1f21
+*.color8: #666666
+
+! red
+*.color1: #cc6666
+*.color9: #d54e53
+
+! green
+*.color2: #b5bd68
+*.color10: #b9ca4a
+
+! yellow
+*.color3: #f0c674
+*.color11: #e7c547
+
+! blue
+!*.color4: #81a2be
+*.color4: RoyalBlue
+*.color12: #7aa6da
+
+! magenta
+*.color5: #b294bb
+*.color13: #c397d8
+
+! cyan
+*.color6: #8abeb7
+*.color14: #70c0b1
+
+! white
+*.color7: #c5c8c6
+*.color15: #eaeaea
+
+
