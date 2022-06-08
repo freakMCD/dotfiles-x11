@@ -28,4 +28,5 @@ unset rc
 export EDITOR='nvim'
 export VISUAL='nvim'
 export TERM='rxvt-unicode'
-#(cat ~/.cache/wal/sequences &)
+xrdb ~/.Xresources
+(cat ~/.cache/wal/sequences &)

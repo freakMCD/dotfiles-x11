@@ -2,9 +2,10 @@
 let mapleader=","
 
 call plug#begin()
-Plug 'dylanaraps/wal.vim'
+    Plug 'dylanaraps/wal.vim'
 call plug#end()
 
+set clipboard+=unnamedplus
 set mouse=a
 set shiftwidth=4
 set noexpandtab 

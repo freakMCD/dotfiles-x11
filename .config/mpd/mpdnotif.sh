@@ -13,12 +13,12 @@ while "true"; do
     fi
 
     if [[ $status == 'playing' ]]; then
-	notify-send "♫ Now playing" "$(mpc --format "$form" current)" -i "$cover" -u low
+	notify-send "♫ Now playing" "$(mpc --format "$form" current)" -i "$cover" -t 3000
     elif [[ $status == 'paused' ]]; then
-	notify-send  "Paused" "$(mpc --format "$form" current)" -i "$cover"
+	notify-send  "Paused" "$(mpc --format "$form" current)" -i "$cover" -t 1000
     else 
 	notify-send "CODE WHEN WRONG"
     fi
-    mpc idle
+    mpc idle player
 done 
 

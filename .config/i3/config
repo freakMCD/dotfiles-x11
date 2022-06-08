@@ -232,8 +232,8 @@ mode "$mode_launcher" {
 	bindsym d exec discord ; mode "default"   
 	bindsym f exec firefox ; mode "default"
 	bindsym k exec kolourpaint ; mode "default"
-	bindsym r exec urxvt -e ranger ; mode "default"
-	bindsym m exec urxvt -e ncmpcpp ; mode "default"
+	bindsym r exec urxvt -e $SHELL -i -c ranger ; mode "default"
+	bindsym m exec urxvt -e $SHELL -i -c ncmpcpp ; mode "default"
 	bindsym u exec UltimMC ; mode "default"
 	
     bindsym Escape mode "default"
