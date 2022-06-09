@@ -3,7 +3,7 @@
 
 URxvt*depth:      32                                              
 !*.foreground: #BCBCBC
-*.background: [90]#0b090a  
+*background: [90]#0b090a  
 ! special
 *.cursorColor: #afbfbf
 
