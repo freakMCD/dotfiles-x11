@@ -13,11 +13,11 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+#font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:JetBrainsMono Nerd Font 9
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -30,20 +30,24 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+
+
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
+
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
+#"&& $refresh_i3status" sin quotes, for i3status
 bindsym Ctrl+Shift+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym Ctrl+Shift+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym $mod+p exec --no-startup-id mpc toggle
 bindsym Ctrl+Shift+Delete exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym Ctrl+Shift+Right exec --no-startup-id mpc next 
-bindsym Ctrl+Shift+Left exec --no-startup-id mpc prev
+bindsym Ctrl+Shift+Right exec --no-startup-id mpc next  && $refresh_i3status
+bindsym Ctrl+Shift+Left exec --no-startup-id mpc prev && $refresh_i3status
 
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -198,19 +202,20 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
   
-  status_command i3status
+    status_command i3status | ~/scripts/wrapper.py
+    #font pango:monospace 9 
+    
+    colors {
+	background $bg
+	statusline $fg
+	separator  $bc
 
-  colors {
-    background $bg
-    statusline $fg
-    separator  $bc
-
-    focused_workspace  $bc $bc #FFFFFF
-    active_workspace   #3C6EB4 #294172 #FFFFFF
-    inactive_workspace #8C8C8C00 $bg #888888
-    urgent_workspace   #EC69A000 $buc #FFFFFF
-    binding_mode       #b691d300 $buc #FFFFFF
-  }
+	focused_workspace  $bc $bc #000000
+	active_workspace   #3C6EB4 #294172 #FFFFFF
+	inactive_workspace #8C8C8C00 $bg #888888
+	urgent_workspace   #EC69A000 $buc #FFFFFF
+	binding_mode       #b691d300 $buc #FFFFFF
+    }
 }
 
 exec --no-startup-id xdg-user-dirs-update
@@ -234,16 +239,17 @@ mode "$mode_launcher" {
 	bindsym k exec kolourpaint ; mode "default"
 	bindsym r exec urxvt -e $SHELL -i -c ranger ; mode "default"
 	bindsym m exec urxvt -e $SHELL -i -c ncmpcpp ; mode "default"
-	bindsym u exec UltimMC ; mode "default"
+	bindsym u exec ~/.local/bin/UltimMC ; mode "default"
 	
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
 
+for_window [class="URxvt" instance="UltimMC"] move scratchpad 
 #exec --no-startup-id mpd
 exec --no-startup-id mpc random on && mpc load 2015-2022
 exec --no-startup-id picom -b
-exec --no-startup-id wal -R
+exec_always --no-startup-id wal -R
 exec --no-startup-id ~/.config/mpd/mpdnotif.sh
 
 assign [class="firefox"] 1
@@ -269,10 +275,11 @@ bindsym $mod+minus scratchpad show
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color0 #f0f0f0
-set_from_resource $bc i3wm.color2 #f0f0f0
 set_from_resource $buc i3wm.color1 #f0f0f0
+set_from_resource $bc i3wm.color2 #f0f0f0
+set_from_resource $sc i3wm.color5 #f0f0f0
+set_from_resource $fg i3wm.color7 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bc     $bc     #000000  $bc       $bc
@@ -286,6 +293,9 @@ client.background       $bc
 # PROTIP: You can also dynamically set dmenu's colors this way:
 bindsym $mod+d exec --no-startup-id dmenu_run -nb "$bc" -nf "#000000" -sb "#000000" -sf "$bc"
 
+
 # Change wallpaper and colors
-bindsym $mod+Shift+u exec  wal -a 90 --saturate 0.4 -i ~/.config/wallpaper -o "$HOME/.config/dunst/launch_dunst.sh"
+bindsym $mod+Shift+u exec  wal -a 92 --saturate 0.6 -i ~/.config/wallpaper -o "$HOME/.config/dunst/launch_dunst.sh"
+
+
 

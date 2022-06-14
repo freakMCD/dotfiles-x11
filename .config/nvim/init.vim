@@ -3,6 +3,7 @@ let mapleader=","
 
 call plug#begin()
     Plug 'dylanaraps/wal.vim'
+    Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
 set clipboard+=unnamedplus
@@ -17,6 +18,9 @@ set smartcase
 set conceallevel=2
 set confirm
 colorscheme wal
+
+lua << EOF
+EOF
 
 "Custom mappings"
 nmap <silent>  <leader>v  :e $MYVIMRC<CR>

@@ -8,7 +8,9 @@
 
 general {
         colors = true
-        interval = 5
+	output_format= "i3bar"
+	separator = " "
+	interval = 5
 }
 
 order += "volume master"
@@ -20,9 +22,11 @@ order += "load"
 order += "memory"
 order += "tztime local"
 
+
+
 volume master {
-        format = "♪: %volume"
-        format_muted = "♪: muted (%volume)"
+        format = " 墳 %volume "
+        format_muted = " muted (%volume)"
         device = "pulse"
 }
 
