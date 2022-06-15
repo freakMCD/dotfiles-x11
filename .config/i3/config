@@ -245,10 +245,9 @@ mode "$mode_launcher" {
     bindsym Return mode "default"
 }
 
-for_window [class="URxvt" instance="UltimMC"] move scratchpad 
 #exec --no-startup-id mpd
 exec --no-startup-id mpc random on && mpc load 2015-2022
-exec --no-startup-id picom -b
+exec --no-startup-id picom -b 
 exec_always --no-startup-id wal -R
 exec --no-startup-id ~/.config/mpd/mpdnotif.sh
 
@@ -263,6 +262,7 @@ for_window [class="firefox"] layout tabbed
 for_window [class="streamlink-twitch-gui"] layout tabbed
 for_window [class="(?i)minecraft"] layout tabbed
 for_window [class="URxvt"] focus
+
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
