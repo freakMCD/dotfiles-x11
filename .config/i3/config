@@ -203,8 +203,8 @@ bindsym $mod+r mode "resize"
 bar {
   
     status_command i3status | ~/scripts/wrapper.py
-    #font pango:monospace 9 
-    
+    #font pango:JetBrainsMono 10 
+    separator_symbol "  "
     colors {
 	background $bg
 	statusline $fg
@@ -222,6 +222,7 @@ exec --no-startup-id xdg-user-dirs-update
 
 ## Clipboard Screenshots
 bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym $mod+Print exec --no-startup-id maim -B --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 ## Change Borders options for Windows
@@ -295,7 +296,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run -nb "$bc" -nf "#000000" -sb "#0000
 
 
 # Change wallpaper and colors
-bindsym $mod+Shift+u exec  wal -a 92 --saturate 0.6 -i ~/.config/wallpaper -o "$HOME/.config/dunst/launch_dunst.sh"
+bindsym $mod+Shift+u exec  wal -a 92 --saturate 0.6 -i ~/.config/wallpaper -o "$HOME/.config/dunst/launch_dunst.sh" -o "$HOME/.config/i3status/wal_i3status.sh"
 
 
 

@@ -9,8 +9,8 @@
 general {
         colors = true
 	output_format= "i3bar"
-	separator = " "
 	interval = 5
+	markup = pango
 }
 
 order += "volume master"
@@ -23,9 +23,8 @@ order += "memory"
 order += "tztime local"
 
 
-
 volume master {
-        format = " 墳 %volume "
+	format = " <span color='#4697d0'>墳</span> %volume"
         format_muted = " muted (%volume)"
         device = "pulse"
 }
@@ -36,7 +35,7 @@ wireless _first_ {
 }
 
 ethernet _first_ {
-        format_up = "E: %ip (%speed)"
+        format_up = "   %ip"
         format_down = "E: down"
 }
 
@@ -45,20 +44,20 @@ battery all {
 }
 
 disk "/" {
-        format = "%avail"
+        format = " <span color='#4697d0'></span>  %avail"
 }
 
 load {
-        format = "%1min"
+        format = " <span color='#4697d0'></span> %1min"
 }
 
 memory {
-        format = "%used | %available"
+        format = " <span color='#4697d0'></span>  %used [%available]"
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = " <span color='#4697d0'></span>  %d/%m/%y %H:%M:%S"
 }
 

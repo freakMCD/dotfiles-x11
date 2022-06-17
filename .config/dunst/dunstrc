@@ -121,10 +121,10 @@
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
-            <b>bold</b>
-            <i>italic</i>
-            <s>strikethrough</s>
-            <u>underline</u>
+            #<b>bold</b>
+            #<i>italic</i>
+            #<s>strikethrough</s>
+            #<u>underline</u>
     #
     #        For a complete reference see
     #        <https://docs.gtk.org/Pango/pango_markup.html>.
@@ -167,7 +167,7 @@
     # seconds.
     # Set to -1 to disable.
     show_age_threshold = 60
-f the
+
     # Specify where to make an ellipsis in long lines.
     # Possible values are "start", "middle" and "end".
     ellipsize = middle
