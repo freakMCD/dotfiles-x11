@@ -228,6 +228,7 @@ bindsym $mod+Shift+Print exec --no-startup-id maim --select | xclip -selection c
 ## Change Borders options for Windows
 for_window [class="^.*"] border pixel 2
 for_window [class="firefox"] border pixel 0
+hide_edge_borders smart
 
 # Press $mod+o followed by either [x], Escape or Return to launch [x]app
 # or return to the default mode, respectively.
@@ -259,7 +260,6 @@ assign [class="streamlink-twitch-gui"] 3
 assign [class="discord"] 4
 assign [class="(?i)minecraft"] 5
 assign [class="UltimMC"] 5
-for_window [class="firefox"] layout tabbed
 for_window [class="streamlink-twitch-gui"] layout tabbed
 for_window [class="(?i)minecraft"] layout tabbed
 for_window [class="URxvt"] focus
@@ -296,7 +296,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run -nb "$bc" -nf "#000000" -sb "#0000
 
 
 # Change wallpaper and colors
-bindsym $mod+Shift+u exec  wal -a 92 --saturate 0.6 -i ~/.config/wallpaper -o "$HOME/.config/dunst/launch_dunst.sh" -o "$HOME/.config/i3status/wal_i3status.sh"
+bindsym $mod+Shift+u exec  wal -a 92 --saturate 0.5 -i ~/.config/wallpaper --iterative -o "$HOME/.config/dunst/launch_dunst.sh" -o "$HOME/.config/i3status/wal_i3status.sh" 
 
 
 
