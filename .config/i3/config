@@ -236,7 +236,7 @@ set $mode_launcher Launch: [d]iscord [f]irefox [k]olourpaint [m]ncmpcpp [r]anger
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
-	bindsym d exec discord ; mode "default"   
+	bindsym d exec Discord ; mode "default"   
 	bindsym f exec firefox ; mode "default"
 	bindsym k exec kolourpaint ; mode "default"
 	bindsym r exec urxvt -e $SHELL -i -c ranger ; mode "default"
@@ -254,15 +254,16 @@ exec_always --no-startup-id wal -R
 exec --no-startup-id ~/.config/mpd/mpdnotif.sh
 
 assign [class="firefox"] 1
-for_window [urgent="latest" class="firefox"] focus
 assign [class="URxvt"] 2
 assign [class="streamlink-twitch-gui"] 3
 assign [class="discord"] 4
 assign [class="(?i)minecraft"] 5
 assign [class="UltimMC"] 5
+for_window [urgent="latest" class="firefox"] focus
 for_window [class="streamlink-twitch-gui"] layout tabbed
 for_window [class="(?i)minecraft"] layout tabbed
 for_window [class="URxvt"] focus
+for_window [class="mpv"] move scratchpad, resize set 800 450, move position 1120 560, focus, sticky enable
 
 
 # Make the currently focused window a scratchpad
