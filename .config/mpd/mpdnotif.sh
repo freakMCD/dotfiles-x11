@@ -16,9 +16,9 @@ while "true"; do
     fi
 
     if [[ $status == 'playing' ]]; then
-	notify-send " Now playing" "$(mpc --format "$form" current)" -i "$cover" -t 3000
+	notify-send --hint=string:x-dunst-stack-tag:mpd " Now playing" "$(mpc --format "$form" current)" -i "$cover" -t 3000
     elif [[ $status == 'paused' ]]; then
-	notify-send  " Paused" "$(mpc --format "$form" current)" -i "$cover" -t 1000
+	notify-send --hint=string:x-dunst-stack-tag:mpd " Paused" "$(mpc --format "$form" current)" -i "$cover" -t 1000
     else 
 	notify-send "CODE WHEN WRONG"
     fi

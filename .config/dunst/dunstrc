@@ -25,21 +25,11 @@
     # width = (0, 300)
     # constant width of 300
     width = (0,300)
-
-    # The maximum height of a single notification, excluding the frame.
     height = (0,200)
-
-    # Position the notification in the top right corner
     origin = top-right
-
-    # Offset from the origin
-    offset = 20x60
-
-    # Scale factor. It is auto-detected if value is 0.
-    scale = 2
-
-    # Maximum number of notification (0 means no limit)
-    notification_limit = 0
+    offset = 20x60     # Offset from the origin
+    scale = 2	#auto-detected if value is 0
+    notification_limit = 0	# 0 means no limit
 
     ### Progress bar ###
 
@@ -50,14 +40,8 @@
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
     progress_bar_height = 10
-
-    # Set the frame width of the progress bar
     progress_bar_frame_width = 1
-
-    # Set the minimum width for the progress bar
     progress_bar_min_width = 150
-
-    # Set the maximum width for the progress bar
     progress_bar_max_width = 300
 
 
@@ -65,9 +49,7 @@
     # notification_limit).
     indicate_hidden = yes
 
-    # The transparency of the window.  Range: [0; 100].
-    # This option will only work if a compositing window manager is
-    # present (e.g. xcompmgr, compiz, etc.). (X11 only)
+    # This option will only work if a compositing window manager is present
     transparency = 0
 
     # Draw a line of "separator_height" pixel height between two
@@ -78,22 +60,15 @@
     # Padding between text and separator.
     padding = 8
 
-    # Horizontal padding.
     horizontal_padding = 8
-
-    # Padding between text and icon.
     text_icon_padding = 8
 
-    # Defines width in pixels of frame around the notification window.
-    # Set to 0 to disable.
     frame_width = 1
 
     # Defines color of the frame around the notification window.
     frame_color = "#2d7489"
     frame_color = "#2d7489"
     
-    # Define a color for the separator.
-    # possible values are:
     #  * auto: dunst tries to find a color fitting to the background;
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
@@ -112,7 +87,6 @@
 
     ### Text ###
 
-    #font = Agave Nerd Font Mono 11
     font = BigBlue_Terminal_437TT Nerd Font Mono 9
 
     # The spacing between lines.  If the height is smaller than the
@@ -197,7 +171,6 @@
     # Scale larger icons down to this size, set to 0 to disable
     max_icon_size = 80
 
-    # Paths to default icons.
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### History ###
@@ -240,26 +213,13 @@
     ignore_dbusclose = false
 
     ### Wayland ###
-    # These settings are Wayland-specific. They have no effect when using X11
-
+   
     # Uncomment this if you want to let notications appear under fullscreen
     # applications (default: overlay)
     # layer = top
 
     # Set this to true to use X11 output on Wayland.
     force_xwayland = false
-
-    ### Legacy
-
-    # Use the Xinerama extension instead of RandR for multi-monitor support.
-    # This setting is provided for compatibility with older nVidia drivers that
-    # do not support RandR and using it on systems that support RandR is highly
-    # discouraged.
-    #
-    # By enabling this setting dunst will not be able to detect when a monitor
-    # is connected or disconnected which might break follow mode if the screen
-    # layout changes.
-    force_xinerama = false
 
     ### mouse
 
@@ -280,16 +240,8 @@
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
 
-# Experimental features that may or may not work correctly. Do not expect them
-# to have a consistent behaviour across releases.
-[experimental]
-    # Calculate the dpi to use on a per-monitor basis.
-    # If this setting is enabled the Xft.dpi value will be ignored and instead
-    # dunst will attempt to calculate an appropriate dpi value for each monitor
-    # using the resolution and physical size. This might be useful in setups
-    # where there are multiple screens with very different dpi values.
-    qper_monitor_dpi = false
-
+# EXPERIMENTAL: Calculate the dpi to use on a per-monitor basis.
+# qper_monitor_dpi = false
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
@@ -389,6 +341,7 @@
 #[fullscreen_show_critical]
 #    msg_urgency = critical
 #    fullscreen = show
+
 
 #[espeak]
 #    summary = "*"
