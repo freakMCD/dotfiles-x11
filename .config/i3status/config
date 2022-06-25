@@ -24,7 +24,7 @@ order += "tztime local"
 
 
 volume master {
-	format = " <span color='#4697d0'>墳</span> %volume"
+	format = " <span color='#2d7589'></span> %volume"
         format_muted = " muted (%volume)"
         device = "pulse"
 }
@@ -44,20 +44,20 @@ battery all {
 }
 
 disk "/" {
-        format = " <span color='#4697d0'></span>  %avail"
+        format = " <span color='#2d7589'></span>  %avail"
 }
 
 load {
-        format = " <span color='#4697d0'></span> %1min"
+        format = " <span color='#2d7589'></span> %1min"
 }
 
 memory {
-        format = " <span color='#4697d0'></span>  %used [%available]"
+        format = " <span color='#2d7589'></span>  %used [%available]"
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
 }
 
 tztime local {
-        format = " <span color='#4697d0'></span>  %d/%m/%y %H:%M:%S"
+        format = " <span color='#2d7589'></span>  %d/%m/%y %H:%M:%S"
 }
 

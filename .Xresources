@@ -13,7 +13,6 @@
 URxvt.font:xft:JetBrainsMono Nerd Font:pixelsize=14
 URxvt.boldFont:xft:JetBrainsMono Nerd Font:pixelsize=14
 
-
 Xft.hintstyle:	hintslight
 Xft.hinting: 1
 Xft.antialias:1

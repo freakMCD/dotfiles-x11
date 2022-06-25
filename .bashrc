@@ -30,4 +30,3 @@ export VISUAL='nvim'
 export TERM='rxvt-unicode'
 xrdb ~/.Xresources
 (cat ~/.cache/wal/sequences &)
-alias discord=' --no-sandbox'
