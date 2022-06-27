@@ -1,11 +1,11 @@
 let mapleader=","
 
 call plug#begin()    
-    Plug 'lervag/vimtex'
-    Plug 'dylanaraps/wal.vim'
-    Plug 'itchyny/lightline.vim'
-    Plug 'honza/vim-snippets'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'lervag/vimtex'
+  Plug 'dylanaraps/wal.vim'
+  Plug 'itchyny/lightline.vim'
+  Plug 'honza/vim-snippets'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 colorscheme wal
@@ -21,8 +21,14 @@ set number
 set shiftwidth=4
 set smartcase
 set splitbelow
+set tabstop=2
+set shiftwidth=2
 set title
 filetype plugin indent on
+
+"Coc.nvim settings"
+set shortmess+=c
+set signcolumn=number
 
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=1
@@ -32,36 +38,51 @@ let g:vimtex_compiler_latexmk = {
             \ 'build_dir' : 'build',
             \}
 
+augroup vimtex
+  au!
+  au User VimtexEventView call b:vimtex.viewer.xdo_focus_vim()
+	au User VimtexEventInitPost VimtexCompile
+  au User VimtexEventCompileSuccess VimtexView
+augroup END
 
-"Coc.nvim settings"
-set shortmess+=c
-set signcolumn=number
+" Close viewers when VimTeX buffers are closed
+function! CloseViewers()
+  if executable('xdotool')
+      \ && exists('b:vimtex.viewer.xwin_id')
+      \ && b:vimtex.viewer.xwin_id > 0
+    call system('xdotool windowclose '. b:vimtex.viewer.xwin_id)
+  endif
+endfunction
 
+augroup vimtex_event_2
+  au!
+  au User VimtexEventQuit call CloseViewers()
+augroup END
 
 
 let g:lightline = {
-      \ 'colorscheme': 'wal',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename'] ]
-      \ },
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',         
-      \ },
-      \ 'mode_map': {
-      \ 'n' : 'N',
-      \ 'i' : 'I',
-      \ 'R' : 'R',
-      \ 'v' : 'V',
-      \ 'V' : 'VL',
-      \ "\<C-v>": 'VB',
-      \ 'c' : 'C',
-      \ 's' : 'S',
-      \ 'S' : 'SL',
-      \ "\<C-s>": 'SB',
-      \ 't': 'T',
-      \ },
-      \ }
+    \ 'colorscheme': 'wal',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'readonly', 'filename'] ]
+    \ },
+    \ 'component_function': {
+    \   'filename': 'LightlineFilename',         
+    \ },
+    \ 'mode_map': {
+    \ 'n' : 'N',
+    \ 'i' : 'I',
+    \ 'R' : 'R',
+    \ 'v' : 'V',
+    \ 'V' : 'VL',
+    \ "\<C-v>": 'VB',
+    \ 'c' : 'C',
+    \ 's' : 'S',
+    \ 'S' : 'SL',
+    \ "\<C-s>": 'SB',
+    \ 't': 'T',
+    \ },
+    \ }
 
 function! LightlineFilename()
   let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
@@ -72,9 +93,9 @@ endfunction
 
 "Map TAB
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ CheckBackspace() ? "\<TAB>" :
-      \ coc#refresh()
+  \ pumvisible() ? "\<C-n>" :
+  \ CheckBackspace() ? "\<TAB>" :
+  \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! CheckBackspace() abort
@@ -90,11 +111,8 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Mappings for CoCList
-" Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
