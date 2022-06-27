@@ -234,9 +234,8 @@ set $mode_launcher Launch: [d]iscord [f]irefox [k]olourpaint [m]ncmpcpp [r]anger
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
-	bindsym d exec Discord ; mode "default"   
+	bindsym d exec flatpak run com.discordapp.Discord ; mode "default"   
 	bindsym f exec firefox ; mode "default"
-	bindsym k exec kolourpaint ; mode "default"
 	bindsym r exec urxvt -e $SHELL -i -c ranger ; mode "default"
 	bindsym m exec urxvt -e $SHELL -i -c ncmpcpp ; mode "default"
 	bindsym u exec ~/Escritorio/UltimMC ; mode "default"
@@ -245,7 +244,6 @@ mode "$mode_launcher" {
     bindsym Return mode "default"
 }
 
-#exec --no-startup-id mpd
 exec --no-startup-id mpc random on && mpc load 2015-2022
 exec --no-startup-id picom -b 
 exec_always --no-startup-id wal -R
@@ -260,7 +258,7 @@ assign [class="UltimMC"] 5
 for_window [urgent="latest" class="firefox"] focus
 for_window [class="streamlink-twitch-gui"] layout tabbed, focus
 for_window [class="URxvt"] focus
-for_window [class="mpv"] move scratchpad, resize set 854 480, move position 1056 570, focus, sticky enable
+for_window [class="mpv"] move scratchpad, resize set 480 270, move position 650 808, focus, sticky enable
 for_window [class="(?i)minecraft"] layout tabbed
 
 # Make the currently focused window a scratchpad
@@ -294,7 +292,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run -nb "$bc" -nf "#000000" -sb "#0000
 
 
 # Change wallpaper and colors
-bindsym $mod+Shift+u exec  wal -a 92 --saturate 0.5 -i ~/.config/wallpaper --iterative -o "$HOME/.config/dunst/launch_dunst.sh" -o "$HOME/.config/i3status/wal_i3status.sh" 
+bindsym $mod+Shift+u exec --no-startup-id wal -a 92 --saturate 0.5 -i ~/.config/wallpaper --iterative -o "$HOME/.config/dunst/launch_dunst.sh" -o "$HOME/.config/i3status/wal_i3status.sh" 
 
 
 
