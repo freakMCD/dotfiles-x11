@@ -1,0 +1,67 @@
+
+! Setting transparency and background                                                                                                                                       
+
+!*.foreground: #BCBCBC
+*background: [90]#0b090a  
+! special
+*.cursorColor: #afbfbf
+
+!Xft.dpi: 96
+!! URxvt Appearance
+
+!Font
+URxvt.font:xft:JetBrainsMono Nerd Font:pixelsize=14
+URxvt.boldFont:xft:JetBrainsMono Nerd Font:pixelsize=14
+
+Xft.hintstyle:	hintslight
+Xft.hinting: 1
+Xft.antialias:1
+
+!Font Spacing
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+
+!General Settings
+URxvt*saveline: 2048
+URxvt*scrollBar: false
+URxvt*scrollBar_right: false
+URxvt*urgentOnBell: true
+URxvt*iso14755: false
+
+!Appearance
+URxvt*depth:      32                                              
+URxvt*transparency: true
+!URxvt*tintColor: Blue
+URxvt*shading : 18
+
+! black
+*color0: #1d1f21
+*color8: #969698
+
+! red
+*color1: #cc6666
+*color9: #cc6666
+
+! green
+*color2: #b5bd68
+*color10: #b5bd68
+
+! yellow
+*color3: #f0c674
+*color11: #f0c674
+
+! blue
+*color4: #81a2be
+*color12: #87AFD7
+
+! magenta
+*color5: #b294bb
+*color13: #b294bb
+
+! cyan
+*color6: #8abeb7
+*color14: #8abeb7
+
+! white
+*color7: #c5c8c6
+*color15: #ffffff
