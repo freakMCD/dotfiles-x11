@@ -1,6 +1,6 @@
 ncmpcpp_directory = ~/.config/ncmpcpp
 
-lyrics_directory = ~/.config/ncmpcpp/lyrics
+lyrics_directory = ~/Música/2015-2022/lyrics
 
 mpd_music_dir = ~/Música/2015-2022
 
