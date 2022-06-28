@@ -63,7 +63,7 @@
     horizontal_padding = 8
     text_icon_padding = 8
 
-    frame_width = 1
+    frame_width = 0
 
     # Defines color of the frame around the notification window.
     frame_color = "#2c6683"
@@ -127,7 +127,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b><span color='yellow'>%s</span></b>\n%b"
+    format = "<b><span color='yellow'>%s</span></b> %p\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -204,7 +204,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 10
+    corner_radius = 8
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -246,21 +246,21 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#0b090a"
+    background = "#0b090ad9"
     foreground = "#6ea2ce"
     timeout = 3
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#0b090a"
+    background = "#0b090ad9"
     foreground = "#6ea2ce"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_critical]
-    background = "#0b090a"
+    background = "#0b090ad9"
     foreground = "#6ea2ce"
     frame_color = "#2c6683"
     timeout = 0
