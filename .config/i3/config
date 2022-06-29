@@ -11,12 +11,6 @@
 
 set $mod Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-#font pango:monospace 8
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:JetBrainsMono Nerd Font 9
 
 # Start XDG autostart .desktop files using dex. See also
@@ -30,21 +24,15 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-#exec --no-startup-id nm-applet
-
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-#"&& $refresh_i3status" sin quotes, for i3status
 bindsym Ctrl+Shift+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym Ctrl+Shift+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym $mod+p exec --no-startup-id mpc toggle
 bindsym Ctrl+Shift+Delete exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym Ctrl+Shift+Right exec --no-startup-id mpc next  && $refresh_i3status
 bindsym Ctrl+Shift+Left exec --no-startup-id mpc prev && $refresh_i3status
-
 #bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -56,14 +44,6 @@ bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
-
-# start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-10'"
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -220,14 +200,13 @@ hide_edge_borders smart
 
 # Press $mod+o followed by either [x], Escape or Return to launch [x]app
 # or return to the default mode, respectively.
-set $mode_launcher Launch: [d]iscord [f]irefox [k]olourpaint [m]ncmpcpp [r]anger [u]ltimMC 
+set $mode_launcher Launch: [d]iscord [f]irefox [m]ncmpcpp [r]anger [u]ltimMC 
 bindsym $mod+o mode "$mode_launcher"
-
 mode "$mode_launcher" {
 	bindsym d exec flatpak run com.discordapp.Discord ; mode "default"   
 	bindsym f exec firefox ; mode "default"
-	bindsym r exec urxvt -e $SHELL -i -c ranger ; mode "default"
 	bindsym m exec urxvt -e $SHELL -i -c ncmpcpp ; mode "default"
+	bindsym r exec urxvt -e $SHELL -i -c ranger ; mode "default"
 	bindsym u exec ~/Escritorio/UltimMC ; mode "default"
 	
     bindsym Escape mode "default"
@@ -241,14 +220,14 @@ exec --no-startup-id ~/.config/mpd/mpdnotif.sh
 
 assign [class="firefox"] 1
 assign [class="URxvt"] 2
-assign [class="streamlink-twitch-gui"] 3
-assign [class="discord"] 4
-assign [class="(?i)minecraft"] 5
-assign [class="UltimMC"] 5
+assign [class="discord"] 3
+assign [class="(?i)minecraft"] 4
+assign [class="UltimMC"] 4
+assign [class="streamlink-twitch-gui"] 5
+
 for_window [urgent="latest" class="firefox"] focus
-for_window [class="streamlink-twitch-gui"] layout tabbed, focus
 for_window [class="URxvt"] focus
-for_window [class="mpv"] move scratchpad, resize set 480 270, move position 650 808, focus, sticky enable
+for_window [class="mpv"] move scratchpad, resize set 500 270, move position 650 808, focus, sticky enable
 for_window [class="(?i)minecraft"] layout tabbed
 
 # Make the currently focused window a scratchpad
@@ -280,9 +259,8 @@ client.background       $bc
 # PROTIP: You can also dynamically set dmenu's colors this way:
 bindsym $mod+d exec --no-startup-id dmenu_run -nb "$bc" -nf "#000000" -sb "#000000" -sf "$bc"
 
-
 # Change wallpaper and colors
-bindsym $mod+Shift+u exec --no-startup-id wal -a 92 --saturate 0.5 -i ~/.config/wallpaper --iterative -o "$HOME/.config/dunst/launch_dunst.sh" -o "$HOME/.config/i3status/wal_i3status.sh" 
+bindsym $mod+Shift+u exec --no-startup-id wal -a 94 --saturate 0.5 -i ~/.config/wallpaper --iterative -o "$HOME/.config/dunst/launch_dunst.sh" -o "$HOME/.config/i3status/wal_i3status.sh" 
 
 
 

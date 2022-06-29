@@ -13,6 +13,7 @@
 - Colors and theme management using pywal
 - Music player with ncmpcpp + mpd + mpc
 - For screenshots: maim + xclip + xdotool
+- PDF editor: Zathura
 - Basic dotfiles :
     - i3 config file
     - .bashrc
@@ -21,3 +22,4 @@
 ## Notes
 - Wallpapers can be found in '.config/wallpaper'.
 - Font is 'JetBrainsMono Nerd Font'
+- Disabled 'nm-applet' from autostart
