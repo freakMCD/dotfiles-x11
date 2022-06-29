@@ -2,7 +2,7 @@
 ! Setting transparency and background                                                                                                                                       
 
 !*.foreground: #BCBCBC
-*background: [90]#0b090a  
+*background: [94]#0b090a  
 ! special
 *.cursorColor: #afbfbf
 
