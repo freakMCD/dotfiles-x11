@@ -23,3 +23,11 @@
 - Wallpapers can be found in '.config/wallpaper'.
 - Font is 'JetBrainsMono Nerd Font'
 - Disabled 'nm-applet' from autostart
+
+## Personal Guide Installation
+- Install rpmfusion fedora, link: https://download1.rpmfusion.org/free/fedora/
+- sudo dnf install picom rxvt-unicode dunst neovim ranger ncmpcpp mpd mpc zathura zathura-pdf-poppler translate-shell yt-dlp maim xclip xdotool ffmpeg unrar xprop rclone git
+- Search on internet about: yadm, pywal
+- dependencies, nodejs, python. 
+- For other dependencies/app search on internet 'appname fedora repo'
+- flatpak apps: Discord mpv
