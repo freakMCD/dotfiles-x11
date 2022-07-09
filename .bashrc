@@ -1,5 +1,9 @@
 # .bashrc
 
+if [ -e $HOME/.bash_aliases ]; then
+    source $HOME/.bash_aliases
+fi
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -30,3 +34,7 @@ export VISUAL='nvim'
 export TERM='rxvt-unicode'
 xrdb ~/.Xresources
 (cat ~/.cache/wal/sequences &)
+
+export PS1='\[\e[0;3;90m\][\[\e[0;3;31m\]\u \[\e[0;1;95m\]\W\[\e[0;3;90m\]] \[\e[0m\]'
+
+
