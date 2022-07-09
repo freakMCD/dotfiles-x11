@@ -1,9 +1,8 @@
 #!/bin/bash
 
 
-form="\n<span color='##FFA348'>%artist%</span>\n%title%\n<span color='##3584E4'>%album%</span>" 
+form="\n<span size='14pt'>%title%</span>\n<span size='8pt' weight='ultrabold' text_transform='uppercase'>%artist%</span>\n<span size='9pt' color='##A3A3A3'><i>%album%</i></span>" 
 
-#form="\n<span color='##FFA348'>%artist%</span>\n<span color='##57E389'>%title%</span>\n<span color='##3584E4'>%album%</span>" 
 
 while "true"; do
    
@@ -16,9 +15,9 @@ while "true"; do
     fi
 
     if [[ $status == 'playing' ]]; then
-	notify-send -a mpd --hint=string:x-dunst-stack-tag:mpd " Now playing" "$(mpc --format "$form" current)" -i "$cover" -t 3000
+	notify-send -a mpd --hint=string:x-dunst-stack-tag:mpd "" "$(mpc --format "$form" current)" -i "$cover" -t 3000
     elif [[ $status == 'paused' ]]; then
-	notify-send -a mpd --hint=string:x-dunst-stack-tag:mpd " Paused" "$(mpc --format "$form" current)" -i "$cover" -t 1000
+	notify-send -a mpd --hint=string:x-dunst-stack-tag:mpd "" "$(mpc --format "$form" current)" -i "$cover" -t 1000
     else 
 	notify-send "CODE WHEN WRONG"
     fi
