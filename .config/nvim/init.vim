@@ -126,6 +126,9 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
 "Custom mappings"
 nmap <silent>  <leader>v  :tabedit $MYVIMRC<CR>
 nmap <leader>r :so $MYVIMRC<CR>
