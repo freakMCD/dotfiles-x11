@@ -85,5 +85,4 @@ if __name__=="__main__":
             j.insert(0, {'full_text' : ' %s    ' % (song_name()) })
 
         print_line(prefix+json.dumps(j))
-        
 

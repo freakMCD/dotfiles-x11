@@ -7,7 +7,7 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
+  colors = true
 	output_format= "i3bar"
 	interval = 5
 	markup = pango
@@ -24,7 +24,7 @@ order += "tztime local"
 
 
 volume master {
-	format = " <span color='#5195c5'></span> %volume"
+	format = " <span color='#4a87b2'></span> %volume"
         format_muted = " muted (%volume)"
         device = "pulse"
 }
@@ -39,25 +39,21 @@ ethernet _first_ {
         format_down = "E: down"
 }
 
-battery all {
-        format = "%status %percentage %remaining"
-}
-
 disk "/" {
-        format = " <span color='#5195c5'></span>  %avail"
+        format = " <span color='#4a87b2'></span>  %avail"
 }
 
 load {
-        format = " <span color='#5195c5'></span> %1min"
+        format = " <span color='#4a87b2'></span> %1min"
 }
 
 memory {
-        format = " <span color='#5195c5'></span>  %used [%available]"
+        format = " <span color='#4a87b2'></span>  %used [%available]"
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
 }
 
 tztime local {
-        format = " <span color='#5195c5'></span>  %d/%m/%y %H:%M:%S  "
+        format = " <span color='#4a87b2'></span>  %d/%m/%y %H:%M:%S  "
 }
 
