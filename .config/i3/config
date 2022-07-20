@@ -213,17 +213,14 @@ for_window [class="firefox"] border pixel 0
 hide_edge_borders smart
 
 for_window [urgent="latest" class="firefox"] focus
-for_window [class="URxvt"] focus
 for_window [class="mpv"] move scratchpad, resize set 480 270, move position 550 810, focus, sticky enable
 for_window [class="(?i)minecraft"] layout tabbed
 
 ## Assign programs to workspace
 assign [class="firefox"] $ws2
-assign [class="URxvt"] $ws1
-assign [class="discord"] $ws3
+assign [class="discord"] $ws4
 assign [class="(?i)minecraft"] $ws4
 assign [class="UltimMC"] $ws4
-assign [class="streamlink-twitch-gui"] $ws5
 
 
 # Press $mod+o followed by either [x], Escape or Return to launch [x]app or return to the default mode
