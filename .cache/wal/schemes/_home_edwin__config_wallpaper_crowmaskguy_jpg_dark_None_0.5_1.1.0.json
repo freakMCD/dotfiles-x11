@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/edwin/.config/wallpaper/crowmaskguy.jpg",
+    "alpha": "95",
+    "special": {
+        "background": "#0c090b",
+        "foreground": "#ccd5dc",
+        "cursor": "#ccd5dc"
+    },
+    "colors": {
+        "color0": "#0c090b",
+        "color1": "#a73335",
+        "color2": "#2d6c89",
+        "color3": "#3a6fb3",
+        "color4": "#4a87b2",
+        "color5": "#43aec0",
+        "color6": "#6690bc",
+        "color7": "#ccd5dc",
+        "color8": "#8e959a",
+        "color9": "#b53335",
+        "color10": "#277396",
+        "color11": "#326ebb",
+        "color12": "#5195c5",
+				"color13": "#39b9ce",
+        "color14": "#6f9ecf",
+        "color15": "#ccd5dc"
+    }
+}
