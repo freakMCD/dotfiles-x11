@@ -31,7 +31,7 @@
 ## Personal Guide Installation
 
 - sudo dnf install picom rxvt-unicode dunst neovim ranger ncmpcpp mpd mpc zathura zathura-pdf-poppler translate-shell yt-dlp maim xclip xdotool ffmpeg unrar xprop rclone git
-- Search on internet about: yadm, pywal
+- Search on internet about: yadm, pywal, translate-shell, cambrinary, animdl
 - dependencies, nodejs, python. 
 - For other dependencies/app search on internet 'appname fedora repo'
 - flatpak apps: Discord mpv
