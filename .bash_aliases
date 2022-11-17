@@ -3,15 +3,17 @@ alias aliasrc="nvim ~/.bash_aliases && source ~/.bashrc"
 alias trans="trans --shell -brief"
 alias cambrinary="cambrinary -w "
 alias mpv="flatpak run io.mpv.Mpv"
+alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
 
 # Custom dnf alias
 alias install="sudo dnf install"
 alias search="sudo dnf search"
 alias update="sudo dnf update"
 alias remove="sudo dnf remove"
+alias mp3="yt-dlp -f 'ba' -x --audio-format mp3"
 
 
-function stream () {
+function ttv () {
     nohup streamlink --title '{author} - {title} - {category}' -a '"--title=${{media-title}}"'  twitch.tv/"$@" > /dev/null 2>&1 & exit
 }
 
