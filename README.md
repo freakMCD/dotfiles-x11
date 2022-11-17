@@ -35,3 +35,4 @@
 - dependencies, nodejs, python. 
 - For other dependencies/app search on internet 'appname fedora repo'
 - flatpak apps: Discord mpv
+- UMS (Universal Media Server)
