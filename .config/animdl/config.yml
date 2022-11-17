@@ -1,0 +1,8 @@
+default_provider: animixplay
+site_urls:
+    animixplay: https://www.animixplay.to/
+default_player: mpv
+players:
+    mpv:
+        executable: /var/lib/flatpak/app/io.mpv.Mpv/current/active/export/bin/io.mpv.Mpv
+        opts: []
