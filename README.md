@@ -27,12 +27,15 @@
 ## Notes
 - Wallpapers can be found in '.config/wallpaper'.
 - Font are 'Objetive' & 'JetBrainsMono Nerd Font'
+- systemctl --user enable mpd.service
+- Don't forget to run 'PlugUpdate' for neovim
 
 ## Personal Guide Installation
 
-- sudo dnf install picom rxvt-unicode dunst neovim ranger ncmpcpp mpd mpc zathura zathura-pdf-poppler translate-shell yt-dlp maim xclip xdotool ffmpeg unrar xprop rclone git
-- Search on internet about: yadm, pywal, translate-shell, cambrinary, animdl
-- dependencies, nodejs, python. 
+- sudo dnf install rxvt-unicode dunst neovim ranger ncmpcpp mpd mpc zathura zathura-pdf-poppler yt-dlp maim xclip xdotool ffmpeg unrar xprop git
+- Search on internet about: yadm, pywal, animdl
+- dependencies, nodejs, python3-pip. 
 - For other dependencies/app search on internet 'appname fedora repo'
-- flatpak apps: Discord mpv
+- flatpak apps: Discord, mpv
 - UMS (Universal Media Server)
+

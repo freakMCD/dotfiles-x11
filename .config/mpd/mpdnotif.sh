@@ -6,9 +6,9 @@ form="\n<span size='14pt'>%title%</span>\n<span size='8pt' weight='ultrabold' te
 
 while "true"; do
    
-    artpath="$HOME/Música/2015-2022/"$(mpc status -f '%file%' | head -n1)""
+    artpath="$HOME/Music/2015-2022/"$(mpc status -f '%file%' | head -n1)""
     status=$(mpc status %state%)
-    cover="$HOME/Música/2015-2022/cover/"$(basename "$artpath" .m4a)".jpg"
+    cover="$HOME/Music/2015-2022/cover/"$(basename "$artpath" .m4a)".jpg"
 
     if [[ ! -f "$cover" ]]; then 
 	ffmpeg -an -n -i "$artpath" "$cover"
