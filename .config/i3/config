@@ -229,7 +229,6 @@ assign [class="(?i)minecraft"] $ws4
 assign [class="UltimMC"] $ws4
 assign [class="Lutris"] $ws4
 assign [class="Steam"] $ws4
-assign [class="gunz.exe"] $ws1
 
 
 # Press $mod+o followed by either [x], Escape or Return to launch [x]app or return to the default mode
@@ -252,7 +251,6 @@ mode "$mode_launcher" {
 
 exec --no-startup-id mpc random on && mpc load 2015-2022
 exec --no-startup-id ~/.config/mpd/mpdnotif.sh
-exec --no-startup-id picom -b 
 exec_always --no-startup-id wal -R
 
 # Change wallpaper and colors
