@@ -41,7 +41,7 @@
 - sudo dnf install @multimedia
 - sudo dnf install neovim ranger mpd mpc zathura zathura-pdf-poppler yt-dlp xprop git mpv
 - Search on internet about: yadm, pywal, animdl
-  dependencies, nodejs, python3-pip. 
+  dependencies, nodejs, python3-pip, python3-devel, gcc. 
 - For other dependencies/app search on internet 'appname fedora repo'
 - UMS (Universal Media Server)
 
