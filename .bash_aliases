@@ -1,8 +1,5 @@
 alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias aliasrc="nvim ~/.bash_aliases && source ~/.bashrc"
-alias trans="trans --shell -brief"
-alias cambrinary="cambrinary -w "
-alias mpv="flatpak run io.mpv.Mpv"
 alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
 
 # Custom dnf alias
