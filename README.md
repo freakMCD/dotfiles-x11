@@ -18,6 +18,7 @@
     - i3 config file
     - .bashrc
     - .Xresources
+		- .xinitrc
 
 ##IMPORTANT
 - Edit /etc/systemd/logind.conf 'HandlePowerKey=ignore'
@@ -32,10 +33,13 @@
 
 ## Personal Guide Installation
 
-- sudo dnf install rxvt-unicode dunst neovim ranger ncmpcpp mpd mpc zathura zathura-pdf-poppler yt-dlp maim xclip xdotool ffmpeg unrar xprop git
+- sudo dnf install xorg-x11-server-Xorg xorg-x11-xinit xorg-x11-drv-libinput mesa-dri-drivers
+- sudo dnf install @base-x
+- sudo dnf install i3 i3status dmenu rxvt-unicode dunst
+- sudo dnf install @multimedia
+- sudo dnf install neovim ranger mpd mpc zathura zathura-pdf-poppler yt-dlp xprop git mpv
 - Search on internet about: yadm, pywal, animdl
-- dependencies, nodejs, python3-pip. 
+  dependencies, nodejs, python3-pip. 
 - For other dependencies/app search on internet 'appname fedora repo'
-- flatpak apps: Discord, mpv
 - UMS (Universal Media Server)
 
