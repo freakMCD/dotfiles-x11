@@ -30,6 +30,8 @@
 - Font are 'Objetive' & 'JetBrainsMono Nerd Font'
 - systemctl --user enable mpd.service
 - Don't forget to run 'PlugUpdate' for neovim
+- To save git credentials: 
+	git config --global credential.helper store
 
 ## Personal Guide Installation
 
