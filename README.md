@@ -3,7 +3,6 @@
 ## What's in it?
 
 - WM: i3
-- Compositor: picom 
 - Terminal: URxvt
 - Notifications: Dunst
 - Launcher: Dmenu
@@ -14,6 +13,7 @@
 - Music player with ncmpcpp + mpd + mpc
 - For screenshots: maim + xclip + xdotool
 - PDF editor: Zathura
+- RSS Reader: Newsboat
 - Basic dotfiles :
     - i3 config file
     - .bashrc
@@ -35,11 +35,14 @@
 
 ## Personal Guide Installation
 
+Example: sudo dnf --setopt=install_weak_deps=false install appname
+
 - sudo dnf install xorg-x11-server-Xorg xorg-x11-xinit xorg-x11-drv-libinput mesa-dri-drivers
 - sudo dnf install @base-x
 - sudo dnf install i3 i3status dmenu rxvt-unicode dunst
 - sudo dnf install @multimedia
-- sudo dnf install neovim ranger mpd mpc zathura zathura-pdf-poppler yt-dlp xprop git mpv
+- sudo dnf install google-noto-cjk-fonts (asian fonts)
+- sudo dnf install neovim ranger mpd mpc zathura zathura-pdf-poppler yt-dlp xprop git mpv latexmk xdotool newsboat
 - Search on internet about: yadm, pywal, animdl
   dependencies, nodejs, python3-pip, python3-devel, gcc. 
 - For other dependencies/app search on internet 'appname fedora repo'
