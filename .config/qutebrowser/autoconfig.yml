@@ -15,8 +15,18 @@ settings:
     global: lightness-cielab
   colors.webpage.darkmode.enabled:
     global: true
+  content.autoplay:
+    global: false
   content.blocking.method:
     global: adblock
+  content.notifications.enabled:
+    https://www.reddit.com: false
+  hints.padding:
+    global:
+      bottom: 0
+      left: 3
+      right: 3
+      top: 0
   statusbar.position:
     global: top
   tabs.new_position.unrelated:
@@ -27,6 +37,8 @@ settings:
     global: right
   tabs.show:
     global: switching
+  tabs.show_switching_delay:
+    global: 1000
   tabs.title.alignment:
     global: left
   url.searchengines:

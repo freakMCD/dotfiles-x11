@@ -1,6 +1,7 @@
 alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias aliasrc="nvim ~/.bash_aliases && source ~/.bashrc"
 alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
+alias playlist="mpv --shuffle --no-keepaspect-window --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
 
 # Custom dnf alias
 alias install="sudo dnf install"
