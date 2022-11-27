@@ -1,12 +1,12 @@
 max-items 50
 browser qutebrowser
 cleanup-on-quit no
-auto-reload yes
 notify-always yes
 notify-program notify-send
 notify-format "%d new articles (%n unread articles, %f unread feeds)"
 
-macro c set browser "streamlink --player-passthrough=hls %u"; open-in-browser ; set browser qutebrowser
+macro M set browser "streamlink --player-passthrough=hls %u"; open-in-browser ; set browser qutebrowser
+
 
 
 
