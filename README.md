@@ -41,8 +41,8 @@
 - sudo dnf install @base-x
 - sudo dnf install i3 i3status dmenu rxvt-unicode dunst
 - sudo dnf install @multimedia
-- sudo dnf install google-noto-cjk-fonts (asian fonts)
-- sudo dnf install neovim ranger mpd mpc zathura zathura-pdf-poppler yt-dlp xprop git mpv latexmk xdotool maim xclip newsboat
+- sudo dnf install google-noto-cjk-fonts  (asian fonts)
+- sudo dnf install git qutebrowser neovim ranger mpd mpc zathura zathura-pdf-poppler yt-dlp xprop mpv latexmk xdotool maim xclip newsboat
 - Search on internet about: yadm, pywal, animdl
   dependencies, nodejs, python3-pip, python3-devel, gcc. 
 - For other dependencies/app search on internet 'appname fedora repo'
