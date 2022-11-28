@@ -6,6 +6,15 @@
 
 config_version: 2
 settings:
+  aliases:
+    global:
+      q: close
+      qa: quit
+      w: session-save
+      wq: quit --save
+      wqa: quit --save
+  auto_save.session:
+    global: true
   bindings.commands:
     global:
       normal:
@@ -21,22 +30,22 @@ settings:
     global: adblock
   content.notifications.enabled:
     https://www.reddit.com: false
-  hints.padding:
-    global:
-      bottom: 0
-      left: 3
-      right: 3
-      top: 0
+  content.notifications.presenter:
+    global: qt
   statusbar.position:
-    global: top
+    global: bottom
+  statusbar.show:
+    global: always
+  tabs.favicons.scale:
+    global: 0.8
   tabs.new_position.unrelated:
     global: last
   tabs.pinned.shrink:
     global: true
   tabs.position:
-    global: right
+    global: top
   tabs.show:
-    global: switching
+    global: multiple
   tabs.show_switching_delay:
     global: 1000
   tabs.title.alignment:
