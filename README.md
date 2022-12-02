@@ -38,9 +38,9 @@
 ## Personal Guide Installation (after Fedora Everything minimal install)
 
 - sudo dnf install xorg-x11-server-Xorg xorg-x11-xinit xorg-x11-drv-libinput mesa-dri-drivers
-- sudo dnf install @base-x
+- sudo dnf install @base-x 
 - sudo dnf install i3 i3status dmenu rxvt-unicode dunst
-- sudo dnf install @multimedia
+- sudo dnf install @multimedia @printing
 - sudo dnf install google-noto-cjk-fonts  (asian fonts)
 - sudo dnf install git qutebrowser neovim ranger mpd mpc zathura zathura-pdf-poppler yt-dlp xprop mpv latexmk xdotool maim xclip newsboat
 - Search on internet about: yadm, pywal, animdl
