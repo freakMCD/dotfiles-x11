@@ -4,7 +4,8 @@
 Description= Runs the newsboat.service on Sunday
 
 [Timer]
-OnCalendar=Sun 00:00
+OnBootSec=30 s
+OnUnitActiveSec=2 h
 Unit=newsboat.service
 
 [Install]
