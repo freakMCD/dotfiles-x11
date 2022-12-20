@@ -18,20 +18,44 @@ settings:
   bindings.commands:
     global:
       normal:
-        ',M': hint links spawn mpv {hint-url}
-        ',m': spawn mpv {url}
+        ',M': spawn mpv {url}
+        ',m': hint links spawn mpv {hint-url}
   colors.webpage.darkmode.algorithm:
     global: lightness-cielab
   colors.webpage.darkmode.enabled:
     global: true
+  colors.webpage.darkmode.policy.images:
+    global: never
+  colors.webpage.preferred_color_scheme:
+    global: dark
+  completion.open_categories:
+    global:
+    - searchengines
+    - quickmarks
+    - bookmarks
+    - filesystem
+  completion.shrink:
+    global: false
   content.autoplay:
     global: false
   content.blocking.method:
-    global: adblock
+    global: both
+  content.media.audio_capture:
+    https://canary.discord.com: true
+    https://discord.com: true
   content.notifications.enabled:
+    https://web.whatsapp.com: true
+    https://www.facebook.com: false
+    https://www.faceit.com: false
     https://www.reddit.com: false
   content.notifications.presenter:
-    global: qt
+    global: auto
+  content.notifications.show_origin:
+    global: false
+  content.register_protocol_handler:
+    https://mail.google.com?extsrc=mailto&url=%25s: false
+  scrolling.bar:
+    global: overlay
   statusbar.position:
     global: bottom
   statusbar.show:
