@@ -1,13 +1,63 @@
 max-items 50
 browser qutebrowser
 cleanup-on-quit no
+reload-threads 16
+notify-format "%n unread articles \n%f unread feeds"
+notify-program "~/.newsboat/newsnotif.sh"
 notify-always yes
-notify-program notify-send
-notify-format "%d new articles (%n unread articles, %f unread feeds)"
-
-macro M set browser "streamlink --player-passthrough=hls %u"; open-in-browser ; set browser qutebrowser
 
 
+macro m set browser "mpv %u >/dev/null 2>&1 &"; open-in-browser ; set browser qutebrowser; toggle-article-read
+macro s set browser "streamlink --player-passthrough=hls %u >/dev/null 2>&1 &"; open-in-browser ; set browser qutebrowser; toggle-article-read
 
+
+
+
+
+
+ignore-article "https://animixplay.to/rsssub.xml" "title !~ \"Blue Lock|One Piece|Spy x Family\""
+ignore-article "https://yewtu.be/feed/channel/UCvnNkJsbONVhdXuHY_LpsdA" "title !~ \"Final Paradox\""  
+
+
+
+
+
+
+
+
+
+
+color listnormal default default
+color listfocus default default reverse
+color listnormal_unread default default bold
+color listfocus_unread default default bold underline
+color info red black bold
+color article default default
+
+highlight article "^Feed:.*" magenta default 
+highlight article "^Title:.*" yellow default bold
+highlight article "^Author:.*" green default
+highlight article "^Date:.*" color223 default
+highlight article "^Link:.*" blue default
+highlight article "^Flags:.*" color9 default
+highlight article "\\[[0-9][0-9]*\\]" color66 default bold
+highlight article "\\[image [0-9][0-9]*\\]" color109 default bold
+highlight article "\\[embedded flash: [0-9][0-9]*\\]" color66 default bold
+
+#highlight feedlist "[╒╘╞]═.*═[╛╕╡]" yellow default bold
+highlight feedlist "[║│]" yellow default bold
+highlight feedlist "╠═.*" yellow default bold
+
+highlight feedlist "\\(Youtube\\) .*" red
+highlight feedlist "\\(Podcast\\) .*" magenta
+highlight feedlist "\\(Blog\\) .*" cyan
+#highlight feedlist "\\(Reddit\\) .*" color166 
+
+
+feedlist-format "%?T?║%4i %n %8u (%T) %t &╠═════════════════════════════════════════════════════%t?"
+#feedlist-format "%?T?║%4i %n %8u (%T) %t &╠%=═0%t?"
+#feedlist-format "%?T?║%4i %n %8u (%T) %t &%==11first%=x16SECOND%=~13third?"
+
+articlelist-format  "%4i %f %D   %?T?|%-17T|  ?%t"
 
 include /usr/share/doc/newsboat/contrib/colorschemes/inkpot
