@@ -1,6 +1,8 @@
+# vim: set filetype=conf :
 max-items 50
 browser qutebrowser
 cleanup-on-quit no
+prepopulate-query-feeds yes
 reload-threads 16
 notify-format "%n unread articles \n%f unread feeds"
 notify-program "~/.newsboat/newsnotif.sh"
@@ -12,16 +14,12 @@ macro s set browser "streamlink --player-passthrough=hls %u >/dev/null 2>&1 &"; 
 
 
 
-
+# Bindings
+bind-key o open-in-browser-and-mark-read
 
 
 ignore-article "https://animixplay.to/rsssub.xml" "title !~ \"Blue Lock|One Piece|Spy x Family\""
 ignore-article "https://yewtu.be/feed/channel/UCvnNkJsbONVhdXuHY_LpsdA" "title !~ \"Final Paradox\""  
-
-
-
-
-
 
 
 
@@ -34,30 +32,19 @@ color listfocus_unread default default bold underline
 color info red black bold
 color article default default
 
-highlight article "^Feed:.*" magenta default 
-highlight article "^Title:.*" yellow default bold
-highlight article "^Author:.*" green default
-highlight article "^Date:.*" color223 default
-highlight article "^Link:.*" blue default
-highlight article "^Flags:.*" color9 default
-highlight article "\\[[0-9][0-9]*\\]" color66 default bold
-highlight article "\\[image [0-9][0-9]*\\]" color109 default bold
-highlight article "\\[embedded flash: [0-9][0-9]*\\]" color66 default bold
+#highlights
+highlight article "^(Feed|Title|Link|Date|Author):.*$" color12 color0
+highlight article "https?://[^ ]+" color13 color0 protect
 
-#highlight feedlist "[╒╘╞]═.*═[╛╕╡]" yellow default bold
 highlight feedlist "[║│]" yellow default bold
 highlight feedlist "╠═.*" yellow default bold
 
 highlight feedlist "\\(Youtube\\) .*" red
-highlight feedlist "\\(Podcast\\) .*" magenta
 highlight feedlist "\\(Blog\\) .*" cyan
 #highlight feedlist "\\(Reddit\\) .*" color166 
 
 
-feedlist-format "%?T?║%4i %n %8u (%T) %t &╠═════════════════════════════════════════════════════%t?"
-#feedlist-format "%?T?║%4i %n %8u (%T) %t &╠%=═0%t?"
-#feedlist-format "%?T?║%4i %n %8u (%T) %t &%==11first%=x16SECOND%=~13third?"
+feedlist-format "%?T?║ %n%8u (%T) %t &╠═════════════════════════════════════════════════════%t?"
 
 articlelist-format  "%4i %f %D   %?T?|%-17T|  ?%t"
 
-include /usr/share/doc/newsboat/contrib/colorschemes/inkpot

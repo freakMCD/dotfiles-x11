@@ -1,3 +1,6 @@
+Queries 
+"query:Unread Articles:unread = \"yes\"" meta
+
 Blogs
 https://terrytao.wordpress.com/feed/ "~Terence Tao Blog Entries" Blog
 
@@ -8,6 +11,6 @@ https://createfeed.fivefilters.org/extract.php?url=https%3A%2F%2Fmanga18.me%2Fma
 https://www.webtoons.com/en/supernatural/im-the-grim-reaper/rss?title_no=1697 Webtoon
 
 Youtube
-https://yewtu.be/feed/channel/UCvnNkJsbONVhdXuHY_LpsdA Yt
+https://yewtu.be/feed/channel/UCvnNkJsbONVhdXuHY_LpsdA Youtube
 
 ═══

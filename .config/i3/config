@@ -147,8 +147,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Scratchpad binds
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus [class="^(?!URxvt$).*$"] scratchpad show
+bindsym $mod+Shift+less move scratchpad
+bindsym $mod+less [class="^(?!URxvt$).*$"] scratchpad show
 bindsym $mod+q     [class="^URxvt$"] scratchpad show
 
 # reload the configuration file
