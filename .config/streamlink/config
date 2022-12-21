@@ -2,4 +2,5 @@ player-no-close
 player=mpv
 default-stream=best
 twitch-disable-ads
-
+twitch-low-latency
+stream-segment-threads=3

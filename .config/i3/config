@@ -212,24 +212,18 @@ for_window [class="^.*"] border pixel 1
 hide_edge_borders smart
 
 for_window [class="mpv"] move scratchpad, resize set 640 360, move position 0 720, focus, sticky enable
-for_window [class="(?i)minecraft"] layout tabbed
-for_window [class="discord"] layout tabbed
 for_window [class="URxvt"] focus
 
-## Assign programs to workspace
-assign [class="qutebrowser"] $ws2
-assign [class="discord"] $ws4
-assign [class="(?i)minecraft"] $ws4
-assign [class="UltimMC"] $ws4
-assign [class="Steam"] $ws4
 
+## Assign programs to workspace
+assign [class="qutebrowser"] $ws1
+assign [class="league of legends.exe"] $ws2
 
 # Press $mod+o followed by either [x], Escape or Return to launch [x]app or return to the default mode
 set $mode_launcher Launch: [c]onfig [d]iscord [q]utebrowser [z]athura
 bindsym $mod+o mode "$mode_launcher"
 mode "$mode_launcher" {
 	bindsym c exec urxvt -e $SHELL -i -c 'nvim ~/.config/i3/config' ; mode "default"
-	bindsym d exec flatpak run com.discordapp.Discord --enable-gpu-rasterization ; mode "default"   
 	bindsym q exec qutebrowser; mode "default"
 	bindsym z exec zathura ; mode "default"
 	

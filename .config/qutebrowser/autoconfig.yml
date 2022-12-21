@@ -37,6 +37,7 @@ settings:
   completion.shrink:
     global: false
   content.autoplay:
+    '*://discord.com/*': true
     global: false
   content.blocking.method:
     global: both

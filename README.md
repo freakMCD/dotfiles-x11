@@ -20,7 +20,7 @@
     - .Xresources
 		- .xinitrc
 
-##IMPORTANT
+## IMPORTANT
 - Edit /etc/systemd/logind.conf 'HandlePowerKey=ignore'
 - Install rpmfusion fedora, link: https://download1.rpmfusion.org/free/fedora/
 - Disabled 'nm-applet' from autostart
@@ -42,7 +42,7 @@
 - sudo dnf install i3 i3status dmenu rxvt-unicode dunst
 - sudo dnf install @multimedia @printing
 - sudo dnf install google-noto-cjk-fonts  (asian fonts)
-- sudo dnf install git qutebrowser neovim ranger mpd mpc zathura zathura-pdf-poppler yt-dlp xprop mpv latexmk xdotool maim xclip newsboat
+- sudo dnf install git qutebrowser neovim ranger mpd mpc zathura zathura-pdf-poppler yt-dlp xprop mpv latexmk xdotool maim xclip newsboat pavucontrol
 - Search on internet about: yadm, pywal, animdl
   dependencies, nodejs, python3-pip, python3-devel, gcc. 
 - For other dependencies/app search on internet 'appname fedora repo'
