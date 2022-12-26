@@ -2,9 +2,8 @@
 // @name         reddit to teddit
 // @namespace    https://gist.github.com/bitraid/d1901de54382532a03b9b22a207f0417
 // @version      1.0
-// @description  reddit to teddit
-// @match        *://*.youtube.com/*
-// @match        *://youtube.com/*
+// @description  youtube to yewtu.be
+// @match 			 *://*.youtube.com/results*
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==

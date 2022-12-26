@@ -5,12 +5,12 @@ Blogs
 https://terrytao.wordpress.com/feed/ "~Terence Tao Blog Entries" Blog
 
 Animation
-https://animixplay.to/rsssub.xml Anime "~AniMixPlay feed"
+https://raw.githubusercontent.com/ArjixGamer/gogoanime-rss/main/gogoanime/gogoanime-rss-sub.xml Anime			
 https://createfeed.fivefilters.org/extract.php?url=https%3A%2F%2Freadtcbscans.com%2Fmangas%2F5%2Fone-piece&in_id_or_class=col-span-2&max=5&order=document&guid=0 Manga
 https://createfeed.fivefilters.org/extract.php?url=https%3A%2F%2Fmanga18.me%2Fmanga%2Fstepmother-friends&in_id_or_class=chapter-name+text-nowrap&max=5&order=document&guid=0 Manhwa "~Stepmother friends"
 https://www.webtoons.com/en/supernatural/im-the-grim-reaper/rss?title_no=1697 Webtoon
 
 Youtube
 https://yewtu.be/feed/channel/UCvnNkJsbONVhdXuHY_LpsdA Youtube
-
+https://yewtu.be/feed/channel/UCjEv6ZUjUR0xObFhPNcKihg Youtube
 ═══

@@ -26,6 +26,10 @@ settings:
     global: true
   colors.webpage.darkmode.policy.images:
     global: never
+  colors.webpage.darkmode.threshold.background:
+    global: 205
+  colors.webpage.darkmode.threshold.text:
+    global: 150
   colors.webpage.preferred_color_scheme:
     global: dark
   completion.open_categories:
@@ -38,6 +42,7 @@ settings:
     global: false
   content.autoplay:
     '*://discord.com/*': true
+    '*://web.whatsapp.com/*': true
     global: false
   content.blocking.method:
     global: both
@@ -55,6 +60,8 @@ settings:
     global: false
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: false
+  content.user_stylesheets:
+    global: null
   scrolling.bar:
     global: overlay
   statusbar.position:
@@ -81,6 +88,6 @@ settings:
     global:
       DEFAULT: https://html.duckduckgo.com/html/?q={}
       r: https://www.reddit.com/r/{}
-      yt: http://www.youtube.com/results?search_query={}
+      yt: http://www.yewtu.be/search?q=:s{}
   url.start_pages:
     global: https://html.duckduckgo.com
