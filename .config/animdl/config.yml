@@ -1,4 +1,4 @@
-default_provider: animixplay
-site_urls:
-    animixplay: https://www.animixplay.to/
 default_player: mpv
+superanime:
+  type_of: "sub"
+  return_all: false

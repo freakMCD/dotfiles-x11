@@ -25,6 +25,7 @@ set tabstop=2
 set shiftwidth=2
 set title
 filetype plugin indent on
+filetype on
 
 "Coc.nvim settings"
 set shortmess+=c
@@ -134,4 +135,5 @@ nmap <silent>  <leader>v  :tabedit $MYVIMRC<CR>
 nmap <leader>r :so $MYVIMRC<CR>
 noremap <leader>e :PlugInstall<CR>
 
+autocmd BufNewFile,BufRead urls set filetype=c
 

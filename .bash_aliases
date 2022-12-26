@@ -2,7 +2,12 @@ alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias aliasrc="nvim ~/.bash_aliases && source ~/.bashrc"
 alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
 alias playlist="mpv --shuffle --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
-alias animdl="animdl stream"
+
+alias animst="animdl stream"
+
+alias gpg-list="gpg --list-secret-keys --keyid-format LONG"
+alias gpg-backup="gpg -o private.gpg --export-options backup --export-secret-keys"
+alias gpg-restore="gpg --import-options restore --import private.gpg"
 
 
 # Custom dnf alias
@@ -20,3 +25,6 @@ function ttv () {
 function vod () {
 		nohup streamlink --player-passthrough=hls "$@" > /dev/null 2>&1 & exit
 }
+
+
+
