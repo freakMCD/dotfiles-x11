@@ -216,12 +216,14 @@ hide_edge_borders smart
 for_window [class="mpv"] move scratchpad, resize set 640 360, move position 640 700, focus, sticky enable
 for_window [class="URxvt"] focus
 for_window [class="URxvt" instance="floating"] move scratchpad, focus
-for_window [class="league of legends.exe"] focus
+for_window [class="Steam" title="Friends List"] floating enable
+for_window [class="league of legends.exe|csgo_linux64"] focus
 
 
 ## Assign programs to workspace
 assign [class="qutebrowser"] $ws1
 assign [class="league of legends.exe"] $ws2
+assign [class="csgo_linux64"] $ws2
 
 # Press $mod+o followed by either [x], Escape or Return to launch [x]app or return to the default mode
 set $mode_launcher Launch: i3[c]onfig [q]utebrowser [r]anger [z]athura
