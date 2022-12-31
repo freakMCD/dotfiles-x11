@@ -28,11 +28,6 @@ bindsym $mod+Delete exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-
-# start a terminal
-bindsym $mod+Shift+Return exec --no-startup-id urxvt
-bindsym $mod+Return exec --no-startup-id urxvt -name floating
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -202,22 +197,27 @@ bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/pn
 bindsym $mod+Print exec --no-startup-id maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
+# start a terminal
+bindsym $mod+Shift+Return exec --no-startup-id urxvt -name tiling
+bindsym $mod+Return exec --no-startup-id urxvt -name floating
 
 ## Change Borders options for Windows
 for_window [class="^.*"] border pixel 2
+for_window [floating] border pixel 1
 hide_edge_borders smart 
 
-for_window [class="mpv"] move scratchpad, resize set 640 360, move position 640 700, focus, sticky enable
-for_window [class="URxvt"] focus
-for_window [class="URxvt" instance="floating"] move scratchpad, focus
-for_window [class="URxvt" title="trans"] resize set 620 200, move position 340 850, sticky enable
+for_window [class="mpv"] move scratchpad, scratchpad show, resize set 426 240, move position 535 800, sticky enable
+for_window [class="URxvt" instance="tiling"] focus
+for_window [class="URxvt" instance="floating"] move scratchpad, scratchpad show
+for_window [class="URxvt" title="trans"] resize set 620 200, move position 340 854, sticky enable
 for_window [class="Steam" title="^Friends"] floating enable
 for_window [class="league of legends.exe"] focus
 for_window [class="Zathura"] layout tabbed
 
 ## Assign programs to workspace
-assign [class="qutebrowser"] $ws2
+assign [class="URxvt" instance="tiling"] $ws1
 assign [class="Zathura"] $ws1
+assign [class="qutebrowser"] $ws2
 assign [class="^Steam$" title="^Steam$"] $ws4
 assign [class="duckstation-qt"] $ws4
 assign [class="league of legends.exe"] $ws3

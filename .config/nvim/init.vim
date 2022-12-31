@@ -1,6 +1,8 @@
 let mapleader=","
+let g:ale_disable_lsp = 1
 
 call plug#begin()    
+	Plug 'dense-analysis/ale'
   Plug 'lervag/vimtex'
   Plug 'dylanaraps/wal.vim'
   Plug 'itchyny/lightline.vim'
@@ -8,8 +10,8 @@ call plug#begin()
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
-colorscheme wal
 
+colorscheme wal
 set clipboard+=unnamedplus
 set conceallevel=1
 set confirm
@@ -27,12 +29,15 @@ set title
 filetype plugin indent on
 filetype on
 
+let g:ale_lint_on_text_changed = 'never'
+
 "Coc.nvim settings"
 set shortmess+=c
 set signcolumn=number
 
 let g:coc_global_extensions = [
-            \'coc-texlab',            
+            \'coc-texlab',
+						\'coc-snippets',
             \]
 
 let g:vimtex_view_method='zathura'

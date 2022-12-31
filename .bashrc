@@ -20,7 +20,6 @@ if [ -d "/var/lib/flatpak/exports/bin" ] ; then
 fi
 export PATH
 
-
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
@@ -36,7 +35,10 @@ unset rc
 
 export EDITOR='nvim'
 export VISUAL='nvim'
-export TERM='rxvt-unicode'
+export TERMINAL='rxvt-unicode'
+export LESSHISTFILE='-'
+export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
+export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
 (cat ~/.cache/wal/sequences &)
 
 export PS1='\[\e[0;3;90m\][\[\e[0;3;31m\]\u \[\e[0;1;95m\]\W\[\e[0;3;90m\]] \[\e[0m\]'
@@ -49,6 +51,7 @@ source /etc/bash_completion.d/fzf
 export FZF_DEFAULT_COMMAND='fd --hidden --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default
 
 fmpc() {
   local song_position
@@ -65,6 +68,4 @@ _fzf_compgen_dir() {
 
 	fd --type d --hidden --follow -E ".wine" -E "league-of-legends" . "$1"
 }
-
-
 
