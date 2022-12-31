@@ -46,7 +46,7 @@
 - systemctl --user enable mpd.service
 - Don't forget to run 'PlugUpdate' for neovim
 - To save git credentials: 
-	git config --global credential.helper store
+	git config --global credential.helper "store --file ~/.local/share/git-credentials"
 - deleting .wine folder can fix a problem with Leagueoflegends install
 
 

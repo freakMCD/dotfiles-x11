@@ -223,10 +223,11 @@ assign [class="duckstation-qt"] $ws4
 assign [class="league of legends.exe"] $ws3
 
 # Press $mod+o followed by either [x], Escape or Return to launch [x]app or return to the default mode
-set $mode_launcher Launch: i3[c]onfig [r]anger [t]ranslate [z]athura
+set $mode_launcher Launch: i3[c]onfig [q]utebrowser [r]anger [t]ranslate [z]athura
 bindsym $mod+o mode "$mode_launcher"
 mode "$mode_launcher" {
 	bindsym c exec urxvt -e sh -c 'nvim ~/.config/i3/config' ; mode "default"
+	bindsym q exec qutebrowser; mode "default"
 	bindsym r exec urxvt -name floating -e sh -c ranger; mode "default"
 	bindsym t exec urxvt -title trans -name floating trans -e sh -c 'trans -I'; mode "default"
 	bindsym z exec zathura; mode "default"

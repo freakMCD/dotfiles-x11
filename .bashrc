@@ -37,8 +37,9 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export TERMINAL='rxvt-unicode'
 export LESSHISTFILE='-'
-export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
-export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
+export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
+export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
+export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 (cat ~/.cache/wal/sequences &)
 
 export PS1='\[\e[0;3;90m\][\[\e[0;3;31m\]\u \[\e[0;1;95m\]\W\[\e[0;3;90m\]] \[\e[0m\]'
