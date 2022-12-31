@@ -23,8 +23,9 @@ order += "memory"
 order += "tztime local"
 
 
+
 volume master {
-	format = " <span color='#4a87b2'></span> %volume"
+				format = " <span color='#4a87b2'></span> %volume"
         format_muted = " muted (%volume)"
         device = "pulse"
 }

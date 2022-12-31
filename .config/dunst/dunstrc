@@ -43,9 +43,9 @@
 		# If gap_size is greater than 0, this setting will be ignored.
     separator_height = 0
 
-    padding = 10 	# Padding between text and separator.
-    horizontal_padding = 10
-		text_icon_padding = 10
+    padding = 12 	# Padding between text and separator.
+    horizontal_padding = 16
+		text_icon_padding = 16
 
     frame_width = 2
     frame_color = "#3a6fb3"
@@ -110,7 +110,7 @@
     # Show age of message if message is older than show_age_threshold
     # seconds.
     # Set to -1 to disable.
-    show_age_threshold = 60
+    show_age_threshold = 300
 
     # Specify where to make an ellipsis in long lines.
     # Possible values are "start", "middle" and "end".

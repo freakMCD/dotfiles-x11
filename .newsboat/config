@@ -9,9 +9,9 @@ notify-program "~/.newsboat/newsnotif.sh"
 notify-always yes
 
 
-macro m set browser "nohup mpv %u >/dev/null 2>&1 &"; open-in-browser ; set browser qutebrowser; toggle-article-read
-macro M set browser "nohup mpv %u >/dev/null 2>&1 &"; open-in-browser ; set browser qutebrowser;
-macro s set browser "nohup streamlink --player-passthrough=hls %u >/dev/null 2>&1 &"; open-in-browser ; set browser qutebrowser; toggle-article-read
+macro m set browser "nohup mpv %u > /dev/null 2>&1 & exit"; open-in-browser ; set browser qutebrowser; toggle-article-read
+macro M set browser "nohup mpv %u > /dev/null 2>&1 & exit"; open-in-browser ; set browser qutebrowser;
+macro s set browser "nohup streamlink --player-passthrough=hls %u > /dev/null 2>&1 &"; open-in-browser ; set browser qutebrowser; toggle-article-read
 
 
 

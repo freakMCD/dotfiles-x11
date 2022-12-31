@@ -31,6 +31,10 @@ filetype on
 set shortmess+=c
 set signcolumn=number
 
+let g:coc_global_extensions = [
+            \'coc-texlab',            
+            \]
+
 let g:vimtex_view_method='zathura'
 let g:tex_conceal='abdmg'
 let g:vimtex_quickfix_mode=2
@@ -126,6 +130,8 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
 
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)

@@ -10,33 +10,28 @@ font pango:JetBrainsMono Nerd Font 9
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex-autostart --autostart --environment i3
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
 exec --no-startup-id xdg-user-dirs-update
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym Ctrl+Shift+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym Ctrl+Shift+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym $mod+p exec --no-startup-id mpc toggle
+bindsym $mod+p exec --no-startup-id mpc toggle && $refresh_i3status
 bindsym Ctrl+Shift+Delete exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym Ctrl+Shift+Right exec --no-startup-id mpc next  && $refresh_i3status
 bindsym Ctrl+Shift+Left exec --no-startup-id mpc prev && $refresh_i3status
-#bindsym Ctrl+mod1+Delete exec --no-startup-id pactl set-source-mute 65 toggle && $refresh_i3status
+bindsym $mod+Delete exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle; exec --no-startup-id ~/.config/i3/mic_muted_notif.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-#bindsym $mod+Return exec alacritty msg create-window || alacritty
-bindsym $mod+Shift+Return exec urxvt
-bindsym $mod+Return exec urxvt -name floating
 
+# start a terminal
+bindsym $mod+Shift+Return exec --no-startup-id urxvt
+bindsym $mod+Return exec --no-startup-id urxvt -name floating
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -65,11 +60,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+b split h
+bindsym $mod+b split horizontal
+bindsym $mod+v split vertical
 
-# split in vertical orientation
-bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -167,21 +160,19 @@ bar {
     status_command i3status | ~/.config/i3status/wrapper.py
     separator_symbol "  "
     colors {
-	background $bg
-	statusline $fg
-	separator  $bc
+			background $bg
+			statusline $fg
+			separator  $bc
 
-	focused_workspace  $bc $bc #000000
-	active_workspace   #3C6EB4 #294172 #FFFFFF
-	inactive_workspace #8C8C8C00 $bg #888888
-	urgent_workspace   #EC69A000 $buc #FFFFFF
-	binding_mode       #b691d300 $buc #FFFFFF
+			focused_workspace  $bc $bc #000000
+			active_workspace   #3C6EB4 #294172 #FFFFFF
+			inactive_workspace #8C8C8C00 $bg #888888
+			urgent_workspace   #EC69A000 $buc #FFFFFF
+			binding_mode       #b691d300 $buc #FFFFFF
     }
 }
 
 # Set colors from Xresources
-# Change 'color7' and 'color2' to whatever colors you want i3 to use 
-# from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
 set_from_resource $bg i3wm.color0 #f0f0f0
@@ -201,7 +192,10 @@ client.background       $bc
 
 
 # PROTIP: You can also dynamically set dmenu's colors this way:
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb "$bc" -nf "#000000" -sb "#000000" -sf "$bc""
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb "$bc" -nf "#000000" -sb "#000000" -sf "$bc""
+
+bindsym $mod+d exec --no-startup-id urxvt -title 'fzf-menu' -e sh -c 'i3-dmenu-desktop --dmenu="fzf --height 100%" '
+for_window [title="fzf-menu"] floating enable
 
 ## Clipboard Screenshots
 bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
@@ -211,28 +205,31 @@ bindsym $mod+Shift+Print exec --no-startup-id maim -s | xclip -selection clipboa
 
 ## Change Borders options for Windows
 for_window [class="^.*"] border pixel 2
-hide_edge_borders smart
+hide_edge_borders smart 
 
 for_window [class="mpv"] move scratchpad, resize set 640 360, move position 640 700, focus, sticky enable
 for_window [class="URxvt"] focus
 for_window [class="URxvt" instance="floating"] move scratchpad, focus
-for_window [class="Steam" title="Friends List"] floating enable
-for_window [class="league of legends.exe|csgo_linux64"] focus
-
+for_window [class="URxvt" title="trans"] resize set 620 200, move position 340 850, sticky enable
+for_window [class="Steam" title="^Friends"] floating enable
+for_window [class="league of legends.exe"] focus
+for_window [class="Zathura"] layout tabbed
 
 ## Assign programs to workspace
-assign [class="qutebrowser"] $ws1
-assign [class="league of legends.exe"] $ws2
-assign [class="csgo_linux64"] $ws2
+assign [class="qutebrowser"] $ws2
+assign [class="Zathura"] $ws1
+assign [class="^Steam$" title="^Steam$"] $ws4
+assign [class="duckstation-qt"] $ws4
+assign [class="league of legends.exe"] $ws3
 
 # Press $mod+o followed by either [x], Escape or Return to launch [x]app or return to the default mode
-set $mode_launcher Launch: i3[c]onfig [q]utebrowser [r]anger [z]athura
+set $mode_launcher Launch: i3[c]onfig [r]anger [t]ranslate [z]athura
 bindsym $mod+o mode "$mode_launcher"
 mode "$mode_launcher" {
 	bindsym c exec urxvt -e sh -c 'nvim ~/.config/i3/config' ; mode "default"
 	bindsym r exec urxvt -name floating -e sh -c ranger; mode "default"
-	bindsym q exec qutebrowser; mode "default"
-	bindsym z exec zathura ; mode "default"
+	bindsym t exec urxvt -title trans -name floating trans -e sh -c 'trans -I'; mode "default"
+	bindsym z exec zathura; mode "default"
 	
 
     bindsym Escape mode "default"
@@ -246,3 +243,5 @@ exec_always --no-startup-id wal -R
 
 # Change wallpaper and colors
 bindsym $mod+Shift+u exec --no-startup-id wal -a 95 --saturate 0.5 -i ~/.config/wallpaper --iterative -o "$HOME/.config/dunst/launch_dunst.sh" -o "$HOME/.config/i3status/wal_i3status.sh" 
+
+

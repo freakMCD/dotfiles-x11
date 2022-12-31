@@ -2,3 +2,8 @@ default_player: mpv
 superanime:
   type_of: "sub"
   return_all: false
+
+fzf:
+    executable: fzf
+    opts: []
+    state: true
