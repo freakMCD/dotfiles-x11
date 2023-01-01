@@ -3,6 +3,7 @@ let g:ale_disable_lsp = 1
 
 call plug#begin()    
 	Plug 'dense-analysis/ale'
+  Plug 'mhinz/vim-startify'
   Plug 'lervag/vimtex'
   Plug 'dylanaraps/wal.vim'
   Plug 'itchyny/lightline.vim'
@@ -147,4 +148,11 @@ nmap <leader>r :so $MYVIMRC<CR>
 noremap <leader>e :PlugInstall<CR>
 
 autocmd BufNewFile,BufRead urls set filetype=c
+
+let g:startify_lists = [
+          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+          \ { 'type': 'files',     'header': ['   MRU']            },
+          \ ]
+
+let g:startify_bookmarks = ['/media/data/Latex/TerenceTao_Analysis.I.tex']
 

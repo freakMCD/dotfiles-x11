@@ -49,10 +49,10 @@ export PS1='\[\e[0;3;90m\][\[\e[0;3;31m\]\u \[\e[0;1;95m\]\W\[\e[0;3;90m\]] \[\e
 source /usr/share/fzf/shell/key-bindings.bash
 source /etc/bash_completion.d/fzf
 
-export FZF_DEFAULT_COMMAND='fd --hidden --type f'
+export FZF_DEFAULT_COMMAND='fd --hidden --type f -L -E ".wine" -E "league-of-legends" -E ".steam"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default
+export FZF_DEFAULT_OPTS='--height 60% --reverse'
+export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 
 fmpc() {
   local song_position
@@ -63,10 +63,22 @@ fmpc() {
 }
 
 _fzf_compgen_path() {
-	fd --hidden --follow -E ".wine" -E "league-of-legends" . "$1"
+	fd --hidden --follow -E ".wine" -E "league-of-legends" -E ".steam" . "$1"
 }
 _fzf_compgen_dir() {
 
-	fd --type d --hidden --follow -E ".wine" -E "league-of-legends" . "$1"
+	fd --type d --hidden --follow -E ".wine" -E "league-of-legends" -E ".steam" . "$1"
 }
 
+
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+fe() {
+  IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && $EDITOR "${files[@]}"
+}
+
+fman() {
+    man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
+}

@@ -1,7 +1,7 @@
 alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias aliasrc="nvim ~/.bash_aliases && source ~/.bashrc"
 alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
-alias playlist="mpv --shuffle --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
+alias playlist="mpv --shuffle --no-sub-visibility --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
 
 alias animst="animdl stream"
 
