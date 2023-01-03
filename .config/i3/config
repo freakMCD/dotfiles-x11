@@ -180,24 +180,25 @@ bindsym $mod+Shift+Return exec --no-startup-id urxvt -name floating
 # Scratchpad binds
 bindsym $mod+Shift+less move scratchpad
 bindsym $mod+less [class="^(?!URxvt$).*$"] scratchpad show
-bindsym $mod+q     [class="^URxvt$" instance="urxvt"] scratchpad show
-bindsym $mod+F1 [class="URxvt" title="trans"] scratchpad show
-bindsym $mod+F2 [class="URxvt" title="ranger"] scratchpad show
-bindsym $mod+F3 [class="^URxvt$" instance="neomutt"] scratchpad show 
+bindsym $mod+q     [instance="urxvt"] scratchpad show
+bindsym $mod+KP_End [instance="trans"] scratchpad show
+bindsym $mod+KP_Down [instance= "ranger" title="ranger"] scratchpad show
+bindsym $mod+KP_Next [instance="neomutt"] scratchpad show 
 
-bindsym $mod+KP_End exec urxvt -title trans -name floating -e sh -c 'trans -I'
-bindsym $mod+KP_Down exec urxvt -title ranger -name floating -e sh -c ranger; mode "default"
-bindsym $mod+KP_Next exec urxvt -name neomutt -e sh -c 'neomutt'
+bindsym $mod+F1 exec urxvt -name trans -e sh -c 'trans -I'
+bindsym $mod+F2 exec urxvt -title ranger -name ranger -e sh -c ranger
+bindsym $mod+F3 exec urxvt -name neomutt -e sh -c 'neomutt'
 
 ## Change Borders options for Windows
 for_window [class="^.*"] border pixel 2
 for_window [floating] border pixel 1
 hide_edge_borders smart 
 
-for_window [class="mpv"] move scratchpad, scratchpad show,rresize set 426 240, move position 535 800, sticky enable
+for_window [class="mpv"] move scratchpad, scratchpad show,resize set 426 240, move position 535 800, sticky enable
 for_window [workspace="^2$" class="URxvt"] move scratchpad, scratchpad show
-for_window [class="URxvt" instance="floating"] move scratchpad, scratchpad show
-for_window [class="URxvt" title="trans"] resize set 620 200, move position 340 854, sticky enable
+for_window [instance="trans|neomutt"] move scratchpad
+for_window [title="ranger"] move scratchpad
+for_window [instance="trans"] resize set 620 200, move position 340 854, sticky enable
 for_window [class="Steam" title="^Friends"] floating enable
 for_window [class="league of legends.exe"] focus
 
@@ -218,7 +219,6 @@ mode "$mode_launcher" {
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
-
 
 
 exec --no-startup-id mpc random on && mpc load 2015-2022
