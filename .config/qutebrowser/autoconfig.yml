@@ -36,7 +36,11 @@ settings:
   content.autoplay:
     '*://discord.com/*': true
     '*://web.whatsapp.com/*': true
-    global: false
+    global: true
+  content.blocking.adblock.lists:
+    global:
+    - https://easylist.to/easylist/easylist.txt
+    - https://easylist.to/easylist/easyprivacy.txt
   content.blocking.method:
     global: both
   content.media.audio_capture:
