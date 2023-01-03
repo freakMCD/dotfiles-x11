@@ -1,0 +1,37 @@
+source ~/.config/neomutt/colors
+source ~/.config/neomutt/mappings
+source ~/.config/neomutt/credentials # imap_user= imap_pass=
+
+set from = "vastagox@gmail.com"
+set realname = "Edwin Velarde Jacinto"
+
+set header_cache = ~/.cache/mutt
+set message_cachedir = "~/.cache/mutt"
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = +INBOX
+set trash= +[Gmail]/Trash
+set postponed = +[Gmail]/Drafts
+
+set sort=reverse-date
+set timeout=30
+set thorough_search
+
+# Index page format. Default "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+set date_format="%y-%m-%d"
+set index_format="%Z| %-30.30F %s %* [%d] "
+mailboxes =INBOX
+set mail_check = 120
+
+set editor=`echo \$EDITOR`
+set new_mail_command="notify-send 'Neomutt' '%n new emails'"
+set mailcap_path="~/.config/neomutt/mailcap"
+
+auto_view text/html
+alternative_order text/plain text text/html #prefer plaintext over dumped html
+
+# Sidebar
+set sidebar_width=20
+
+
+
+
