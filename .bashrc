@@ -33,9 +33,10 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
+export TERMINAL='rxvt-unicode'
 export EDITOR='nvim'
 export VISUAL='nvim'
-export TERMINAL='rxvt-unicode'
+export MANPAGER='nvim +Man!'
 export LESSHISTFILE='-'
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
@@ -82,3 +83,4 @@ fe() {
 fman() {
     man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
 }
+

@@ -82,7 +82,7 @@ if __name__=="__main__":
         j = json.loads(line)  
 
         if isPlaying():
-            j.insert(0, {'full_text' : ' %s    ' % (song_name()) })
+            j.insert(0, {'full_text' : ' %s ' % (song_name()) })
 
         print_line(prefix+json.dumps(j))
 

@@ -129,7 +129,7 @@ bindsym  --release XF86PowerOff exec i3-msg [class="^(?!.*i3bar).*"] kill && sle
 bar {
   	strip_workspace_numbers yes
     status_command i3status | ~/.config/i3status/wrapper.py
-    separator_symbol "  "
+    separator_symbol " "
     colors {
 			background $bg
 			statusline $fg
@@ -196,9 +196,9 @@ hide_edge_borders smart
 
 for_window [class="mpv"] move scratchpad, scratchpad show,resize set 426 240, move position 535 800, sticky enable
 for_window [workspace="^2$" class="URxvt"] move scratchpad, scratchpad show
-for_window [instance="trans|neomutt"] move scratchpad
-for_window [title="ranger"] move scratchpad
-for_window [instance="trans"] resize set 620 200, move position 340 854, sticky enable
+for_window [class="URxvt" instance="trans|neomutt"] move scratchpad
+for_window [class="URxvt" title="ranger"] move scratchpad
+for_window [class="URxvt" instance="trans"] resize set 620 200, move position 340 854, sticky enable
 for_window [class="Steam" title="^Friends"] floating enable
 for_window [class="league of legends.exe"] focus
 
@@ -220,13 +220,16 @@ mode "$mode_launcher" {
     bindsym Return mode "default"
 }
 
-
-exec --no-startup-id mpc random on && mpc load 2015-2022
-exec --no-startup-id ~/.config/mpd/mpdnotif.sh
-exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always --no-startup-id wal -R
 
 # Change wallpaper and colors
 bindsym $mod+Shift+u exec --no-startup-id wal -a 95 --saturate 0.5 -i ~/.config/wallpaper --iterative -o "$HOME/.config/dunst/launch_dunst.sh" -o "$HOME/.config/i3status/wal_i3status.sh" 
+
+exec --no-startup-id urxvt -name trans -e sh -c 'trans -I'
+exec --no-startup-id urxvt -name neomutt -e sh -c 'neomutt'
+exec --no-startup-id mpc random on && mpc load 2015-2022
+exec --no-startup-id ~/.config/mpd/mpdnotif.sh
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+
 
 

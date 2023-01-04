@@ -23,7 +23,7 @@ mailboxes =INBOX
 set mail_check = 120
 
 set editor=`echo \$EDITOR`
-set new_mail_command="notify-send 'Neomutt' '%n new emails'"
+set new_mail_command="notify-send 'Neomutt' '%n new emails' -t 0"
 set mailcap_path="~/.config/neomutt/mailcap"
 
 auto_view text/html
