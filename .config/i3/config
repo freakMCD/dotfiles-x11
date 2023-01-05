@@ -197,7 +197,7 @@ hide_edge_borders smart
 for_window [class="mpv"] move scratchpad, scratchpad show,resize set 426 240, move position 535 800, sticky enable
 for_window [workspace="^2$" class="URxvt"] move scratchpad, scratchpad show
 for_window [class="URxvt" instance="trans|neomutt"] move scratchpad
-for_window [class="URxvt" title="ranger"] move scratchpad
+for_window [class="URxvt" title="^ranger$"] move scratchpad
 for_window [class="URxvt" instance="trans"] resize set 620 200, move position 340 854, sticky enable
 for_window [class="Steam" title="^Friends"] floating enable
 for_window [class="league of legends.exe"] focus
