@@ -5,4 +5,4 @@ Description= Newsboat autoupdate
 
 [Service]
 Type=forking
-ExecStart=/usr/bin/newsboat -x reload
+ExecStart=/usr/bin/newsboat -x reload 

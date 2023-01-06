@@ -12,7 +12,7 @@ settings:
     global:
       normal:
         ',M': spawn mpv {url}
-        ',m': hint links spawn mpv {hint-url}
+        ',m': hint links spawn --detach mpv {hint-url}
   colors.webpage.darkmode.algorithm:
     global: lightness-cielab
   colors.webpage.darkmode.enabled:

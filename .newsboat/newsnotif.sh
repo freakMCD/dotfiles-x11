@@ -1,17 +1,15 @@
 #!/bin/bash
 
-action () {
-	exec urxvt -name floating -e sh -c newsboat
+click_action () {
+	exec urxvt -e sh -c newsboat
 }
 
 if [[ "$*" != "0 unread articles" ]]; then
-	ACTION=$(dunstify -t 60000 -i ~/.newsboat/rss.png --action="default,Reply" "newsboat" "$*")
-
+	ACTION=$(dunstify -t 60000 -i ~/.newsboat/rss.png --action="default,Click" "newsboat" "$*")
 	case "$ACTION" in
 		"default")
- 	 	 action
+ 	 	  click_action
 	  	;;
 	esac
 fi
-
 

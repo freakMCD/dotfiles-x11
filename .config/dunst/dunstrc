@@ -301,8 +301,8 @@ icon_position = right
 #alignment = center
 
 [play_sound]
-	summary = "newsboat"
-	script = "~/.config/dunst/alert"
+summary = "newsboat"
+script = "~/.config/dunst/alert"
 
 
 #[espeak]

@@ -30,14 +30,18 @@ set title
 filetype plugin indent on
 filetype on
 
+let g:ale_linters_explicit = 1
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_sign_error = '' 
+let g:ale_sign_warning = '!'
+
 
 "Coc.nvim settings"
 set shortmess+=c
 set signcolumn=number
 
 let g:coc_global_extensions = [
-            \'coc-texlab',
+            \'coc-vimtex',
 						\'coc-snippets',
             \]
 
@@ -49,6 +53,7 @@ let g:vimtex_quickfix_autoclose_after_keystrokes=2
 let g:vimtex_compiler_latexmk = {
             \ 'build_dir' : 'build',
             \}
+
 
 augroup vimtex
   au!
@@ -70,37 +75,6 @@ augroup vimtex_event_2
   au!
   au User VimtexEventQuit call CloseViewers()
 augroup END
-
-
-let g:lightline = {
-    \ 'colorscheme': 'wal',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'readonly', 'filename'] ]
-    \ },
-    \ 'component_function': {
-    \   'filename': 'LightlineFilename',         
-    \ },
-    \ 'mode_map': {
-    \ 'n' : 'N',
-    \ 'i' : 'I',
-    \ 'R' : 'R',
-    \ 'v' : 'V',
-    \ 'V' : 'VL',
-    \ "\<C-v>": 'VB',
-    \ 'c' : 'C',
-    \ 's' : 'S',
-    \ 'S' : 'SL',
-    \ "\<C-s>": 'SB',
-    \ 't': 'T',
-    \ },
-    \ }
-
-function! LightlineFilename()
-  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  let modified = &modified ? ' +' : ''
-  return filename . modified
-endfunction
 
 
 "Map TAB
@@ -138,7 +112,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
-
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
 
@@ -146,8 +119,10 @@ vmap <C-j> <Plug>(coc-snippets-select)
 nmap <silent>  <leader>v  :tabedit $MYVIMRC<CR>
 nmap <leader>r :so $MYVIMRC<CR>
 noremap <leader>e :PlugInstall<CR>
+nnoremap <localleader>lt :call vimtex#fzf#run()<cr>
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-autocmd BufNewFile,BufRead urls set filetype=c
 
 let g:startify_lists = [
           \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
@@ -156,3 +131,34 @@ let g:startify_lists = [
 
 let g:startify_bookmarks = ['/media/data/Latex/TerenceTao_Analysis.I.tex']
 
+
+let g:lightline = {
+    \ 'colorscheme': 'wal',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'readonly', 'filename'] ]
+    \ },
+    \ 'component_function': {
+    \   'filename': 'LightlineFilename',         
+    \ },
+    \ 'mode_map': {
+    \ 'n' : 'N',
+    \ 'i' : 'I',
+    \ 'R' : 'R',
+    \ 'v' : 'V',
+    \ 'V' : 'VL',
+    \ "\<C-v>": 'VB',
+    \ 'c' : 'C',
+    \ 's' : 'S',
+    \ 'S' : 'SL',
+    \ "\<C-s>": 'SB',
+    \ 't': 'T',
+    \ },
+    \ }
+
+
+function! LightlineFilename()
+  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  let modified = &modified ? ' +' : ''
+  return filename . modified
+endfunction

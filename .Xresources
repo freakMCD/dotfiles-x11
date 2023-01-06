@@ -6,8 +6,8 @@
 !! URxvt Appearance
 
 !Font
-URxvt.font:xft:JetBrainsMono Nerd Font:pixelsize=14
-URxvt.boldFont:xft:JetBrainsMono Nerd Font:pixelsize=14:style=bold
+URxvt.font:xft:JetBrainsMono Nerd Font Mono:pixelsize=14
+URxvt.boldFont:xft:JetBrainsMono Nerd Font Mono:pixelsize=14:style=bold
 
 Xft.hintstyle:	hintslight
 Xft.hinting: 1
