@@ -52,6 +52,7 @@
 - To save git credentials: 
 	git config --global credential.helper "store --file ~/.local/share/git-credentials"
 - deleting .wine folder can fix a problem with Leagueoflegends install
+- For LaTex install TexLive
 
 ### yadm 
 - To choose what commits to delete since <commit>

@@ -19,11 +19,11 @@ alias mp3="yt-dlp -f 'ba' -x --audio-format mp3"
 
 
 function ttv () {
-    nohup streamlink --title '{author} - {title} - {category}' -a '"--title=${{media-title}}"'  twitch.tv/"$@" > /dev/null 2>&1 & exit
+    streamlink --title '{author} - {title} - {category}' -a '"--title=${{media-title}}"'  twitch.tv/"$@" >/dev/null 2>&1 & exit
 }
 
 function vod () {
-		nohup streamlink --player-passthrough=hls "$@" > /dev/null 2>&1 & exit
+		streamlink --player-passthrough=hls "$@" >/dev/null 2>&1 & exit
 }
 
 

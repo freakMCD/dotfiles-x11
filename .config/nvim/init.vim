@@ -1,8 +1,6 @@
 let mapleader=","
-let g:ale_disable_lsp = 1
 
 call plug#begin()    
-	Plug 'dense-analysis/ale'
   Plug 'mhinz/vim-startify'
   Plug 'lervag/vimtex'
   Plug 'dylanaraps/wal.vim'
@@ -30,30 +28,21 @@ set title
 filetype plugin indent on
 filetype on
 
-let g:ale_linters_explicit = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_sign_error = '' 
-let g:ale_sign_warning = '!'
-
-
 "Coc.nvim settings"
 set shortmess+=c
 set signcolumn=number
 
 let g:coc_global_extensions = [
-            \'coc-vimtex',
 						\'coc-snippets',
+						\'coc-texlab',
             \]
 
 let g:vimtex_view_method='zathura'
 let g:tex_conceal='abdmg'
-let g:vimtex_quickfix_mode=2
-let g:vimtex_quickfix_open_on_warning=0
-let g:vimtex_quickfix_autoclose_after_keystrokes=2
+let g:vimtex_quickfix_mode=0
 let g:vimtex_compiler_latexmk = {
             \ 'build_dir' : 'build',
             \}
-
 
 augroup vimtex
   au!
@@ -136,10 +125,10 @@ let g:lightline = {
     \ 'colorscheme': 'wal',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'readonly', 'filename'] ]
-    \ },
+    \             [ 'readonly', 'filename'] ],
+	  \ },
     \ 'component_function': {
-    \   'filename': 'LightlineFilename',         
+    \   'filename': 'LightlineFilename',
     \ },
     \ 'mode_map': {
     \ 'n' : 'N',
@@ -162,3 +151,5 @@ function! LightlineFilename()
   let modified = &modified ? ' +' : ''
   return filename . modified
 endfunction
+
+

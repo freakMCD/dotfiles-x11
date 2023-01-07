@@ -1,0 +1,5 @@
+{
+	"texlab.chktex.onOpenAndSave" : true,
+	"diagnostic.errorSign": "",
+  "diagnostic.warningSign": "!",
+}

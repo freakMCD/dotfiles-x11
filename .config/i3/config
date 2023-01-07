@@ -216,6 +216,7 @@ mode "$mode_launcher" {
 	bindsym c exec urxvt -e sh -c 'nvim ~/.config/i3/config' ; mode "default"
 	bindsym q exec qutebrowser; mode "default"
 	bindsym z exec zathura; mode "default"
+	bindsym n exec urxvt -e sh -c newsboat; mode "default"
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
