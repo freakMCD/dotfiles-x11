@@ -24,3 +24,5 @@ google maps https://www.google.com/maps
 screencast https://github.com/orhun/menyoki
 quickfix vim https://stackoverflow.com/questions/1747091/how-do-you-use-vims-quickfix-feature
 icon names in shell https://github.com/ryanoasis/nerd-fonts/wiki/Icon-Names-in-Shell
+check twitch live https://stackoverflow.com/questions/12064130/is-there-any-way-to-check-if-a-twitch-stream-is-live-using-python
+fzf-scripts https://codeberg.org/zortazert/fzf-scripts/src/branch/master/fzf-twitch
