@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+import subprocess
+import os, signal
+import requests
+import sys
+import json
+import re
+from pathlib import Path
+
+player = "streamlink"
+streams = f"""k3soju
+kiyoon
+emilyywang
+insym"""
+sep = " | "
+
+auth = json.loads(re.findall("streamWeaselsVars = (.*)", requests.get("https://www.streamweasels.com/tools/twitch-username-checker/").text)[0])
+headers = {
+    "Authorization": f"Bearer {auth['token']}",
+    "Client-Id": auth["clientID"]
+}
+
+def live(channel):
+    info = requests.get(f"https://api.twitch.tv/helix/streams?user_login={channel}",headers=headers).json()
+    info = info["data"][0]
+    return f'{info["user_name"]}{sep}{info["game_name"]}{sep}{info["title"][:50]}{sep}{info["viewer_count"]}'
+
+def main():
+    p = Path('.cache/streams.txt')
+    live_streams = []
+    with p.open("w",encoding="utf-8") as f:
+        for stream in streams.splitlines():
+            if stream == "":
+                pass
+            if 'isLiveBroadcast' in requests.get("https://www.twitch.tv/"+stream).content.decode('utf-8'): 
+                live_streams.append(live(stream))
+        if live_streams == []:
+            live_streams.append("No live streams right now.")
+        f.write('\n'.join(live_streams))
+    choice=subprocess.check_output(f"cat {p}| fzf", shell=True)
+    choice=choice.decode('utf-8')
+    subprocess.Popen([f"{player}", f"https://twitch.tv/{choice.split(sep)[0]}"], start_new_session=True)
+    os.kill(os.getppid(), signal.SIGHUP)
+
+if __name__ == "__main__":
+    main()
