@@ -9,9 +9,9 @@ notify-program "~/.newsboat/newsnotif.sh"
 notify-always yes
 
 
-macro m set browser "mpv %u >/dev/null 2>&1 &"; open-in-browser ; set browser qutebrowser; toggle-article-read
-macro M set browser "mpv %u >/dev/null 2>&1 &"; open-in-browser ; set browser qutebrowser;
-macro s set browser "streamlink --player-passthrough=hls %u >/dev/null 2>&1 &"; open-in-browser ; set browser qutebrowser; toggle-article-read
+macro m set browser "nohup mpv %u >/dev/null 2>&1 &"; open-in-browser ; set browser qutebrowser; toggle-article-read
+macro M set browser "nohup mpv %u >/dev/null 2>&1 &"; open-in-browser ; set browser qutebrowser;
+macro s set browser "nohup streamlink --player-passthrough=hls %u >/dev/null 2>&1 &"; open-in-browser ; set browser qutebrowser; toggle-article-read
 
 
 
@@ -24,9 +24,10 @@ ignore-article "https://yewtu.be/feed/channel/UCvnNkJsbONVhdXuHY_LpsdA" "title !
 
 
 
+### Theme ###
 
 color listnormal default default
-color listfocus default default reverse
+color listfocus color10 black reverse
 color listnormal_unread default default bold
 color listfocus_unread default default bold underline
 color info red black bold
@@ -39,8 +40,8 @@ highlight article "https?://[^ ]+" color13 color0 protect
 highlight feedlist "[║│]" yellow default bold
 highlight feedlist "╠═.*" yellow default bold
 
-highlight feedlist "\\(Youtube\\) .*" red
-highlight feedlist "\\(Blog\\) .*" cyan
+highlight feedlist "\\(Youtube\\) .*" red 
+highlight feedlist "\\(Blog\\) .*" cyan 
 #highlight feedlist "\\(Reddit\\) .*" color166 
 
 

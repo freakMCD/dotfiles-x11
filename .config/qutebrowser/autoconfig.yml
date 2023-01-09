@@ -59,6 +59,14 @@ settings:
     https://mail.google.com?extsrc=mailto&url=%25s: false
   content.user_stylesheets:
     global: null
+  fonts.hints:
+    global: bold default_size default_family
+  fonts.keyhint:
+    global: default_size default_family
+  hints.chars:
+    global: qwertasdfgzxcvb
+  hints.mode:
+    global: letter
   scrolling.bar:
     global: overlay
   statusbar.position:

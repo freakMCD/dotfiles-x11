@@ -4,6 +4,7 @@ call plug#begin()
   Plug 'mhinz/vim-startify'
   Plug 'lervag/vimtex'
   Plug 'dylanaraps/wal.vim'
+  Plug 'ryanoasis/vim-devicons'
   Plug 'itchyny/lightline.vim'
   Plug 'honza/vim-snippets'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -17,25 +18,28 @@ set confirm
 set history=1000
 set ignorecase
 set mouse=a
-set noexpandtab
 set number
+set expandtab
 set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 set smartcase
+set smartindent
+set smarttab
 set splitbelow
-set tabstop=2
-set shiftwidth=2
 set title
 filetype plugin indent on
 filetype on
+	
 
 "Coc.nvim settings"
 set shortmess+=c
 set signcolumn=number
 
 let g:coc_global_extensions = [
-						\'coc-snippets',
-						\'coc-texlab',
-            \]
+		\'coc-snippets',
+		\'coc-texlab',
+\]
 
 let g:vimtex_view_method='zathura'
 let g:tex_conceal='abdmg'
