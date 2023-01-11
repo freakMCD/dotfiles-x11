@@ -12,7 +12,7 @@ read DURATION
 echo "Enter RESOLUTION (HxW)"
 read RESOLUTION
 
-echo "Enter OUTPUT (name.ext)"
+echo "Enter FILENAME"
 read OUTPUT
 
-ffmpeg $(yt-dlp -g $URL | sed "s/.*/-ss $START -i &/") -t $DURATION -s $RESOLUTION $OUTPUT
+ffmpeg $(yt-dlp -g $URL | sed "s/.*/-ss $START -i &/") -t $DURATION -s $RESOLUTION "$FILENAME.mp4"

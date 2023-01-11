@@ -39,7 +39,7 @@ set signcolumn=number
 let g:coc_global_extensions = [
 		\'coc-snippets',
 		\'coc-texlab',
-\]
+        \ ]
 
 let g:vimtex_view_method='zathura'
 let g:tex_conceal='abdmg'
@@ -122,7 +122,7 @@ let g:startify_lists = [
           \ { 'type': 'files',     'header': ['   MRU']            },
           \ ]
 
-let g:startify_bookmarks = ['/media/data/Latex/TerenceTao_Analysis.I.tex']
+let g:startify_bookmarks = ['/media/data/Documents/MATH/Latex/TerenceTao_Analysis.I.tex']
 
 
 let g:lightline = {

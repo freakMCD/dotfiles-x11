@@ -28,7 +28,7 @@
 
 ## IMPORTANT
 
-- Add "install_weak_deps=false" into /etc/dnf/dnf.conf
+- Add "install_weak_deps=false" "fastestmirror=True" "max_parallel_downloads=10" into /etc/dnf/dnf.conf
 - Edit /etc/systemd/logind.conf 'HandlePowerKey=ignore'
 - Install rpmfusion fedora, link: https://download1.rpmfusion.org/free/fedora/
 

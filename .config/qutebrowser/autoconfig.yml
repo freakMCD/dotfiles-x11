@@ -11,8 +11,8 @@ settings:
   bindings.commands:
     global:
       normal:
-        ',M': spawn mpv {url}
         ',m': hint links spawn --detach mpv {hint-url}
+        i: hint inputs
   colors.webpage.darkmode.algorithm:
     global: lightness-cielab
   colors.webpage.darkmode.enabled:
@@ -32,25 +32,26 @@ settings:
     - bookmarks
     - filesystem
   completion.shrink:
-    global: false
+    global: true
   content.autoplay:
     '*://discord.com/*': true
     '*://web.whatsapp.com/*': true
-    global: true
+    global: false
   content.blocking.adblock.lists:
     global:
     - https://easylist.to/easylist/easylist.txt
     - https://easylist.to/easylist/easyprivacy.txt
+  content.blocking.hosts.lists:
+    global:
+    - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
   content.blocking.method:
     global: both
+  content.canvas_reading:
+    global: false
   content.media.audio_capture:
-    https://canary.discord.com: true
     https://discord.com: true
   content.notifications.enabled:
     https://web.whatsapp.com: true
-    https://www.facebook.com: false
-    https://www.faceit.com: false
-    https://www.reddit.com: false
   content.notifications.presenter:
     global: auto
   content.notifications.show_origin:
@@ -59,22 +60,28 @@ settings:
     https://mail.google.com?extsrc=mailto&url=%25s: false
   content.user_stylesheets:
     global: null
-  fonts.hints:
-    global: bold default_size default_family
-  fonts.keyhint:
-    global: default_size default_family
+  content.webgl:
+    global: false
+  editor.command:
+    global:
+    - urxvt
+    - -e
+    - nvim
+    - '{}'
+  editor.encoding:
+    global: utf-8
   hints.chars:
     global: qwertasdfgzxcvb
-  hints.mode:
-    global: letter
-  scrolling.bar:
-    global: overlay
+  input.spatial_navigation:
+    global: true
   statusbar.position:
     global: bottom
   statusbar.show:
     global: always
   tabs.favicons.scale:
     global: 0.8
+  tabs.favicons.show:
+    global: pinned
   tabs.new_position.unrelated:
     global: last
   tabs.pinned.shrink:
@@ -83,16 +90,15 @@ settings:
     global: top
   tabs.show:
     global: multiple
-  tabs.show_switching_delay:
-    global: 1000
   tabs.title.alignment:
-    global: left
+    global: center
   url.default_page:
-    global: https://html.duckduckgo.com/
+    global: about:blank
   url.searchengines:
     global:
-      DEFAULT: https://html.duckduckgo.com/html/?q={}
+      DEFAULT: searx.be/search?q={}
       r: https://www.reddit.com/r/{}
+      wa: https://wiki.archlinux.org/?search={},
       yt: http://yewtu.be/search?q={}
   url.start_pages:
     global: https://html.duckduckgo.com
