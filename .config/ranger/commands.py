@@ -131,3 +131,8 @@ class compress(Command):
 
         extension = ['.zip', '.tar.gz', '.rar', '.7z']
         return ['compress ' + os.path.basename(self.fm.thisdir.path) + ext for ext in extension]
+
+from subprocess import Popen, PIPE, run
+import time
+from ranger.ext.img_display import ImageDisplayer, register_image_displayer
+

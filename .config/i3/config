@@ -30,10 +30,10 @@ bindsym  --release XF86PowerOff exec i3-msg [class="^(?!.*i3bar).*"] kill && sle
 bindsym $AltGr+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym $AltGr+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym $AltGr+thorn exec --no-startup-id mpc toggle && $refresh_i3status
-bindsym $AltGr+Delete exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym $mod+Delete exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym $AltGr+Right exec --no-startup-id mpc next  && $refresh_i3status
 bindsym $AltGr+Left exec --no-startup-id mpc prev && $refresh_i3status
-bindsym $mod+Delete exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle; exec --no-startup-id ~/.config/i3/mic_muted_notif.sh
+bindsym $AltGr+Delete exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle; exec --no-startup-id ~/.config/i3/mic_muted_notif.sh
 
 ## Clipboard Screenshots
 bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png

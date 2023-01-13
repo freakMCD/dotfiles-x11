@@ -8,9 +8,8 @@ import re
 from pathlib import Path
 
 player = "streamlink"
-streams = f"""kiyoon
-emilyywang
-insym"""
+streams = f"""insym
+BitnerLP"""
 sep = " | "
 
 auth = json.loads(re.findall("streamWeaselsVars = (.*)", requests.get("https://www.streamweasels.com/tools/twitch-username-checker/").text)[0])

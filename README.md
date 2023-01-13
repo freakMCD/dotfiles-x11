@@ -7,7 +7,7 @@
 - Notifications: Dunst
 - Launcher: fzf
 - Status bar: i3 status with Nerd Fonts
-- File Manager: Ranger
+- File Manager: Ranger (TUI) | Thunar (GUI)
 - Text Editor: Neovim
 - Colors and theme management using pywal
 - Music player with ncmpcpp + mpd + mpc
@@ -41,6 +41,7 @@
 - " google-noto-cjk-fonts  (asian fonts)
 - " fd fd-find fzf git pass maim xev xclip xprop xdotool  
 - " qutebrowser neovim ranger mpd mpc zathura zathura-pdf-poppler yt-dlp mpv latexmk newsboat pavucontrol
+- " rclone thunar
 - Search on internet about: yadm, pywal, animdl
   dependencies, nodejs, python3-pip, python3-devel, gcc. <!-- gcc probably is not necessary -->
 - " neomutt cyrus-sasl-plain <!-- cyrus.. is for authentication when sending emails -->

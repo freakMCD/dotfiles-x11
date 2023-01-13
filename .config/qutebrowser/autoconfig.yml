@@ -47,7 +47,7 @@ settings:
   content.blocking.method:
     global: both
   content.canvas_reading:
-    global: false
+    global: true
   content.media.audio_capture:
     https://discord.com: true
   content.notifications.enabled:
@@ -101,4 +101,4 @@ settings:
       wa: https://wiki.archlinux.org/?search={},
       yt: http://yewtu.be/search?q={}
   url.start_pages:
-    global: https://html.duckduckgo.com
+    global: about:blank

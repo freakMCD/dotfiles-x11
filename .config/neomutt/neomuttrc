@@ -15,10 +15,11 @@ set postponed = +[Gmail]/Drafts
 set sort=reverse-date
 set timeout=30
 set thorough_search
+#set nohelp
 
 # Index page format. Default "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
-set date_format="%y-%m-%d"
-set index_format="%Z| %-30.30F %s %* [%d] "
+set date_format="%d/%m"
+set index_format="%Z| %-24.24F %s %* [%d]"
 mailboxes =INBOX
 set mail_check = 120
 
@@ -26,7 +27,6 @@ set editor=`echo \$EDITOR`
 set new_mail_command="notify-send 'Neomutt' '%n new emails' -t 0"
 set mailcap_path="~/.config/neomutt/mailcap"
 
-auto_view text/html
 alternative_order text/plain text text/html #prefer plaintext over dumped html
 
 # Sidebar
