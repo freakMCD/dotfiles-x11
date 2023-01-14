@@ -47,7 +47,7 @@ settings:
   content.blocking.method:
     global: both
   content.canvas_reading:
-    global: true
+    global: false
   content.media.audio_capture:
     https://discord.com: true
   content.notifications.enabled:

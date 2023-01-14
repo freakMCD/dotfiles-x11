@@ -16,5 +16,5 @@
             button.click();
             clearInterval(waitForThatFrickingButton);
         }
-    }, 2000)
+    }, 2500)
 })();
