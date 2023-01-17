@@ -1,10 +1,5 @@
 #include ".cache/wal/colors.Xresources"
 
-! Setting transparency and background
-!Xft.dpi: 96
-
-!! URxvt Appearance
-
 !Font
 URxvt.font:xft:JetBrainsMono Nerd Font Mono:pixelsize=14
 URxvt.boldFont:xft:JetBrainsMono Nerd Font Mono:pixelsize=14:style=bold
@@ -18,24 +13,17 @@ URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 
 !General Settings
-URxvt*saveline: 10000
+URxvt*saveLines: 5000
 URxvt*scrollBar: false
 URxvt*scrollBar_right: false
 URxvt*urgentOnBell: true
 URxvt*iso14755: false
 
-!Appearance
-URxvt*transparency: true
-URxvt*shading : 18
-
+!Extensions
 URxvt.perl-ext-common: default,matcher,-confirm-paste
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: Ctrl+1
 
 !Colored links
 URxvt.matcher.rend.0: Uline Bold fg12 
-
-
-
-
 

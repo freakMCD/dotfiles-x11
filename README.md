@@ -39,7 +39,7 @@
 - " i3 i3status dmenu rxvt-unicode dunst
 - " @multimedia @printing
 - " google-noto-cjk-fonts  (asian fonts)
-- " fd fd-find fzf git pass maim xev xclip xprop xdotool  
+- " fd-find fzf git pass maim xev xclip xprop xdotool  
 - " qutebrowser neovim ranger mpd mpc zathura zathura-pdf-poppler yt-dlp mpv latexmk newsboat pavucontrol
 - " rclone thunar
 - Search on internet about: yadm, pywal, animdl

@@ -24,7 +24,7 @@ function ttv () {
 }
 
 function vod () {
-		streamlink --player-passthrough=hls "$@" >/dev/null 2>&1 & exit
+    streamlink --player-passthrough=hls "$@" >/dev/null 2>&1 & exit
 }
 
 

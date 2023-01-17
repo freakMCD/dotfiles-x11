@@ -2,7 +2,6 @@
 import subprocess
 import os, signal
 import requests
-import sys
 import json
 import re
 from pathlib import Path

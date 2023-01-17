@@ -6,6 +6,8 @@
 
 config_version: 2
 settings:
+  auto_save.interval:
+    global: 1800000
   auto_save.session:
     global: true
   bindings.commands:
@@ -13,6 +15,7 @@ settings:
       normal:
         ',m': hint links spawn --detach mpv {hint-url}
         i: hint inputs
+        q: null
   colors.webpage.darkmode.algorithm:
     global: lightness-cielab
   colors.webpage.darkmode.enabled:
@@ -47,7 +50,7 @@ settings:
   content.blocking.method:
     global: both
   content.canvas_reading:
-    global: false
+    global: true
   content.media.audio_capture:
     https://discord.com: true
   content.notifications.enabled:
@@ -56,6 +59,8 @@ settings:
     global: auto
   content.notifications.show_origin:
     global: false
+  content.prefers_reduced_motion:
+    global: true
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: false
   content.user_stylesheets:
