@@ -1,7 +1,7 @@
 #!/bin/bash
 
 click_action () {
-	exec urxvt -e sh -c newsboat
+	i3-msg '[instance=newsboat] scratchpad show'
 }
 
 if [[ "$*" != "0 unread articles" ]]; then
