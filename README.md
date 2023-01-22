@@ -62,5 +62,8 @@
 - Miscellaneous
 	yadm add -u 										<!-- to commit all changed files ->
 
-
+### nmcli
+- nmcli dev status
+- nmcli dev disconnect <device>
+- nmcli dev connect <device>
 
