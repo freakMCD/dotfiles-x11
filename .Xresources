@@ -18,6 +18,7 @@ URxvt*scrollBar: false
 URxvt*scrollBar_right: false
 URxvt*urgentOnBell: true
 URxvt*iso14755: false
+URxvt.geometry: 80x-1
 
 !Extensions
 URxvt.perl-ext-common: default,matcher,-confirm-paste

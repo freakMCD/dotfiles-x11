@@ -27,3 +27,4 @@ playlist https://www.youtube.com/playlist?list=PL4CmunqMOJjJTyzz0IzK0F2914vbASFu
 subprocess py https://docs.python.org/3/library/subprocess.html
 animdl https://github.com/justfoolingaround/animdl
 shell style guide https://google.github.io/styleguide/shellguide.html
+downsample ffmpeg https://video.stackexchange.com/questions/14907/how-to-downsample-4k-to-1080p-using-ffmpeg-while-maintaining-the-quality

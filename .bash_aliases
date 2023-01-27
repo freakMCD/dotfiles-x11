@@ -6,7 +6,7 @@ alias playlist="mpv --shuffle --no-sub-visibility --save-position-on-quit=no htt
 alias animst="animdl stream"
 alias mp3="yt-dlp -f 'ba' -x --audio-format mp3"
 
-alias recordscreen="ffmpeg -f pulse -i alsa_output.pci-0000_00_1b.0.analog-stereo.monitor -ac 2 -vaapi_device /dev/dri/renderD128 -f x11grab -video_size 1920x1080 -i :0 -vf 'hwupload,scale_vaapi=format=nv12' -c:v h264_vaapi -qp 24 -strftime 1 ~/Pictures/recordings/$(date +"%Y-%m-%d_%H-%M-%S").mp4"
+alias recordscreen="ffmpeg -f pulse -i alsa_output.pci-0000_00_1b.0.analog-stereo.monitor -ac 2 -vaapi_device /dev/dri/renderD128 -f x11grab -video_size 1920x1080 -i :0 -vf 'hwupload,scale_vaapi=format=nv12' -c:v h264_vaapi -qp 24 -strftime 1 ~/Pictures/Recordings/$(date +"%Y-%m-%d_%H-%M-%S").mp4"
 
 alias gpg-list="gpg --list-secret-keys --keyid-format LONG"
 alias gpg-backup="gpg -o private.gpg --export-options backup --export-secret-keys"
@@ -29,6 +29,10 @@ function ttv () {
 
 function vod () {
     streamlink --player-passthrough=hls "$@" >/dev/null 2>&1 & exit
+}
+
+function dict () {
+    curl -s 'dict://dict.org/d:'"$@"'' | nvim +Man!
 }
 
 

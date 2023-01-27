@@ -41,8 +41,8 @@ highlight article "https?://[^ ]+" color13 color0 protect
 highlight feedlist "[║│]" yellow default bold
 highlight feedlist "╠═.*" yellow default bold
 
-highlight feedlist "\\(Youtube\\) .*" red 
-highlight feedlist "\\(Blog\\) .*" cyan 
+highlight feedlist "\\(Youtube\\) .*" red
+highlight feedlist "\\(Blog\\) .*" cyan
 #highlight feedlist "\\(Reddit\\) .*" color166 
 
 feedlist-format "%?T?║ %n%8u (%T) %t &╠═════════════════════════════════════════════════════%t?"

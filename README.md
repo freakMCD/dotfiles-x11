@@ -24,7 +24,8 @@
 - Scripts: 
 		- download part of video with ffmpeg
 		- dnf with fzf
-		- fzf integration to pass
+		- fzf integration with pass
+        - fzf integration with twitch
 
 ## IMPORTANT
 
@@ -47,7 +48,7 @@
 - " neomutt cyrus-sasl-plain <!-- cyrus.. is for authentication when sending emails -->
 
 ## Notes
-- Font are 'Objetive' & 'JetBrainsMono Nerd Font'
+- Font are 'Objective' & 'JetBrainsMono Nerd Font'
 - systemctl --user enable mpd.service <!-- to run mpd at start -->
 - Don't forget to run 'PlugUpdate' for neovim
 - To save git credentials: 

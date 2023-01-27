@@ -16,10 +16,16 @@ settings:
         ',m': hint links spawn --detach mpv {hint-url}
         i: hint inputs
         q: null
+  colors.completion.category.fg:
+    global: white
   colors.webpage.darkmode.algorithm:
     global: lightness-cielab
+  colors.webpage.darkmode.contrast:
+    global: 0.0
   colors.webpage.darkmode.enabled:
     global: true
+  colors.webpage.darkmode.grayscale.images:
+    global: 0.0
   colors.webpage.darkmode.policy.images:
     global: never
   colors.webpage.darkmode.threshold.background:
@@ -27,7 +33,7 @@ settings:
   colors.webpage.darkmode.threshold.text:
     global: 150
   colors.webpage.preferred_color_scheme:
-    global: dark
+    global: auto
   completion.open_categories:
     global:
     - searchengines

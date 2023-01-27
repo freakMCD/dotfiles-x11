@@ -7,14 +7,15 @@ import re
 from pathlib import Path
 
 player = "streamlink"
-streams = f"""insym
-BitnerLP"""
+streams = f"""bitnerlp
+k3soju
+emilyywang
+kiyoon"""
 sep = " | "
 
-auth = json.loads(re.findall("streamWeaselsVars = (.*)", requests.get("https://www.streamweasels.com/tools/twitch-username-checker/").text)[0])
 headers = {
-    "Authorization": f"Bearer {auth['token']}",
-    "Client-Id": auth["clientID"]
+    "Authorization": "Bearer xpxxg3iv1u3w74wbchvdln234ir329",
+    "Client-Id": "khw0yso1ww3ca5hxyhsy1ye47kujx8"
 }
 
 def live(channel):

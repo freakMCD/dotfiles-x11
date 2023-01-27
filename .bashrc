@@ -45,8 +45,7 @@ export PS1='\[\e[0;3;90m\][\[\e[0;3;31m\]\u \[\e[0;1;95m\]\W\[\e[0;3;90m\]] \[\e
 ######## FZF ###########
 source /usr/share/fzf/shell/key-bindings.bash
 source /etc/bash_completion.d/fzf
-fdExclude="-E "dosdevices" -E "drive_c" -E "*[sS]team""
-
+fdExclude="-E "dosdevices" -E "drive_c" -E "*[sS]team" -E ".cache""
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow $fdExclude"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d --hidden --follow $fdExclude" 
