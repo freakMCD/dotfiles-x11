@@ -13,7 +13,7 @@ URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 
 !General Settings
-URxvt*saveLines: 5000
+URxvt*saveLines: 8192
 URxvt*scrollBar: false
 URxvt*scrollBar_right: false
 URxvt*urgentOnBell: true

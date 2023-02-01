@@ -8,9 +8,8 @@ from pathlib import Path
 
 player = "streamlink"
 streams = f"""bitnerlp
-k3soju
-emilyywang
-kiyoon"""
+kiyoon
+"""
 sep = " | "
 
 headers = {

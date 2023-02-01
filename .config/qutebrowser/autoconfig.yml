@@ -57,6 +57,8 @@ settings:
     global: both
   content.canvas_reading:
     global: true
+  content.javascript.enabled:
+    global: true
   content.media.audio_capture:
     https://discord.com: true
   content.notifications.enabled:
@@ -110,6 +112,6 @@ settings:
       DEFAULT: searx.be/search?q={}
       r: https://www.reddit.com/r/{}
       wa: https://wiki.archlinux.org/?search={},
-      yt: http://yewtu.be/search?q={}
+      yt: https://inv.riverside.rocks/search?q={}
   url.start_pages:
     global: about:blank

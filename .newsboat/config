@@ -19,7 +19,7 @@ macro s set browser "nohup streamlink --player-passthrough=hls %u >/dev/null 2>&
 bind-key o open-in-browser-and-mark-read
 
 
-ignore-article "https://raw.githubusercontent.com/ArjixWasTaken/anime-rss/main/animepahe/animepahe-rss.xml" "title !~ \"Blue Lock|One Piece|Spy x Family\""
+ignore-article "https://raw.githubusercontent.com/ArjixWasTaken/anime-rss/main/animepahe/animepahe-rss.xml" "title !~ \"Blue Lock|Spy x Family\""
 ignore-article "https://yewtu.be/feed/channel/UCvnNkJsbONVhdXuHY_LpsdA" "title !~ \"Final Paradox|Final Farfadox\""
 ignore-article "https://yewtu.be/feed/channel/UC5uNya42ayhsRnZOR3mO6NA" "title =~ \"Phasmophobia\""
 
