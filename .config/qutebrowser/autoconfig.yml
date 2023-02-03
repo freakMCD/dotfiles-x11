@@ -75,6 +75,8 @@ settings:
     global: null
   content.webgl:
     global: false
+  content.webrtc_ip_handling_policy:
+    global: all-interfaces
   editor.command:
     global:
     - urxvt
