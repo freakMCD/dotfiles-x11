@@ -41,8 +41,8 @@
 - " @multimedia @printing
 - " google-noto-cjk-fonts  (asian fonts)
 - " fd-find fzf git pass maim xev xclip xprop xdotool  
-- " qutebrowser neovim ranger mpd mpc zathura zathura-pdf-mupdf yt-dlp mpv latexmk newsboat pavucontrol
-- " rclone thunar
+- " qutebrowser neovim ranger mpd mpc zathura zathura-pdf-mupdf yt-dlp mpv latexmk newsboat pavucontrol weechat
+- " thunar
 - Search on internet about: yadm, pywal, animdl
   dependencies, nodejs, python3-pip, python3-devel, gcc. <!-- gcc probably is not necessary -->
 - " neomutt cyrus-sasl-plain <!-- cyrus.. is for authentication when sending emails -->
