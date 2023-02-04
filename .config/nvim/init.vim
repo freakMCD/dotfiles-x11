@@ -30,6 +30,7 @@ set splitbelow
 set title
 filetype plugin indent on
 filetype on
+let g:markdown_fenced_languages = ['bash']
 	
 
 "Coc.nvim settings"

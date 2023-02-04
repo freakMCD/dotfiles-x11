@@ -57,6 +57,8 @@ settings:
     global: both
   content.canvas_reading:
     global: true
+  content.javascript.can_access_clipboard:
+    github.com: true
   content.javascript.enabled:
     global: true
   content.media.audio_capture:
