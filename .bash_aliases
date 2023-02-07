@@ -5,7 +5,7 @@ alias playlist="mpv --shuffle --save-position-on-quit=no https://www.youtube.com
 
 alias anime="animdl stream"
 alias mp3dl="yt-dlp -f 'ba' -x --audio-format mp3"
-alias yadm-add-deleted="yadm status | grep <state> | awk -F ':' '{print $2}' | xargs yadm add"
+alias yadm-add-deleted="yadm status | grep deleted | awk -F ':' '{print $2}' | xargs yadm add"
 
 # gpg aliases
 alias gpg-list="gpg --list-secret-keys --keyid-format LONG"

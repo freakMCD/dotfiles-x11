@@ -9,6 +9,8 @@ from pathlib import Path
 player = "streamlink"
 streams = f"""bitnerlp
 kiyoon
+emilyywang
+k3soju
 """
 sep = " | "
 
