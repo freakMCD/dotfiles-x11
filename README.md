@@ -20,11 +20,12 @@
     - .Xresources
     - .xinitrc
 
-* Scripts >> .local/bin
+* Scripts >> ~/bin/
     - download part of url video with ffmpeg
     - list dnf packages with fzf
-    - fzf integration with pass
-    - fzf integration with twitch
+    - interfaz for `pass` with fzf
+    - list twitch onlineperformance channels with fzf
+    - translate-shell
 
 ## System Config
 ```bash
@@ -32,7 +33,7 @@
 SystemMaxUse=50M
 
 #Replace line in /etc/systemd/logind.conf 
-HandleowerKey=ignore
+HandlePowerKey=ignore
 
 #Replace line in /etc/default/grub
 GRUB_CMDLINE_LINUX="rhgb quiet radeon.cik_support=0 amdgpu.cik_support=1"
@@ -45,7 +46,7 @@ Don't Install weak deps
 install_weak_deps=false 
 max_parallel_downloads=10 
 ```
-Packages to install starting with X server, i3, notifications and terminal
+Packages to install starting with Xorg, i3wm, notifications and terminal
 ```
 sudo dnf install @base-x i3 i3status dmenu rxvt-unicode dunst
 " rpmfusion-free-release rpmfusion-nonfree-release 
@@ -54,7 +55,7 @@ sudo dnf install @base-x i3 i3status dmenu rxvt-unicode dunst
 " mpd mpc mpv neovim newsboat neomutt qutebrowser ranger yt-dlp zathura zathura-pdf-mupdf
 " google-noto-cjk-fonts latexmk pavucontrol thunar weechat 
 ```
-Not on Fedora repos: `yadm`, `pywal`, `animdl` 
+Wanted but not on Fedora repos: `yadm`, `pywal`, `animdl` 
 **Dependencies**: nodejs, python3-pip, python3-devel, gcc. <!-- gcc probably is not necessary -->
 
 ## NOTES
@@ -83,6 +84,10 @@ yadm push origin HEAD --force
 
     yadm add -u
 
+**For files you will never edit (E.g. "LICENSE")**
+
+    yadm update-index --assume-unchanged <filepath>
+    
 ### nmcli
 
     nmcli dev status
