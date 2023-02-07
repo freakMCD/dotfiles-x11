@@ -37,6 +37,9 @@ HandlePowerKey=ignore
 
 #Replace line in /etc/default/grub
 GRUB_CMDLINE_LINUX="rhgb quiet radeon.cik_support=0 amdgpu.cik_support=1"
+
+#Add line in /usr/etc/npmrc
+cache=~/.cache/npm
 ```
 
 ## Guide Installation (after Fedora Everything minimal install)
