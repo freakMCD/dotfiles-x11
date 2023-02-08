@@ -43,36 +43,32 @@ cache=~/.cache/npm
 ```
 
 ## Guide Installation (after Fedora Everything minimal install)
-Don't Install weak deps
+
+1. Don't Install weak deps
 ```bash
 #Add lines in /etc/dnf/dnf.conf
 install_weak_deps=false 
 max_parallel_downloads=10 
 ```
-Packages to install starting with Xorg, i3wm, notifications and terminal
-```
-sudo dnf install @base-x i3 i3status dmenu rxvt-unicode dunst
-" rpmfusion-free-release rpmfusion-nonfree-release 
-" @multimedia @printing
-" fd-find fzf git pass maim xev xclip xprop xdotool
-" mpd mpc mpv neovim newsboat neomutt qutebrowser ranger yt-dlp zathura zathura-pdf-mupdf
-" google-noto-cjk-fonts latexmk pavucontrol thunar weechat 
-```
-Wanted but not on Fedora repos: `yadm`, `pywal`, `animdl` 
-**Dependencies**: nodejs, python3-pip, python3-devel, gcc. <!-- gcc probably is not necessary -->
-
-## NOTES
+2. Install essential packages
 ```bash
-#To save git credentials
-git config --global credential.helper "store --file ~/.local/share/git-credentials"
-```
-* systemctl --user enable mpd.service
-* Run 'PlugUpdate' for neovim
-* For LaTex install `TexLive`
-* deleting .wine folder can fix a problem with Leagueoflegends install
-* You maybe need this packages: `cyrus-sasl-plain` <!-- neomutt package|send email -->
+sudo dnf install @base-x i3 i3status dmenu rxvt-unicode dunst git qutebrowser
 
-### yadm 
+## Run this first to save git credentials ##
+git config --global credential.helper "store --file ~/.local/share/git-credentials"
+
+# Install yadm
+mkdir -p ~/.local/bin
+curl -fLo ~/.local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x ~/.local/bin/yadm
+yadm clone https://github.com/freakMCD/dotfiles.git 
+```
+3. Run 'yadm bootstrap' to install the rest
+
+## Notes
+
+- Deleting .wine folder can fix a problem with leagueoflegends install
+
+### yadm
 
 **To choose commits to delete since an specified commit**
 ```bash
@@ -80,14 +76,14 @@ git config --global credential.helper "store --file ~/.local/share/git-credentia
 yadm rebase -i <commit>~1
 
 #To rebase the branch
-yadm push origin HEAD --force
+yadm push origin head --force
 ```
 
 **To commit all changes**
 
     yadm add -u
 
-**For files you will never edit (E.g. "LICENSE")**
+**For files you will never edit (e.g. "LICENSE")**
 
     yadm update-index --assume-unchanged <filepath>
     
