@@ -1,0 +1,112 @@
+#!/bin/bash
+REL="$(rpm -E %fedora)"
+echo "We are running Fedora $REL."
+
+setup_repos() {
+    # RPMFusion
+    sudo dnf install \
+        https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-"$REL".noarch.rpm \
+        https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$REL".noarch.rpm \
+
+    sudo dnf update --refresh
+}
+
+install_basics() {
+    # Multimedia codecs and printing packages
+    sudo dnf install @multimedia @printing --exclude=qt5-qtwebengine-freeworld,pipewire-codec-aptx 
+
+    # Basics
+    sudo dnf install maim xev xclip xprop xdotool \
+    fd-find fzf mpd mpc mpv pass newsboat neomutt cyrus-sasl-plain neovim nodejs \
+    ranger yt-dlp thunar zathura zathura-pdf-mupdf weechat \
+    gcc google-noto-cjk-fonts pavucontrol python3-pip python3-devel 
+}
+
+install_python_packages() {
+    echo "Installing streamlink, animdl y pywal"
+    pip install --user --upgrade streamlink
+    pip install animdl
+    pip3 install --user pywal
+}
+
+install_texlive_packages() {
+    # texlive bits
+    sudo dnf install texlive latexmk
+}
+
+enable_services () {
+    echo "Starting/enabling mpd"
+    systemctl --user start mpd.service
+    systemctl --user enable mpd.service    
+}
+
+configure_neovim() {
+    echo "Installing vim-plug for Neovim"
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    nvim +'PlugInstall --sync' +qa
+}
+
+
+usage() {
+    echo "$0: Install packages and software"
+    echo
+    echo "Usage: $0 [-sbtpah]"
+    echo
+    echo "-s: set up DNF repos"
+    echo "-b: install basics: implies -s"
+    echo "-t: install TeXlive packages: implies -s"
+    echo "-p: install Python packages"
+    echo "-a: do all of the above"
+    echo "-h: print this usage text and exit"
+}
+
+if [ $# -lt 1 ]
+then
+    usage
+    exit 1
+fi
+
+# parse options
+while getopts "sbtah" OPTION
+do
+    case $OPTION in
+        s)
+            setup_repos
+            exit 0
+            ;;
+        b)
+            setup_repos
+            install_basics
+            configure_neovim
+            enable_services
+            exit 0
+            ;;
+        p)
+            install_python_packages
+            exit 0
+            ;;            
+        t)
+            setup_repos
+            install_texlive_packages
+            exit 0
+            ;;
+        a)
+            setup_repos
+            install_basics
+            configure_neovim
+            install_python_packages
+            install_texlive_packages
+            enable_services
+            exit 0
+            ;;
+        h)
+            usage
+            exit 0
+            ;;
+        ?)
+            usage
+            exit 1
+            ;;
+    esac
+done
