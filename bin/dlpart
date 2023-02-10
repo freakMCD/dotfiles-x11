@@ -1,4 +1,5 @@
 #!/bin/bash
+# Download part of url video with ffmpeg
 
 echo "Enter URL here"
 read URL 

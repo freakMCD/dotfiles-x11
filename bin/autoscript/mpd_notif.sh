@@ -1,0 +1,1 @@
+/home/edwin/.config/mpd/mpd_notif.sh

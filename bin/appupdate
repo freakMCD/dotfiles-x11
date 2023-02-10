@@ -1,0 +1,38 @@
+#!/bin/bash
+# Update apps that are not in fedora repos
+ 
+streamlink() {
+    pip install --user --upgrade streamlink
+}
+
+trans() {
+    wget -O ~/bin/trans git.io/trans && chmod +x ~/bin/trans
+}
+
+animdl() {
+    pip install --user --upgrade animdl 
+}
+
+PS3='Please enter your number choice: '
+options=("streamlink" "trans" "animdl" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "streamlink")
+            streamlink
+            break
+            ;;
+        "trans")
+            trans
+            break
+            ;;
+        "animdl")
+            animdl
+            break
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done

@@ -1,0 +1,1 @@
+/home/edwin/.config/i3/start_if_network_on.sh

@@ -1,0 +1,1 @@
+/home/edwin/.config/i3/mic_muted_notif.sh
