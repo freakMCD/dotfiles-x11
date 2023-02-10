@@ -41,7 +41,7 @@ mem() {
 if [ -x "$(command -v fzf)" ]; then
 	source /usr/share/fzf/shell/key-bindings.bash
 	source /etc/bash_completion.d/fzf
-	fdExclude="-E "dosdevices" -E "drive_c" -E ".cache" -E "repo.git" -E "webengine""
+	fdExclude="-E "dosdevices" -E "drive_c" -E ".cache" -E "repo.git" -E "webengine" -E "wine""
 	export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow $fdExclude"
 	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 	export FZF_ALT_C_COMMAND="fd --type d --hidden --follow $fdExclude" 
@@ -57,12 +57,11 @@ if [ -x "$(command -v fzf)" ]; then
 	
 	# nvim ** 
 	_fzf_compgen_path() {
-		fd --type f --hidden --follow $fdExclude . "$1"
+        $FZF_DEFAULT_COMMAND . "$1"
 	}
 	# cd **
 	_fzf_compgen_dir() {
-	
-		fd --type d --hidden --follow $fdExclude . "$1"
+		$FZF_ALT_C_COMMAND . "$1"
 	}
 	
 	# fe [FUZZY PATTERN] - Open the selected file with the default editor

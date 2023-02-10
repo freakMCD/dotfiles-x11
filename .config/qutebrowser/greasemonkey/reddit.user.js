@@ -11,5 +11,5 @@
 
 (function () {
 	'use strict';
-	top.location.hostname = "libreddit.spike.codes";
+	top.location.hostname = "safereddit.com";
 })();

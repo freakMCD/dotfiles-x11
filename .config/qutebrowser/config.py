@@ -40,6 +40,8 @@ c.colors.tabs.selected.even.fg = clrbg
 c.colors.tabs.selected.odd.bg = clrselect
 c.colors.tabs.selected.odd.fg = clrbg 
 
+c.colors.webpage.bg = "#101010"
+
 c.colors.contextmenu.disabled.fg = xresources['*.color8']
 c.colors.contextmenu.menu.bg = clrbg
 c.colors.contextmenu.menu.fg = clrfg

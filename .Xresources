@@ -1,8 +1,8 @@
 #include ".cache/wal/colors.Xresources"
 
 !Font
-URxvt.font:xft:JetBrainsMono Nerd Font Mono:pixelsize=14
-URxvt.boldFont:xft:JetBrainsMono Nerd Font Mono:pixelsize=14:style=bold
+URxvt.font:xft:JetBrainsMono Nerd Font Mono:pixelsize=14,xft:Symbola
+URxvt.boldFont:xft:JetBrainsMono Nerd Font Mono:pixelsize=14:style=bold,xft:Symbola
 
 Xft.antialias: true
 Xft.hinting: true
@@ -18,7 +18,6 @@ URxvt*scrollBar: false
 URxvt*scrollBar_right: false
 URxvt*urgentOnBell: true
 URxvt*iso14755: false
-URxvt.geometry: 80x-1
 
 !Extensions
 URxvt.perl-ext-common: default,matcher,-confirm-paste

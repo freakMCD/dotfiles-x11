@@ -5,7 +5,7 @@ click_action () {
 }
 
 if [[ "$*" != "0 unread articles" ]]; then
-    ACTION=$(dunstify -t 60000 -i ~/.newsboat/rss.png --action="default,Click" "newsboat" "$*")
+    ACTION=$(dunstify -t 60000 -i "$(dirname "$0")/rss.png" --action="default,Click" "newsboat" "$*")
     case "$ACTION" in
 	    "default")
  	 	    click_action

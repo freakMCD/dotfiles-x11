@@ -8,24 +8,18 @@
 * **Launcher**: fzf
 * **File Manager**: Ranger (TUI) | Thunar (GUI)
 * **Text Editor**: Neovim
-* **Colors and theme management** using pywal
 * **Music player** with ncmpcpp + mpd + mpc
-* **For screenshots**: maim + xclip + xdotool
+* **Image Viewer** : Feh
 * **PDF Reader**: Zathura
 * **RSS Reader**: Newsboat
 * **Email Client**: Neomutt
-* Basic dotfiles :
+* **Themes on the fly** using pywal
+* **Screenshots**: maim + xclip + xdotool
+* **Basic dotfiles** :
     - i3 config file
-    - .bashrc
+    - .bashrc & .bash_profile
     - .Xresources
     - .xinitrc
-
-* Scripts >> ~/bin/
-    - download part of url video with ffmpeg
-    - list dnf packages with fzf
-    - interfaz for `pass` with fzf
-    - list twitch onlineperformance channels with fzf
-    - translate-shell
 
 ## System Config
 ```bash

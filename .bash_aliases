@@ -4,7 +4,7 @@ alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
 alias playlist="mpv --shuffle --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
 
 alias anime="animdl stream"
-alias mp3dl="yt-dlp -f 'ba' -x --audio-format mp3"
+alias mp3dl="yt-dlp --extract-audio --audio-format mp3"
 alias yadm-add-deleted="yadm status | grep deleted | awk -F ':' '{print $2}' | xargs yadm add"
 
 # gpg aliases
@@ -15,7 +15,7 @@ alias gpg-restore="gpg --import-options restore --import private.gpg"
 # Custom dnf alias
 alias install="sudo dnf install"
 alias search="sudo dnf search"
-alias update="sudo dnf update"
+alias upgrade="sudo dnf upgrade"
 alias remove="sudo dnf remove"
 
 function whatrequires () {

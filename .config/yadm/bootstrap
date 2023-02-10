@@ -16,16 +16,16 @@ install_basics() {
     sudo dnf install @multimedia @printing --exclude=qt5-qtwebengine-freeworld,pipewire-codec-aptx 
 
     # Basics
-    sudo dnf install maim xev xclip xprop xdotool \
+    sudo dnf install feh maim xev xclip xprop xdotool \
     fd-find fzf mpd mpc mpv pass newsboat neomutt cyrus-sasl-plain neovim nodejs \
     ranger yt-dlp thunar zathura zathura-pdf-mupdf weechat \
-    gcc google-noto-cjk-fonts pavucontrol python3-pip python3-devel 
+    gcc gdouros-symbola-fonts google-noto-cjk-fonts pavucontrol python3-pip python3-devel 
 }
 
 install_python_packages() {
     echo "Installing streamlink, animdl y pywal"
     pip install --user --upgrade streamlink
-    pip install animdl
+    pip install --user animdl
     pip3 install --user pywal
 }
 

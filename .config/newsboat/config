@@ -5,7 +5,7 @@ cleanup-on-quit yes
 prepopulate-query-feeds yes
 reload-threads 16
 notify-format "%n unread articles"
-notify-program "~/.newsboat/newsnotif.sh"
+notify-program "~/.config/newsboat/newsnotif.sh"
 notify-always yes
 auto-reload yes
 reload-time 120
