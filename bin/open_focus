@@ -20,7 +20,7 @@ open_args() {
     fi
 }
 
-while getopts "rtnm" OPTION
+while getopts "rtnmw" OPTION
 do
     case $OPTION in
         r)
@@ -41,6 +41,11 @@ do
             ;;            
         m)
             program="neomutt"
+            open_program
+            exit 0
+            ;;
+        w)
+            program="weechat"
             open_program
             exit 0
             ;;

@@ -15,6 +15,7 @@ alias gpg-restore="gpg --import-options restore --import private.gpg"
 # Custom dnf alias
 alias install="sudo dnf install"
 alias search="sudo dnf search"
+alias update="sudo dnf upgrade --exclude=kernel*"
 alias upgrade="sudo dnf upgrade"
 alias remove="sudo dnf remove"
 
