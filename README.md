@@ -2,7 +2,7 @@
 
 ## What's in it?
 
-* **WM**: i3
+* **WM**: dwm
 * **Terminal**: URxvt
 * **Notifications**: Dunst
 * **Launcher**: fzf
@@ -46,7 +46,7 @@ max_parallel_downloads=10
 ```
 2. Install essential packages
 ```bash
-sudo dnf install @base-x i3 i3status dmenu rxvt-unicode dunst git qutebrowser
+sudo dnf install @base-x dmenu rxvt-unicode dunst git qutebrowser libXft-devel libX11-devel
 
 ## Run this first to save git credentials ##
 git config --global credential.helper "store --file ~/.local/share/git-credentials"
