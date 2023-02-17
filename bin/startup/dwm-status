@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# INIT
+printf "$$" > ~/.cache/pidofbar
+sec=0
+
+update_cpu () { 
+    cpu="$( grep -o "^[^ ]*" /proc/loadavg )" 
+}
+
+update_memory () { 
+    memory="$(free -h --kilo | awk '/^Mem:/ {print $3 "/" $2}')"
+}
+
+update_time () { 
+    time="$(date "+%a-%d-%b  %R")" 
+}
+
+update_disk () {
+    disk=$(df -Ph | grep "/dev/sda3" | awk {'print $5'})
+}
+
+# modules that don't update on their own
+# they are also run at the start for getting the initial value
+update_vol () { 
+    vol="$([ "$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')" = "no" ] && printf '󰕾' || printf '󰝟') $(pactl get-sink-volume 0 | awk '{print $5}')"
+}
+update_vol
+
+update_song () {
+    if [[ $(mpc status %state%) == 'playing' ]]; then
+        song="  $(mpc current)"
+    elif [[ $(mpc status %state%) == 'paused' ]]; then
+        song="  $(mpc current)" 
+    else 
+        song="fail"
+    fi
+}
+
+display () { 
+    xprop -root -set WM_NAME "$song     $vol     $memory  󰾧 $cpu   $disk     $time "
+}
+
+# signals for each module to update while updating display. RTMIN is 33
+trap "update_vol;display" "RTMIN"
+trap "update_song;display" "RTMIN+1"
+
+while true; do
+	    # how many seconds each module updates
+	    [ $((sec % 60 )) -eq 0 ] && update_time
+	    [ $((sec % 15)) -eq 0 ] && update_cpu 
+	    [ $((sec % 15)) -eq 0 ] && update_memory
+	    [ $((sec % 1800)) -eq 0 ] && update_disk
+	    
+	    # how often the display updates
+	    [ $((sec % 15 )) -eq 0 ] && display
+	    sleep 1 & wait && sec=$((sec + 1))
+done
+
+

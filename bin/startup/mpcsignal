@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while true; do
+    mpc idle player   
+    kill -RTMIN+1 $(cat ~/.cache/pidofbar)
+done
