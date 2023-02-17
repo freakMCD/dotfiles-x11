@@ -10,5 +10,5 @@
 
 (function () {
 	'use strict';
-	top.location.hostname = "inv.riverside.rocks";
+	top.location.hostname = "invidious.baczek.me";
 })();
