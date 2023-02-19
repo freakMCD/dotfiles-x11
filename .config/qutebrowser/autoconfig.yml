@@ -34,7 +34,7 @@ settings:
         i: hint inputs
         j: scroll-px 0 200
         k: scroll-px 0 -200
-        l: scroll-px 100-0
+        l: scroll-px 100 0
         q: null
   colors.completion.category.fg:
     global: white
