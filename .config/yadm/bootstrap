@@ -2,6 +2,13 @@
 REL="$(rpm -E %fedora)"
 echo "We are running Fedora $REL."
 
+install_dwm() {
+    cd ~/.config/dwm
+    git clone https://github.com/freakMCD/dwm
+    cd dwm
+    sudo make clean install
+}
+
 setup_repos() {
     # RPMFusion
     sudo dnf install \
@@ -51,11 +58,11 @@ configure_neovim() {
 usage() {
     echo "$0: Install packages and software"
     echo
-    echo "Usage: $0 [-sbtpah]"
+    echo "Usage: $0 [-dbtpah]"
     echo
-    echo "-s: set up DNF repos"
-    echo "-b: install basics: implies -s"
-    echo "-t: install TeXlive packages: implies -s"
+    echo "-d: Install dwm"
+    echo "-b: install basics and Setup Repos"
+    echo "-t: install TeXlive packages"
     echo "-p: install Python packages"
     echo "-a: do all of the above"
     echo "-h: print this usage text and exit"
@@ -71,8 +78,8 @@ fi
 while getopts "sbtah" OPTION
 do
     case $OPTION in
-        s)
-            setup_repos
+        d)
+            install_dwm
             exit 0
             ;;
         b)
@@ -87,7 +94,6 @@ do
             exit 0
             ;;            
         t)
-            setup_repos
             install_texlive_packages
             exit 0
             ;;

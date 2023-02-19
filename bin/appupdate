@@ -13,8 +13,12 @@ animdl() {
     pip install --user --upgrade animdl 
 }
 
+yt-dlp() {
+    pip install --user --upgrade yt-dlp
+}
+
 PS3='Please enter your number choice: '
-options=("streamlink" "trans" "animdl" "Quit")
+options=("streamlink" "trans" "animdl" "yt-dlp" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -29,6 +33,10 @@ do
         "animdl")
             animdl
             break
+            ;;
+        "yt-dlp")
+            yt-dlp
+            break 
             ;;
         "Quit")
             break
