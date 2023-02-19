@@ -26,6 +26,7 @@ settings:
         ',M': hint links spawn --detach mpv --mute=yes {hint-url}
         ',k': set-cmd-text --space :session-save --only-active-window
         ',m': hint links spawn --detach mpv {hint-url}
+        ',pu': spawn --detach mpv {url}
         ',y2o': open https://invidious.baczek.me{url:path}?{url:query}
         /: set statusbar.show always;; set-cmd-text /
         J: tab-next
@@ -148,6 +149,6 @@ settings:
       DEFAULT: searx.be/search?q={}
       r: https://www.reddit.com/r/{}
       wa: https://wiki.archlinux.org/?search={},
-      yt: https://inv.riverside.rocks/search?q={}
+      yt: https://invidious.baczek.me/search?q={}
   url.start_pages:
     global: about:blank
