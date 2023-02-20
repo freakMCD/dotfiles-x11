@@ -1,1 +1,0 @@
-/home/edwin/.config/i3status/wal_i3status.sh
