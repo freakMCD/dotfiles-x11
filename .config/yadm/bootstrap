@@ -3,7 +3,7 @@ REL="$(rpm -E %fedora)"
 echo "We are running Fedora $REL."
 
 install_dwm() {
-    cd ~/.config/dwm
+    cd ~/.config/
     git clone https://github.com/freakMCD/dwm
     cd dwm
     sudo make clean install
@@ -24,16 +24,17 @@ install_basics() {
 
     # Basics
     sudo dnf install feh maim xev xclip xprop xdotool wiggle \
-    fd-find fzf mpd mpc mpv pass newsboat neomutt cyrus-sasl-plain neovim \
-    ranger yt-dlp thunar zathura zathura-pdf-mupdf weechat \
+    fd-find fzf mpd mpc mpv pass newsboat neomutt cyrus-sasl-plain neovim puddletag \
+    ranger thunar zathura zathura-pdf-mupdf weechat \
     gcc gdouros-symbola-fonts google-noto-cjk-fonts pavucontrol python3-pip python3-devel 
 }
 
 install_python_packages() {
-    echo "Installing streamlink, animdl y pywal"
+    echo "Installing streamlink, animdl, pywal, yt-dlp"
     pip install --user --upgrade streamlink
     pip install --user animdl
     pip3 install --user pywal
+    python3 -m pip install -U yt-dlp
 }
 
 install_texlive_packages() {
@@ -42,9 +43,13 @@ install_texlive_packages() {
 }
 
 enable_services () {
-    echo "Starting/enabling mpd"
+    echo "Starting/enabling mpd service"
     systemctl --user start mpd.service
-    systemctl --user enable mpd.service    
+    systemctl --user enable mpd.service  
+
+    echo "Disabling cups, sshd services, dnf-makecache"
+    systemctl disable --now dnf-makecache.timer
+    systemctl disable --now cups.service
 }
 
 configure_neovim() {

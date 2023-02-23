@@ -26,7 +26,6 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export HISTFILE="$XDG_STATE_HOME/bash/history"
 export LESSHISTFILE='-'
@@ -41,7 +40,7 @@ mem() {
 if [ -x "$(command -v fzf)" ]; then
 	source /usr/share/fzf/shell/key-bindings.bash
 	source /etc/bash_completion.d/fzf
-	fdExclude="-E "dosdevices" -E "drive_c" -E ".cache" -E "repo.git" -E "webengine" -E "wine""
+	fdExclude="-E ".cache" -E "repo.git" -E "webengine""
 	export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow $fdExclude"
 	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 	export FZF_ALT_C_COMMAND="fd --type d --hidden --follow $fdExclude" 

@@ -6,8 +6,8 @@ alias playlist="mpv --shuffle --save-position-on-quit=no https://www.youtube.com
 alias anime="animdl stream"
 alias mp3dl="yt-dlp --extract-audio --audio-format mp3"
 
-alias yadm-add-deleted="yadm status | grep deleted | awk -F ':' '{print $2}' | xargs yadm add"
 alias git-apply="git apply --reject --whitespace=fix"
+alias rclone="rclone -P"
 
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias pywal='wal --saturate 0.5 -i ~/.config/wallpaper --iterative -n -o "~/.config/dunst/wal_dunst.sh"'
@@ -20,9 +20,13 @@ alias gpg-restore="gpg --import-options restore --import private.gpg"
 # Custom dnf alias
 alias install="sudo dnf install"
 alias search="sudo dnf search"
-alias update="sudo dnf upgrade --exclude=kernel*"
-alias upgrade="sudo dnf upgrade"
+alias update="sudo dnf upgrade --refresh --exclude=kernel*"
+alias upgrade="sudo dnf upgrade --refresh"
 alias remove="sudo dnf remove"
+
+yadm-add-deleted () {
+    yadm status | grep deleted | awk -F ':' '{print $2}' | xargs yadm add
+}
 
 function whatrequires () {
     sudo dnf history "$@"| egrep -w 'install|upgrade'

@@ -60,8 +60,6 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 
 ## Notes
 
-- Deleting .wine folder can fix a problem with leagueoflegends install
-
 ### yadm
 
 **To choose commits to delete since an specified commit**
