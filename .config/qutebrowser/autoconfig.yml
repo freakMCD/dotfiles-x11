@@ -124,6 +124,8 @@ settings:
     global: false
   input.spatial_navigation:
     global: true
+  session.default_name:
+    global: default
   statusbar.position:
     global: bottom
   statusbar.show:
