@@ -4,41 +4,48 @@
 printf "$$" > ~/.cache/pidofbar
 sec=0
 
+# load colors
+. ~/bin/startup/bar/onedark
+
 update_cpu () { 
-    cpu="$( grep -o "^[^ ]*" /proc/loadavg )" 
+    cpu_val=$( grep -o "^[^ ]*" /proc/loadavg ) 
+    printf "^c$white^^b$grey^ CPU $cpu_val ^d^"
 }
 
 update_memory () { 
-    memory="$(free -h --kilo | awk '/^Mem:/ {print $3 "/" $2}')"
-}
-
-update_time () { 
-    time="$(date "+%a-%d-%b  %R")" 
+    printf "^c$cyan^ 󰍛 "
+    printf "^c$white^$(free -h --kilo | awk '/^Mem:/ {print $3 "^c#888888^/" $2}')"
 }
 
 update_disk () {
     disk=$(df -Ph | grep "/dev/sda3" | awk {'print $5'})
+    printf "%s" "^c$cyan^  ^c$white^$disk"
+}
+
+update_time () { 
+    printf "^c$cyan^  "
+    printf "^c$white^$(date "+%a-%d-%b ^b$grey^  %R")" 
 }
 
 # modules that don't update on their own
 # they are also run at the start for getting the initial value
 update_vol () { 
-    vol="$([ "$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')" = "no" ] && printf '󰕾' || printf '󰝟') $(pactl get-sink-volume 0 | awk '{print $5}')"
+    vol="$([ "$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')" = "no" ] && printf "^c$cyan^󰕾^d^^f2^" || printf "^c$red^󰝟^f2^") $(pactl get-sink-volume 0 | awk '{print $5}')"
 }
 update_vol
 
 update_song () {
     if [[ $(mpc status %state%) == 'playing' ]]; then
-        song="  $(mpc current)"
+        song="^c$cyan^ ^c$white^ $(mpc current)"
     elif [[ $(mpc status %state%) == 'paused' ]]; then
-        song="  $(mpc current)" 
+        song="^c#888888^  $(mpc current)^d^" 
     else 
         song="fail"
     fi
 }
 
-display () { 
-    xprop -root -set WM_NAME "$song     $vol     $memory  󰾧 $cpu   $disk     $time "
+display () {
+    xprop -root -set WM_NAME "$song     $vol  $(update_cpu) $(update_memory) $(update_disk) $(update_time) "
 }
 
 # signals for each module to update while updating display. RTMIN is 33
