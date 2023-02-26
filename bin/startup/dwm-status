@@ -4,27 +4,27 @@
 printf "$$" > ~/.cache/pidofbar
 sec=0
 
-# load colors
-. ~/bin/startup/bar/onedark
+# Colors
+white=#c8d3d5
+cyan=#65b3d5
+red=#b25b63
+grey=#888888
+darkgrey=#121212
 
 update_cpu () { 
-    cpu_val=$( grep -o "^[^ ]*" /proc/loadavg ) 
-    printf "^c$white^^b$grey^ CPU $cpu_val ^d^"
+    cpu="^c$white^^b$darkgrey^ CPU $( grep -o "^[^ ]*" /proc/loadavg ) ^d^"
 }
 
 update_memory () { 
-    printf "^c$cyan^ 󰍛 "
-    printf "^c$white^$(free -h --kilo | awk '/^Mem:/ {print $3 "^c#888888^/" $2}')"
+    mem="^c$cyan^ 󰍛 ^c$white^$(free -h --kilo | awk '/^Mem:/ {print $3 "^c'"$grey"'^/" $2}')"
 }
 
 update_disk () {
-    disk=$(df -Ph | grep "/dev/sda3" | awk {'print $5'})
-    printf "%s" "^c$cyan^  ^c$white^$disk"
+    disk="^c$cyan^  ^c$white^$(df -Ph | grep "/dev/sda3" | awk {'print $5'})"
 }
 
 update_time () { 
-    printf "^c$cyan^  "
-    printf "^c$white^$(date "+%a-%d-%b ^b$grey^  %R")" 
+    time="^c$cyan^  ^c$white^$(date "+%a-%d-%b ^b$darkgrey^  %R")" 
 }
 
 # modules that don't update on their own
@@ -38,14 +38,14 @@ update_song () {
     if [[ $(mpc status %state%) == 'playing' ]]; then
         song="^c$cyan^ ^c$white^ $(mpc current)"
     elif [[ $(mpc status %state%) == 'paused' ]]; then
-        song="^c#888888^  $(mpc current)^d^" 
+        song="^c$grey^  $(mpc current)^d^" 
     else 
         song="fail"
     fi
 }
 
 display () {
-    xprop -root -set WM_NAME "$song     $vol  $(update_cpu) $(update_memory) $(update_disk) $(update_time) "
+    xprop -root -set WM_NAME "$song     $vol  $cpu $mem $disk $time "
 }
 
 # signals for each module to update while updating display. RTMIN is 33
