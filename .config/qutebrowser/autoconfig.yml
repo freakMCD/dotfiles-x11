@@ -80,6 +80,8 @@ settings:
     global: both
   content.canvas_reading:
     global: true
+  content.fullscreen.overlay_timeout:
+    global: 3000
   content.javascript.can_access_clipboard:
     github.com: true
   content.javascript.enabled:
@@ -124,6 +126,8 @@ settings:
     global: false
   input.spatial_navigation:
     global: true
+  messages.timeout:
+    global: 1000
   session.default_name:
     global: default
   statusbar.position:
