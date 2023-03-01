@@ -112,6 +112,24 @@ settings:
     - '{}'
   editor.encoding:
     global: utf-8
+  fileselect.folder.command:
+    global:
+    - urxvt
+    - -e
+    - ranger
+    - --choosedir={}
+  fileselect.multiple_files.command:
+    global:
+    - urxvt
+    - -e
+    - ranger
+    - --choosefiles={}
+  fileselect.single_file.command:
+    global:
+    - urxvt
+    - -e
+    - ranger
+    - --choosefile={}
   fonts.default_family:
     global: JetBrainsMono Nerd Font
   fonts.hints:
