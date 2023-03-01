@@ -23,9 +23,9 @@ install_basics() {
     sudo dnf install @multimedia @printing --exclude=qt5-qtwebengine-freeworld,pipewire-codec-aptx 
 
     # Basics
-    sudo dnf install feh maim xev xclip xprop xdotool wiggle \
+    sudo dnf install feh maim lftp xev xclip xprop xdotool wiggle \
     fd-find fzf mpd mpc mpv pass newsboat neomutt cyrus-sasl-plain neovim puddletag \
-    ranger thunar zathura zathura-pdf-mupdf weechat \
+    ranger zathura zathura-pdf-mupdf weechat \
     gcc gdouros-symbola-fonts google-noto-cjk-fonts pavucontrol python3-pip python3-devel 
 }
 
