@@ -7,16 +7,29 @@ sec=0
 # Colors
 white=#c8d3d5
 cyan=#65b3d5
-red=#b25b63
+green=#25b325
+red=#E42217
 grey=#888888
 darkgrey=#121212
 
+update_network () {
+    conntype=$(ip route | awk '/default/ { print substr($5,1,1) }')
+
+    if [ -z "$conntype" ]; then
+		network=" ^c$red^󰈀 down "
+	elif [ "$conntype" = "e" ]; then
+		network=" ^c$green^󰈀 up "
+	elif [ "$conntype" = "w" ]; then
+		network=" ^c$green^ up "
+	fi
+}
+
 update_cpu () { 
-    cpu="^c$white^^b$darkgrey^ CPU $( grep -o "^[^ ]*" /proc/loadavg ) ^d^"
+    cpu="^c$white^^b$darkgrey^ CPU $(grep -o "^[^ ]*" /proc/loadavg) ^d^"
 }
 
 update_memory () { 
-    mem="^c$cyan^ 󰍛 ^c$white^$(free -h --kilo | awk '/^Mem:/ {print $3 "^c'"$grey"'^/" $2}')"
+    mem="^c$cyan^󰍛 ^c$white^$(free -h --kilo | awk 'NR==2{print $3 "^c'"$grey"'^/" $2}')"
 }
 
 update_disk () {
@@ -45,7 +58,7 @@ update_song () {
 }
 
 display () {
-    xprop -root -set WM_NAME "$song     $vol  $cpu $mem $disk $time "
+    xprop -root -set WM_NAME "$song     $vol $cpu $network $mem $disk $time "
 }
 
 # signals for each module to update while updating display. RTMIN is 33
@@ -58,6 +71,7 @@ while true; do
 	    [ $((sec % 15)) -eq 0 ] && update_cpu 
 	    [ $((sec % 15)) -eq 0 ] && update_memory
 	    [ $((sec % 1800)) -eq 0 ] && update_disk
+	    [ $((sec % 15)) -eq 0 ] && update_network
 	    
 	    # how often the display updates
 	    [ $((sec % 15 )) -eq 0 ] && display
