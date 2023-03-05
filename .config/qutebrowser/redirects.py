@@ -8,6 +8,7 @@ import operator
 REDIRECT_MAP = {
 	"reddit.com": operator.methodcaller('setHost', 'safereddit.com'),
 	"www.reddit.com": operator.methodcaller('setHost', 'safereddit.com'),
+    "old.reddit.com": operator.methodcaller('setHost', 'safereddit.com'),
 	"twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
 	"www.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
     "music.youtube.com": operator.methodcaller('setHost', 'hyperpipe.surge.sh'),

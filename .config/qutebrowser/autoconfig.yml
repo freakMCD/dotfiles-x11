@@ -118,6 +118,8 @@ settings:
     - -e
     - ranger
     - --choosedir={}
+  fileselect.handler:
+    global: default
   fileselect.multiple_files.command:
     global:
     - urxvt
