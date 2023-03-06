@@ -1,0 +1,82 @@
+#!vim: set filetype=conf :
+set ifs "\n"
+
+set mouse
+set hidden
+set autoquit
+
+
+set previewer lf-ueberzug-previewer
+set cleaner lf-ueberzug-cleaner
+
+map Y cpsel
+map a push :mkdir<space>
+
+map w
+map D delete
+map gu cd /usr/
+map gm cd ~/Music/2015-2022/
+map ge cd /etc/
+map gd cd /etc/dnf/
+map gr cd /etc/yum.repos.d/
+
+map P :link
+
+cmd cpsel ${{
+        printf '%s' "${fx}" | xclip -i -selection clipboard
+}}
+
+cmd mkdir %mkdir "$@"
+
+# extract the current file with the right command
+cmd extract ${{
+    set -f
+    case $f in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+        *.tar.gz|*.tgz) tar xzvf $f;;
+        *.tar.xz|*.txz) tar xJvf $f;;
+        *.zip) unzip $f;;
+        *.rar) unrar x $f;;
+        *.7z) xz $f;;
+    esac
+}}
+
+# compress current file or selected files with tar and gunzip
+cmd tar ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    tar czf $1.tar.gz $1
+    rm -rf $1
+}}
+
+cmd link %{{
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    if [ "$#" -lt 1 ]; then
+        lf -remote "send $id echo no files to link"
+        exit 0
+    fi
+    case "$mode" in
+        # symbolically copy mode is indicating a soft link
+        copy) ln -sr -t . -- "$@";;
+        # while a move mode is indicating a hard link
+        move) ln -t . -- "$@";;
+    esac
+    rm ~/.local/share/lf/files
+    lf -remote "send clear"
+}}
+
+
+cmd open &{{
+    case $(file --mime-type $f -b) in
+	image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura $fx >/dev/null 2>&1 ;;
+    text/*) lf -remote "send $id \$nvim \$fx";;
+	image/*) feh $f 2>/dev/null ;;
+	audio/*) lf -remote "send $id \$mpv --audio-display=no \$f" ;;
+	video/*) setsid -f mpv $fx -quiet >/dev/null 2>&1 ;;
+	application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
+    *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+   esac
+}}

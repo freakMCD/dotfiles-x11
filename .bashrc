@@ -1,5 +1,7 @@
 # .bashrc
 
+source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/lf-shell"
+
 if [ -e $HOME/.bash_aliases ]; then
     source $HOME/.bash_aliases
 fi
@@ -75,4 +77,4 @@ if [ -x "$(command -v fzf)" ]; then
 	    man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
 	}
 fi
-	
+

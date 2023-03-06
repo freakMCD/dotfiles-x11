@@ -1,0 +1,33 @@
+export LF_COLORS="\
+~/bin=01;35:\
+*.aac=00;37:\
+*.au=00;37:\
+*.flac=00;37:\
+*.m4a=00;37:\
+*.mid=00;37:\
+*.midi=00;37:\
+*.mka=00;37:\
+*.mp3=00;37:\
+*.mpc=00;37:\
+*.ogg=00;37:\
+*.ra=00;37:\
+*.wav=00;37:\
+*.oga=00;37:\
+*.opus=00;37:\
+*.spx=00;37:\
+*.xspf=00;37:\
+"
+
+lfcd() {
+	LF_SHELLCD_TEMPDIR="$(mktemp -d -t lf-shellcd-XXXXXX)"
+	export LF_SHELLCD_TEMPDIR
+	lf-ueberzug -last-dir-path "$LF_SHELLCD_TEMPDIR/lastdir" \
+		-command "source '${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc-shell'" "$@"
+	if [ -e "$LF_SHELLCD_TEMPDIR/changecwd" ] && \
+		dir="$(cat "$LF_SHELLCD_TEMPDIR/lastdir")" 2>/dev/null; then
+		cd "$dir"
+	fi
+	rm -rf "$LF_SHELLCD_TEMPDIR"
+	unset LF_SHELLCD_TEMPDIR
+}
+alias lf=lfcd
