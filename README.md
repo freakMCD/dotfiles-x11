@@ -3,20 +3,19 @@
 ## What's in it?
 
 * **WM**: dwm
-* **Terminal**: URxvt
+* **Terminal**: st
 * **Notifications**: Dunst
 * **Launcher**: fzf
-* **File Manager**: Ranger (TUI) | Thunar (GUI)
+* **File Manager**: lf
 * **Text Editor**: Neovim
 * **Music player** with ncmpcpp + mpd + mpc
-* **Image Viewer** : Feh
+* **Image Viewer** : feh
 * **PDF Reader**: Zathura
 * **RSS Reader**: Newsboat
 * **Email Client**: Neomutt
 * **Themes on the fly** using pywal
 * **Screenshots**: maim + xclip + xdotool
 * **Basic dotfiles** :
-    - i3 config file
     - .bashrc & .bash_profile
     - .Xresources
     - .xinitrc
@@ -31,9 +30,6 @@ HandlePowerKey=ignore
 
 #Replace line in /etc/default/grub
 GRUB_CMDLINE_LINUX="rhgb quiet radeon.cik_support=0 amdgpu.cik_support=1"
-
-#Add line in /usr/etc/npmrc
-cache=~/.cache/npm
 ```
 
 ## Guide Installation (after Fedora Everything minimal install)
@@ -46,7 +42,7 @@ max_parallel_downloads=10
 ```
 2. Install essential packages
 ```bash
-sudo dnf install @base-x dmenu rxvt-unicode dunst git qutebrowser libXft-devel libX11-devel
+sudo dnf install @base-x dmenu dunst git qutebrowser libXft-devel libX11-devel
 
 ## Run this first to save git credentials ##
 git config --global credential.helper "store --file ~/.local/share/git-credentials"
@@ -61,15 +57,6 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 ## Notes
 
 ### yadm
-
-**To choose commits to delete since an specified commit**
-```bash
-#Replace <commit> with the commit from where you want to rebase    
-yadm rebase -i <commit>~1
-
-#To rebase the branch
-yadm push origin head --force
-```
 
 **To commit all changes**
 
