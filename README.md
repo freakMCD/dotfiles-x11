@@ -3,7 +3,7 @@
 ## What's in it?
 
 * **WM**: dwm
-* **Terminal**: st
+* **Terminal**: st (+tmux)
 * **Notifications**: Dunst
 * **Launcher**: fzf
 * **File Manager**: lf
@@ -42,7 +42,7 @@ max_parallel_downloads=10
 ```
 2. Install essential packages
 ```bash
-sudo dnf install @base-x dmenu dunst git qutebrowser libXft-devel libX11-devel
+sudo dnf install @base-x dmenu dunst git libXft-devel libX11-devel qutebrowser tmux
 
 ## Run this first to save git credentials ##
 git config --global credential.helper "store --file ~/.local/share/git-credentials"
