@@ -67,7 +67,7 @@ usage() {
     echo
     echo "Usage: $0 [-dbtpah]"
     echo
-    echo "-d: Install dwm"
+    echo "-d: Install dwm, st"
     echo "-b: install basics and Setup Repos"
     echo "-t: install TeXlive packages"
     echo "-p: install Python packages"
@@ -86,7 +86,7 @@ while getopts "sbtah" OPTION
 do
     case $OPTION in
         d)
-            install_dwm
+            install_suckless
             exit 0
             ;;
         b)
