@@ -4,3 +4,4 @@ default-stream=best
 twitch-disable-ads
 twitch-low-latency
 stream-segment-threads=3
+stream-timeout=120

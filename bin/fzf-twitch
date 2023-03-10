@@ -10,8 +10,6 @@ from pathlib import Path
 player = "streamlink"
 streams = f"""bitnerlp
 insym
-emilyywang
-bebe872
 """
 sep = " | "
 

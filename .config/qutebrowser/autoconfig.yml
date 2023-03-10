@@ -170,6 +170,10 @@ settings:
     global: center
   url.default_page:
     global: about:blank
+  url.incdec_segments:
+    global:
+    - path
+    - query
   url.searchengines:
     global:
       DEFAULT: searx.be/search?q={}

@@ -1,5 +1,6 @@
 export LF_COLORS="\
 ~/bin=01;35:\
+~/Documents/bin=01;35:\
 *.aac=00;37:\
 *.au=00;37:\
 *.flac=00;37:\

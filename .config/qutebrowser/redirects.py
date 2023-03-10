@@ -6,9 +6,9 @@ import operator
 
 # Any return value other than a literal 'False' means we redirected
 REDIRECT_MAP = {
-	"reddit.com": operator.methodcaller('setHost', 'safereddit.com'),
-	"www.reddit.com": operator.methodcaller('setHost', 'safereddit.com'),
-    "old.reddit.com": operator.methodcaller('setHost', 'safereddit.com'),
+	"reddit.com": operator.methodcaller('setHost', 'libreddit.domain.glass'),
+	"www.reddit.com": operator.methodcaller('setHost', 'libreddit.domain.glass'),
+    "old.reddit.com": operator.methodcaller('setHost', 'libreddit.domain.glass'),
 	"twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
 	"www.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
     "music.youtube.com": operator.methodcaller('setHost', 'hyperpipe.surge.sh'),
