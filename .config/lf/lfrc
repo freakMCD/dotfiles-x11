@@ -37,7 +37,7 @@ cmd extract ${{
         *.tar.xz|*.txz) tar xJvf $f;;
         *.zip) unzip $f;;
         *.rar) unrar x $f;;
-        *.7z) xz $f;;
+        *.7z) 7za x $f;;
     esac
 }}
 

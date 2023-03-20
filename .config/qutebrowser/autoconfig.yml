@@ -104,6 +104,10 @@ settings:
     global: false
   content.webrtc_ip_handling_policy:
     global: all-interfaces
+  downloads.position:
+    global: top
+  downloads.remove_finished:
+    global: -1
   editor.command:
     global:
     - urxvt
