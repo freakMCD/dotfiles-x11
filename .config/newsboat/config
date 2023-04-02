@@ -20,7 +20,7 @@ macro s set browser "nohup streamlink --player-passthrough=hls %u >/dev/null 2>&
 bind-key o open-in-browser-and-mark-read
 
 
-ignore-article "https://raw.githubusercontent.com/ArjixWasTaken/anime-rss/main/animepahe/animepahe-rss.xml" "title !~ \"Blue Lock|Spy x Family|Pokemon\""
+ignore-article "https://raw.githubusercontent.com/ArjixWasTaken/anime-rss/main/animepahe/animepahe-rss.xml" "title !~ \"Blue Lock|Spy x Family\""
 ignore-article "https://yewtu.be/feed/channel/UC5uNya42ayhsRnZOR3mO6NA" "title =~ \"Phasmophobia\""
 ignore-article "https://www.kernel.org/feeds/kdist.xml" "title !~ \"stable\""
 

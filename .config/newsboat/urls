@@ -7,7 +7,8 @@ https://suckless.org/atom.xml dwm
 Animation
 https://raw.githubusercontent.com/ArjixWasTaken/anime-rss/main/animepahe/animepahe-rss.xml Anime
 http://feeds.feedburner.com/crunchyroll/one-piece Anime
-https://createfeed.fivefilters.org/extract.php?url=https%3A%2F%2Freadtcbscans.com%2Fmangas%2F5%2Fone-piece&in_id_or_class=col-span-2&max=5&order=document&guid=0 Manga
+https://createfeed.fivefilters.org/extract.php?url=https%3A%2F%2Fonepiecechapters.com%2Fmangas%2F5%2Fone-piece%3Fdate%3D23-3-2023-9&in_id_or_class=col-span-2 Manga
+https://createfeed.fivefilters.org/extract.php?url=https%3A%2F%2Fmangareader.to%2Fblue-lock-225&in_id_or_class=en-chapters&max=5&order=document&guid=0 Manga
 https://www.webtoons.com/en/supernatural/im-the-grim-reaper/rss?title_no=1697 Webtoon
 
 Youtube

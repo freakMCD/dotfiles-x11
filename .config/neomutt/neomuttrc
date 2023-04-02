@@ -1,28 +1,31 @@
 source ~/.config/neomutt/colors
 source ~/.config/neomutt/mappings
-source ~/.config/neomutt/credentials # imap_user= imap_pass=
+source ~/.config/neomutt/credentials # imap_user= imap_pass= smtp_url= smtp_pass=
 
 set from = "vastagox@gmail.com"
-set realname = "Edwin Velarde Jacinto"
+set realname = "Edwin Velarde"
 
-set header_cache = "~/.cache/mutt"
-set message_cachedir = "~/.cache/mutt"
+# Remote Gmail folders
 set folder = "imaps://imap.gmail.com:993"
-set spoolfile = "+INBOX"
-set trash= "+[Gmail]/Trash"
-set postponed = "+[Gmail]/Drafts"
+set spoolfile = +INBOX
+#set postponed = "+[Gmail]/Drafts"
+#set trash= "+[Gmail]/Trash"
+mailboxes =INBOX
+unset record
 
-set sort=reverse-date
+set header_cache = "~/.cache/mutt" # Store message headers locally to speed things up.
+set sort=reverse-date-received
 set timeout=30
+set imap_keepalive = 300
+set imap_passive=no
+set imap_idle=yes
+set mail_check = 120
 set thorough_search
-set imap_keepalive = 900
 #set nohelp
 
 # Index page format. Default "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
 set date_format="%d/%m"
 set index_format="%Z| %-24.24F %s %* [%d]"
-mailboxes =INBOX
-set mail_check = 120
 
 set editor=`echo \$EDITOR`
 set new_mail_command="notify-send 'Neomutt' '%n new emails' -t 0"
@@ -32,6 +35,16 @@ alternative_order text/plain text text/html #prefer plaintext over dumped html
 
 # Sidebar
 set sidebar_width=20
+
+# SSL hardening
+set ssl_force_tls=yes
+set ssl_starttls=yes
+set ssl_use_sslv3=no
+set ssl_use_tlsv1=no
+set ssl_use_tlsv1_1=no
+set ssl_use_tlsv1_2=yes
+set ssl_verify_dates=yes
+set ssl_verify_host=yes
 
 
 

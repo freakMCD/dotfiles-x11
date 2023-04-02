@@ -33,7 +33,7 @@ function whatrequires () {
 }
 
 function ttv () {
-    streamlink --title '{author} - {title} - {category}' twitch.tv/"$@" >/dev/null 2>&1 & exit
+    streamlink --title '{author} - {title} - {category}' twitch.tv/"$@" --player-args '--vd-lavc-threads=1 --cache-pause=no --video-latency-hacks=yes --untimed --loop-playlist=inf --loop-file=inf' >/dev/null 2>&1 & exit
 }
 
 function vod () {
@@ -43,7 +43,5 @@ function vod () {
 function dict () {
     curl -s 'dict://dict.org/d:'"$@"'' | nvim +Man!
 }
-
-
 
 

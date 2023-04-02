@@ -6,6 +6,7 @@ config.bind (',y2o', 'open https://invidious.baczek.me{url:path}?{url:query}')
 config.bind('/', 'set statusbar.show always;; set-cmd-text /')
 config.bind('<Escape>', 'mode-enter normal;; set statusbar.show in-mode', mode='command')
 config.bind('<Return>', 'command-accept;; set statusbar.show in-mode', mode='command')
+config.bind('xx', 'config-cycle tabs.show switching always')
 
 config.source('theme.py')
 config.source('redirects.py')
