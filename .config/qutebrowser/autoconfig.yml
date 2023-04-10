@@ -169,7 +169,7 @@ settings:
   tabs.position:
     global: top
   tabs.show:
-    global: multiple
+    global: always
   tabs.title.alignment:
     global: center
   url.default_page:

@@ -1,7 +1,6 @@
 // ==UserScript==
 // @match *://*.steampowered.com/*
 // @match *://web.whatsapp.com/
-// @match *://masterychart.com/*
 // ==/UserScript==
 
 const meta = document.createElement('meta');

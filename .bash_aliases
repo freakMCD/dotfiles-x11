@@ -33,7 +33,11 @@ function whatrequires () {
 }
 
 function ttv () {
-    streamlink --title '{author} - {title} - {category}' twitch.tv/"$@" --player-args '--vd-lavc-threads=1 --cache-pause=no --video-latency-hacks=yes --untimed --loop-playlist=inf --loop-file=inf' >/dev/null 2>&1 & exit
+    streamlink --twitch-ttvlol --title '{author} - {title} - {category}' twitch.tv/"$@" --player-args '--vd-lavc-threads=1 --cache-pause=no --video-latency-hacks=yes --untimed --loop-playlist=inf --loop-file=inf' >/dev/null 2>&1 & exit
+}
+
+function ttv2 () {
+    streamlink --title '{author} - {title} - {category}' twitch.tv/"$@" --player-args '--vd-lavc-threads=1 --volume=55 --video-sync=audio --cache-pause=no --video-latency-hacks=yes --loop-playlist=inf --loop-file=inf' >/dev/null 2>&1 & exit
 }
 
 function vod () {

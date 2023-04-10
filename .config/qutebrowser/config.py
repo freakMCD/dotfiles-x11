@@ -10,3 +10,5 @@ config.bind('xx', 'config-cycle tabs.show switching always')
 
 config.source('theme.py')
 config.source('redirects.py')
+
+c.qt.args = ["enable-gpu-rasterization", "ignore-gpu-blocklist"]
