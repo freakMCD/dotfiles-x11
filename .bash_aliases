@@ -1,16 +1,15 @@
 alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias aliasrc="nvim ~/.bash_aliases && source ~/.bashrc"
-alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
-alias playlist="mpv --shuffle --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 alias anime="animdl stream"
+alias bc="bc -l"
 alias mp3dl="yt-dlp --extract-audio --audio-format mp3"
+alias playlist="mpv --shuffle --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
+alias pywal='wal --saturate 0.5 -i ~/.config/wallpaper --iterative -n -o "~/.config/dunst/wal_dunst.sh"'
 
 alias git-apply="git apply --reject --whitespace=fix"
 alias rclone="rclone -P"
-
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-alias pywal='wal --saturate 0.5 -i ~/.config/wallpaper --iterative -n -o "~/.config/dunst/wal_dunst.sh"'
 
 # gpg aliases
 alias gpg-list="gpg --list-secret-keys --keyid-format LONG"
@@ -23,6 +22,7 @@ alias search="sudo dnf search"
 alias update="sudo dnf upgrade --refresh --exclude=kernel* --exclude=texlive* --exclude=libreoffice*"
 alias upgrade="sudo dnf upgrade --refresh --exclude=texlive* --exclude=libreoffice* "
 alias remove="sudo dnf remove"
+alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
 
 yadm-add-deleted () {
     yadm status | grep deleted | awk -F ':' '{print $2}' | xargs yadm add
@@ -33,11 +33,14 @@ function whatrequires () {
 }
 
 function ttv () {
-    streamlink --twitch-ttvlol --title '{author} - {title} - {category}' twitch.tv/"$@" --player-args '--vd-lavc-threads=1 --cache-pause=no --video-latency-hacks=yes --untimed --loop-playlist=inf --loop-file=inf' >/dev/null 2>&1 & exit
-}
-
-function ttv2 () {
-    streamlink --title '{author} - {title} - {category}' twitch.tv/"$@" --player-args '--vd-lavc-threads=1 --volume=55 --video-sync=audio --cache-pause=no --video-latency-hacks=yes --loop-playlist=inf --loop-file=inf' >/dev/null 2>&1 & exit
+    case "$@" in
+        liiter)
+            streamlink --title '{author} - {title} - {category}' twitch.tv/"$@" --player-args '--vd-lavc-threads=1 --volume=55 --video-sync=audio --cache-pause=no --video-latency-hacks=yes --loop-playlist=inf --loop-file=inf' >/dev/null 2>&1 & exit             
+            ;;            
+        *)
+            streamlink --twitch-ttvlol --title '{author} - {title} - {category}' twitch.tv/"$@" --player-args '--loop-playlist=inf --loop-file=inf' >/dev/null 2>&1 & exit
+            ;;
+    esac
 }
 
 function vod () {

@@ -24,8 +24,7 @@ set thorough_search
 #set nohelp
 
 # Index page format. Default "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
-set date_format="%d/%m"
-set index_format="%Z| %-24.24F %s %* [%d]"
+set index_format="%zs %-20.20F  %s %*   %[%d %b] "
 
 set editor=`echo \$EDITOR`
 set new_mail_command="notify-send 'Neomutt' '%n new emails' -t 0"

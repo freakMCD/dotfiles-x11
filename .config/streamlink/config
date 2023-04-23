@@ -1,7 +1,6 @@
 player-no-close
 player=mpv
 default-stream=best
-stream-segment-threads=2
 stream-timeout=120
 twitch-disable-ads
 twitch-low-latency

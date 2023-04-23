@@ -89,6 +89,7 @@ settings:
   content.media.audio_capture:
     https://discord.com: true
   content.notifications.enabled:
+    https://pendoria.net: true
     https://web.whatsapp.com: true
   content.notifications.presenter:
     global: auto
@@ -152,6 +153,8 @@ settings:
     global: true
   messages.timeout:
     global: 1000
+  qt.force_software_rendering:
+    global: none
   session.default_name:
     global: default
   statusbar.position:
@@ -181,7 +184,7 @@ settings:
   url.searchengines:
     global:
       DEFAULT: searx.be/search?q={}
-      r: https://www.reddit.com/r/{}
+      r: https://libreddit.domain.glass/r/{}
       wa: https://wiki.archlinux.org/?search={},
       yt: https://invidious.baczek.me/search?q={}
   url.start_pages:

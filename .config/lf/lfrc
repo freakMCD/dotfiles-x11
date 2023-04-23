@@ -17,8 +17,7 @@ map D delete
 map gu cd /usr/
 map gm cd ~/Music/2015-2022/
 map ge cd /etc/
-map gd cd /etc/dnf/
-map gr cd /etc/yum.repos.d/
+map gn cd ~/Documents/Notes/
 
 map P :link
 

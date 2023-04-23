@@ -6,8 +6,6 @@ import operator
 
 # Any return value other than a literal 'False' means we redirected
 REDIRECT_MAP = {
-	"reddit.com": operator.methodcaller('setHost', 'libreddit.domain.glass'),
-	"www.reddit.com": operator.methodcaller('setHost', 'libreddit.domain.glass'),
     "old.reddit.com": operator.methodcaller('setHost', 'libreddit.domain.glass'),
 	"twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
 	"www.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
@@ -15,7 +13,7 @@ REDIRECT_MAP = {
     #"youtube.com": operator.methodcaller('setHost', 'invidious.baczek.me'),
     "i.imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
     "imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
-    "quora.com": operator.methodcaller('setHost', 'qr.vern.cc'),
+    "www.quora.com": operator.methodcaller('setHost', 'quetre.iket.me'),
 }
 
 def int_fn(info: interceptor.Request):

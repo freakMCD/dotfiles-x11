@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sleep 5
 while "true"; do
     if ping -c 5 -W 5 google.com 1>/dev/null 2>&1 
     then
