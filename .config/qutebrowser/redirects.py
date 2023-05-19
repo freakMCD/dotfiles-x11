@@ -13,7 +13,7 @@ REDIRECT_MAP = {
     #"youtube.com": operator.methodcaller('setHost', 'invidious.baczek.me'),
     "i.imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
     "imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
-    "www.quora.com": operator.methodcaller('setHost', 'quetre.iket.me'),
+    #"www.quora.com": operator.methodcaller('setHost', 'quetre.iket.me'),
 }
 
 def int_fn(info: interceptor.Request):

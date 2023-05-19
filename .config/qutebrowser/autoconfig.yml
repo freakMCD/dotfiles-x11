@@ -27,6 +27,7 @@ settings:
         ',k': set-cmd-text --space :session-save --only-active-window
         ',m': hint links spawn --detach mpv {hint-url}
         ',pu': spawn --detach mpv {url}
+        ',v': hint links spawn streamlink --player-passthrough=hls {hint-url}
         ',y2o': open https://invidious.baczek.me{url:path}?{url:query}
         /: set statusbar.show always;; set-cmd-text /
         J: tab-next
@@ -37,6 +38,7 @@ settings:
         k: scroll-px 0 -200
         l: scroll-px 100 0
         q: null
+        xx: config-cycle tabs.show switching always
   colors.completion.category.fg:
     global: white
   colors.hints.bg:
@@ -50,13 +52,15 @@ settings:
   colors.webpage.darkmode.grayscale.images:
     global: 0.0
   colors.webpage.darkmode.policy.images:
-    global: never
+    global: smart
+  colors.webpage.darkmode.policy.page:
+    global: always
   colors.webpage.darkmode.threshold.background:
     global: 205
   colors.webpage.darkmode.threshold.text:
     global: 150
   colors.webpage.preferred_color_scheme:
-    global: auto
+    global: dark
   completion.open_categories:
     global:
     - searchengines
@@ -154,7 +158,7 @@ settings:
   messages.timeout:
     global: 1000
   qt.force_software_rendering:
-    global: none
+    global: qt-quick
   session.default_name:
     global: default
   statusbar.position:
