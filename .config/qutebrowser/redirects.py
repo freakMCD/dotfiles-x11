@@ -11,8 +11,8 @@ REDIRECT_MAP = {
 	"www.twitter.com": operator.methodcaller('setHost', 'nitter.snopyta.org'),
     "music.youtube.com": operator.methodcaller('setHost', 'hyperpipe.surge.sh'),
     #"youtube.com": operator.methodcaller('setHost', 'invidious.baczek.me'),
-    "i.imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
-    "imgur.com": operator.methodcaller('setHost', 'rimgo.pussthecat.org'),
+    "i.imgur.com": operator.methodcaller('setHost', 'rimgo.totaldarkness.net'),
+    "imgur.com": operator.methodcaller('setHost', 'rimgo.totaldarkness.net'),
     #"www.quora.com": operator.methodcaller('setHost', 'quetre.iket.me'),
 }
 

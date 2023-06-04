@@ -1,10 +1,29 @@
 // ==UserScript==
-// @name          Remove Background Image
-// @namespace     http://www.unixdaemon.net/gmscripts/
-// @description   Remove any background images.
-// @match       http://hbpms.blogspot.com/*
+// @name            Remove Background Image
+// @include         *hbpms.blogspot.com/*
+// @include         *.protondb.com/*
+// @include         *ebinaria.com/*
+// @run-at          document-start
 // ==/UserScript==
 
-(function() {
-  document.body.style.backgroundImage = "none";
+(function IIFE() {
+    'use strict';
+ 
+    document.addEventListener('readystatechange', function onReadyStateChange() {
+        if (document.readyState == 'interactive') {
+            const style = document.createElement('style');
+            document.head.appendChild(style);
+            style.innerHTML = `
+ 
+.root, .main {
+    background: none !important;
+}
+
+.root, .elementor-background-overlay {
+    background-image: none !important;
+} 
+            `;
+        }
+    });
 })();
+ 

@@ -72,3 +72,21 @@ yadm clone https://github.com/freakMCD/dotfiles.git
     nmcli dev disconnect <device>
     nmcli dev connect <device>
 
+### lftp
+
+**Connect to ftp server**
+
+    lftp ftp://192.168.1.3:2121
+
+**Copy Local directory to remote**
+
+    lftp 192.168.1.3:~> mirror -R --only-missing
+
+**Print Local working directory**
+
+    lftp 192.168.1.3:~> lpwd
+    /home/edwin/Music/2015-2022
+
+
+
+

@@ -42,7 +42,7 @@ mem() {
 if [ -x "$(command -v fzf)" ]; then
 	source /usr/share/fzf/shell/key-bindings.bash
 	source /etc/bash_completion.d/fzf
-	fdExclude="-E ".cache" -E "repo.git" -E "webengine""
+	fdExclude="-E ".cache" -E "repo.git" -E "webengine" -E "lib""
 	export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow $fdExclude"
 	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 	export FZF_ALT_C_COMMAND="fd --type d --hidden --follow $fdExclude" 

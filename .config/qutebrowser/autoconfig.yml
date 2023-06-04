@@ -39,6 +39,8 @@ settings:
         l: scroll-px 100 0
         q: null
         xx: config-cycle tabs.show switching always
+  changelog_after_upgrade:
+    global: never
   colors.completion.category.fg:
     global: white
   colors.hints.bg:
@@ -106,7 +108,7 @@ settings:
   content.user_stylesheets:
     global: null
   content.webgl:
-    global: false
+    global: true
   content.webrtc_ip_handling_policy:
     global: all-interfaces
   downloads.position:
@@ -158,7 +160,7 @@ settings:
   messages.timeout:
     global: 1000
   qt.force_software_rendering:
-    global: qt-quick
+    global: chromium
   session.default_name:
     global: default
   statusbar.position:
@@ -188,7 +190,6 @@ settings:
   url.searchengines:
     global:
       DEFAULT: searx.be/search?q={}
-      r: https://libreddit.domain.glass/r/{}
       wa: https://wiki.archlinux.org/?search={},
       yt: https://invidious.baczek.me/search?q={}
   url.start_pages:
