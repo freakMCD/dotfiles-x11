@@ -1,41 +1,33 @@
 #!/bin/bash
+# changeVolume
 
-notify_id=506
+msgTag="myvolume"
 
 function get_volume {
     pactl get-sink-volume 0 | awk '{print $5}' | cut -d '%' -f 1
 }
 
-function get_volume_icon {
-    if [ "$1" -lt 34 ]
-    then
-        echo -n "󰕿"
-    elif [ "$1" -lt 67 ]
-    then
-        echo -n "󰖀"
-    elif [ "$1" -le 100 ]
-    then
-        echo -n "󰕾"
-    else
-        echo -n "audio-volume-overamplified-symbolic.symbolic.png"
-    fi
-}
-
 function volume_notification {
     volume=`get_volume`
-    vol_icon=`get_volume_icon $volume`
-    bar=$(seq -s "─" $(($volume / 5)) | sed 's/[0-9]//g')
-    dunstify -r $notify_id -u low "$vol_icon $bar"
+
+    # Show the volume notification
+    dunstify -a "changeVolume" -u low -h string:x-dunst-stack-tag:$msgTag \
+    -h int:value:"$volume" "Volume: ${volume}%"
+
+    # Play the volume changed sound
+    canberra-gtk-play -i audio-volume-change -d "changeVolume"
 }
 
 function mute_notification {
     muted=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+
     if [ $muted == 'yes' ]
     then
-        dunstify -r $notify_id -u low "󰝟  muted"
+        dunstify -a "changeVolume" -u low -h string:x-dunst-stack-tag:$msgTag "Volume muted"
     else
-        dunstify -r $notify_id -u low "$(get_volume_icon $(get_volume))  unmute"
+        volume_notification
     fi
+    canberra-gtk-play -i audio-volume-change -d "changeVolume"
 }
 
 function mic_notification {
