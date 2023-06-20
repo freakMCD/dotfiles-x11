@@ -18,27 +18,7 @@ settings:
   auto_save.session:
     global: true
   bindings.commands:
-    global:
-      command:
-        <Escape>: mode-enter normal;; set statusbar.show in-mode
-        <Return>: command-accept;; set statusbar.show in-mode
-      normal:
-        ',M': hint links spawn --detach mpv --mute=yes {hint-url}
-        ',k': set-cmd-text --space :session-save --only-active-window
-        ',m': hint links spawn --detach mpv {hint-url}
-        ',pu': spawn --detach mpv {url}
-        ',v': hint links spawn streamlink --player-passthrough=hls {hint-url}
-        ',y2o': open https://invidious.baczek.me{url:path}?{url:query}
-        /: set statusbar.show always;; set-cmd-text /
-        J: tab-next
-        K: tab-prev
-        h: scroll-px -100 0
-        i: hint inputs
-        j: scroll-px 0 200
-        k: scroll-px 0 -200
-        l: scroll-px 100 0
-        q: null
-        xx: config-cycle tabs.show switching always
+    global: null
   changelog_after_upgrade:
     global: never
   colors.completion.category.fg:
@@ -79,6 +59,8 @@ settings:
     global:
     - https://easylist.to/easylist/easylist.txt
     - https://easylist.to/easylist/easyprivacy.txt
+  content.blocking.enabled:
+    global: true
   content.blocking.hosts.lists:
     global:
     - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
@@ -95,11 +77,13 @@ settings:
   content.media.audio_capture:
     https://discord.com: true
   content.notifications.enabled:
-    https://pendoria.net: true
     https://web.whatsapp.com: true
+    https://www.reddit.com: false
   content.notifications.presenter:
     global: auto
   content.notifications.show_origin:
+    global: false
+  content.pdfjs:
     global: false
   content.prefers_reduced_motion:
     global: true
@@ -159,8 +143,13 @@ settings:
     global: true
   messages.timeout:
     global: 1000
+  qt.args:
+    global:
+    - ignore-gpu-blacklist
+    - enable-native-gpu-memory-buffers
+    - num-raster-threads=4
   qt.force_software_rendering:
-    global: chromium
+    global: none
   session.default_name:
     global: default
   statusbar.position:
@@ -189,7 +178,7 @@ settings:
     - query
   url.searchengines:
     global:
-      DEFAULT: searx.be/search?q={}
+      DEFAULT: https://lite.qwant.com/?q={}
       wa: https://wiki.archlinux.org/?search={},
       yt: https://invidious.baczek.me/search?q={}
   url.start_pages:
