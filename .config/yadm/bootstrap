@@ -48,9 +48,13 @@ install_texlive_packages() {
 }
 
 enable_services () {
+    systemctl daemon-reload 
+
     echo "Starting/enabling mpd service"
-    systemctl --user start mpd.service
-    systemctl --user enable mpd.service  
+    systemctl --user enable --now mpd.service 
+
+    echo "Starting user timers"
+    systemctl enable --now alarm.timer
 
     echo "Disabling cups, sshd services, dnf-makecache"
     systemctl disable --now dnf-makecache.timer
