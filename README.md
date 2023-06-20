@@ -80,7 +80,7 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 
 **Copy Local directory to remote**
 
-    lftp 192.168.1.3:~> mirror -R --only-missing
+    lftp 192.168.1.3:~> mirror -R --only-missing --no-recursion
 
 **Print Local working directory**
 
