@@ -1,163 +1,70 @@
-import random
-import re
 from qutebrowser.api import interceptor
-from qutebrowser.extensions.interceptors import RedirectException
-from qutebrowser.utils import message
+from urllib.parse import urljoin
+from PyQt5.QtCore import QUrl
+import operator
 
-redirects = {
-    "youtube": {
-        "source": ["youtube.com"],
-        "target": [
-            "yt.oelrichsgarcia.de",
-            "invidious.weblibre.org",
-            "invidious.dhusch.de",
-            "iv.ggtyler.dev",
-            "invidious.baczek.me",
-            "yt.funami.tech",
-            "iv.melmac.space",
-            "invidious.silur.me",
-            "inv.riverside.rocks",
-            "invidious.lidarshield.cloud",
-            "invidious.flokinet.to",
-            "invidious.snopyta.org",
-            "invidious.kavin.rocks",
-            "vid.puffyan.us",
-            "yt.artemislena.eu",
-            "invidious.nerdvpn.de",
-            "invidious.tiekoetter.com",
-            "invidious.namazso.eu",
-            "inv.vern.cc",
-            "yewtu.be",
-            "inv.bp.projectsegfau.lt",
-            "invidious.epicsite.xyz",
-            "y.com.sb",
-            "invidious.sethforprivacy.com",
-        ],
-    },
-    
-    "twitter": {
-        "source": ["twitter.com"],
-        "target": [
-            "nitter.net",
-            "nitter.42l.fr",
-            "nitter.fdn.fr",
-            "nitter.1d4.us",
-            "nitter.kavin.rocks",
-            "nitter.unixfox.eu",
-            "nitter.namazso.eu",
-            "nitter.moomoo.me",
-            "bird.trom.tf",
-            "nitter.it",
-            "twitter.censors.us",
-            "nitter.grimneko.de",
-            "twitter.076.ne.jp",
-            "n.l5.ca",
-            "unofficialbird.com",
-            "nitter.ungovernable.men",
-        ],
-    },
-    "imdb": {
-        "source": ["imdb.com"],
-        "target": [
-            "libremdb.iket.me",
-            "libremdb.pussthecat.org",
-            "libremdb.esmailelbob.xyz",
-            "ld.vern.cc",
-            "binge.whatever.social",
-            "libremdb.lunar.icu",
-        ],
-    },
-    "translate": {
-        "source": ["translate.google.com"],
-        "target": [
-            "lingva.ml",
-            "translate.igna.wtf",
-            "translate.plausibility.cloud",
-            "translate.projectsegfau.lt",
-            "translate.dr460nf1r3.org",
-            "lingva.garudalinux.org",
-            "translate.jae.fi",
-        ],
-    },
-    "tiktok": {
-        "source": ["tiktok.com"],
-        "target": [
-            "proxitok.pabloferreiro.es",
-            "proxitok.pussthecat.org",
-            "tok.habedieeh.re",
-            "proxitok.esmailelbob.xyz",
-            "proxitok.privacydev.net",
-            "proxitok.odyssey346.dev",
-            "tok.artemislena.eu",
-            "tok.adminforge.de",
-            "proxitok.manasiwibi.com",
-            "tik.hostux.net",
-            "tt.vern.cc",
-            "proxitok.mha.fi",
-            "proxitok.pufe.org",
-            "proxitok.marcopisco.com",
-            "cringe.whatever.social",
-            "proxitok.lunar.icu",
-        ],
-    },
-    "imgur": {
-        "source": ["imgur.com"],
-        "target": [
-            "rimgo.bcow.xyz",
-            "rimgo.pussthecat.org",
-            "rimgo.totaldarkness.net",
-            "rimgo.esmailelbob.xyz",
-            "imgur.artemislena.eu",
-            "rimgo.vern.cc",
-            "rim.odyssey346.dev",
-            "rimgo.privacytools.io",
-            "rimgo.hostux.net",
-            "ri.zzls.xyz",
-            "rimgo.marcopisco.com",
-            "rimgo.lunar.icu",
-        ],
-    },
-       
-    "wiki-en": {
-        "source": ["en.wikipedia.org"],
-        "target": [
-            "wiki.adminforge.de",
-            "wiki.froth.zone",
-            "wiki.slipfox.xyz",
-            "wikiless.esmailelbob.xyz",
-            "wikiless.funami.tech",
-            "wikiless.org",
-            "wikiless.tiekoetter.com",
-        ],
-    },
-}
+o = operator.methodcaller
+s = 'setHost'
+i = interceptor
 
+def farside(url: QUrl, i) -> bool:
+    url.setHost('farside.link')
+    p = url.path().strip('/')
+    url.setPath(urljoin(i, p))
+    return True
 
-def rewrite(request: interceptor.Request):
-    if (
-        request.resource_type != interceptor.ResourceType.main_frame
-        or request.request_url.scheme() in {"data", "blob"}
-    ):
+def nitter(url: QUrl) -> bool:
+    return farside(url, '/nitter/')
+def rimgo(url: QUrl) -> bool:
+    return farside(url, '/rimgo/')
+def scribe(url: QUrl) -> bool:
+    return farside(url, '/scribe/')
+def invid(url: QUrl) -> bool:
+    return farside(url, '/invidious/')
+#def reddit(url: QUrl) -> bool:
+#    return farside(url, '/libreddit/')
+def simplytranslate(url: QUrl) -> bool:
+    return farside(url, '/simplytranslate/')
+def proxitok(url: QUrl) -> bool:
+    return farside(url, '/proxitok/')
+def quetre (url: QUrl) -> bool:
+    return farside(url, '/quetre/')
+def breezewiki (url: QUrl) -> bool:
+    return farside(url, '/breezewiki/')
+def dumb (url: QUrl) -> bool:
+    return farside(url, '/dumb/')
+def anonymousoverflow (url: QUrl) -> bool:
+    return farside(url, '/anonymousoverflow/')
+
+map = {
+        #"reddit.com": reddit,
+        #"www.reddit.com": reddit,
+        #"old.reddit.com": reddit,
+
+        "twitter.com": nitter,
+        "mobile.twitter.com": nitter,
+
+#        "imgur.com" : rimgo,
+        "medium.com" : scribe,
+        "translate.google.com" : simplytranslate,
+        "vm.tiktok.com" : proxitok,
+        "www.tiktok.com" : proxitok,
+        "www.quora.com": quetre,
+        "fandom.com": breezewiki,
+        "www.fandom.com": breezewiki,
+        "genius.com" : dumb,
+        "stackoverflow.com" : anonymousoverflow,
+
+        "twitch.tv" : o(s, 'm.twitch.tv'),
+        "tumblr.com" : o(s, 'splashblr.fly.dev'),
+        "www.goodreads.com" : o(s, 'bl.vern.cc'),
+        }
+def f(info: i.Request):
+    if (info.resource_type != i.ResourceType.main_frame or
+            info.request_url.scheme() in {"data", "blob"}):
         return
-
-    url = request.request_url
-
-    for service in redirects.values():
-        matched = False
-        for source in service["source"]:
-            if re.search(source, url.host()):
-                matched = True
-
-        if matched:
-            target = service["target"][random.randint(0, len(service["target"]) - 1)]
-            if target is not None and url.setHost(target) is not False:
-                if "postprocess" in service:
-                    service["postprocess"](url)
-                try:
-                    request.redirect(url)
-                except RedirectException as e:
-                    message.error(str(e))
-                break
-
-
-interceptor.register(rewrite)
+    url = info.request_url
+    redir = map.get(url.host())
+    if redir is not None and redir(url) is not False:
+        info.redirect(url)
+i.register(f)

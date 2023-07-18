@@ -18,7 +18,28 @@ settings:
   auto_save.session:
     global: true
   bindings.commands:
-    global: null
+    global:
+      command:
+        <Escape>: mode-enter normal;; set statusbar.show in-mode
+        <Return>: command-accept;; set statusbar.show in-mode
+      normal:
+        ',M': spawn --detach mpv {url}
+        ',m': hint links userscript qutebrowser-mpv
+        /: set statusbar.show always;; set-cmd-text /
+        ':': 'set statusbar.show always;; set-cmd-text :'
+        <Space>js: config-cycle content.javascript.enabled true false
+        <Space>t: config-cycle tabs.show switching always
+        <Space>v: config-source
+        J: tab-next
+        K: tab-prev
+        O: set statusbar.show always;; set-cmd-text -s :open -t
+        h: scroll-px -100 0
+        i: hint inputs
+        j: scroll-px 0 200
+        k: scroll-px 0 -200
+        l: scroll-px 100 0
+        o: set statusbar.show always;; set-cmd-text -s :open
+        q: null
   changelog_after_upgrade:
     global: never
   colors.completion.category.fg:
@@ -73,18 +94,23 @@ settings:
   content.javascript.can_access_clipboard:
     github.com: true
   content.javascript.enabled:
-    global: true
+    '*://mangareader.to/*': true
+    '*://www.avabur.com/*': true
+    '*://www.halhigdon.com/*': true
+    '*://www.omaforos.com.ar/*': true
+    global: false
   content.media.audio_capture:
     https://discord.com: true
   content.notifications.enabled:
     https://web.whatsapp.com: true
+    https://www.avabur.com: true
     https://www.reddit.com: false
   content.notifications.presenter:
     global: auto
   content.notifications.show_origin:
     global: false
   content.pdfjs:
-    global: false
+    global: true
   content.prefers_reduced_motion:
     global: true
   content.register_protocol_handler:
@@ -133,6 +159,8 @@ settings:
     global: bold 10.5pt default_family
   hints.chars:
     global: qwertasdfgzxcvb
+  hints.mode:
+    global: letter
   hints.radius:
     global: 3
   hints.scatter:
@@ -150,6 +178,8 @@ settings:
     - num-raster-threads=4
   qt.force_software_rendering:
     global: none
+  search.incremental:
+    global: false
   session.default_name:
     global: default
   statusbar.position:
@@ -160,6 +190,8 @@ settings:
     global: 0.8
   tabs.favicons.show:
     global: pinned
+  tabs.mode_on_change:
+    global: restore
   tabs.new_position.unrelated:
     global: last
   tabs.pinned.shrink:

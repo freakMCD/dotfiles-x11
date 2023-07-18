@@ -23,6 +23,7 @@ js_whitelist = [
     "*://*.reddit.com/*",
     "*://translate.google.com/*",
     "*://*.stackexchange.com/*",
+    "*://*.qwant.com/*",
     "chrome://*/*",
     "file://*",
     "qute://*/*",
@@ -40,10 +41,11 @@ config.source('maps.py')
 c.qt.args = ["ignore-gpu-blacklist", "enable-native-gpu-memory-buffers", "num-raster-threads=4", "disable-features=PreloadMediaEngagementData, MediaEngagementBypassAutoplayPolicies"]
 
 c.url.searchengines = {
-    "DEFAULT": "https://lite.qwant.com/?q={}", 
+    "DEFAULT": "https://qwant.com/?q={}", 
     "al": "https://wiki.archlinux.org/?search={},", 
     "g": "https://www.google.com/search?q={}",
     "gh": "https://github.com/search?q={}",
-    "yt": "https://invidious.baczek.me/search?q={}",
-    "r": "https://www.reddit.com/r/{}",
+    "map": "https://www.google.com/maps/search/?api=1&query={}",
+    "yt": "farside.link/invidious/search?q={}",
+    "r": "reddit.com/r/{}",
 }

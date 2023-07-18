@@ -1,0 +1,8 @@
+#!/bin/sh
+case $QUTE_URL in
+    *twitch.tv/[!videos]*)
+		#streamlink --twitch-api-header=Client-Id=ue6666qo983tsx6so1t0vnawi233wa --twitch-ttvlol --title '{author} - {title} - {category}' $QUTE_URL --player-args '--volume=80 --loop-playlist=inf' >/dev/null 2>&1 &exit;;  
+		streamlink --twitch-ttvlol --twitch-reexec-on-ad --title '{author} - {title} - {category}' $QUTE_URL --player-args '--volume=80 --loop-playlist=inf' >/dev/null 2>&1 &exit;;  
+	*)
+		mpv --loop-playlist=inf --volume=80 $QUTE_URL >/dev/null 2>&1 &exit;;
+esac
