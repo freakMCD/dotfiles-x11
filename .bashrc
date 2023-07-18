@@ -1,6 +1,7 @@
 # .bashrc
 
 source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/lf-shell"
+source "$HOME/.local/share/linuxfedora"
 
 if [ -e $HOME/.bash_aliases ]; then
     source $HOME/.bash_aliases

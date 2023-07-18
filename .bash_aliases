@@ -32,17 +32,7 @@ function whatrequires () {
     sudo dnf history "$@"| egrep -w 'install|upgrade'
 }
 
-function ttv () {
-    case "$@" in
-        liiter)
-            streamlink --title '{author} - {title} - {category}' twitch.tv/"$@" --player-args '--vd-lavc-threads=1 --volume=55 --video-sync=audio --cache-pause=no --video-latency-hacks=yes --loop-playlist=inf --loop-file=inf' >/dev/null 2>&1 & exit;;  
-        *)
-            streamlink --twitch-ttvlol --title '{author} - {title} - {category}' twitch.tv/"$@" --player-args '--loop-playlist=inf --loop-file=inf' >/dev/null 2>&1 & exit;;  
-    esac
-}
-
 function dict () {
     curl -s 'dict://dict.org/d:'"$@"'' | nvim +Man!
 }
-
 

@@ -65,6 +65,10 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 **For files you will never edit (e.g. "LICENSE")**
 
     yadm update-index --assume-unchanged <filepath>
+
+### pass
+
+    export PASSWORD_STORE_GPG_OPTS='--pinentry-mode=loopback --passphrase <passphrase>'
     
 ### nmcli
 
