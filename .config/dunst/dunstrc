@@ -154,6 +154,8 @@
 
     ### Misc/Advanced ###
 
+    enable_posix_regex = yes
+
     # dmenu path.
     dmenu = /usr/bin/dmenu -p dunst:
 
@@ -292,20 +294,19 @@
 #[fullscreen_show_critical]
 #    msg_urgency = critical
 #    fullscreen = show
-
-[mpd]
-appname = mpd
-max_icon_size = 128
-format = "<b><span color='#4a87b2' size='12pt'>%s</span></b> %b"
-icon_position = right
-#alignment = center
-
-[play_sound]
-summary = "newsboat"
-script = "~/.config/dunst/alert"
-
+#
 [show_in_fullscreen]
 fullscreen = show
+
+[Feed]
+summary = "newsboat|Neomutt|Apagando"
+script = "~/.config/dunst/alert"
+
+[Alarmas]
+summary = "ejercicio"
+script = "~/.config/dunst/alarms/alarms.sh"
+
+
 
 
 #[espeak]
