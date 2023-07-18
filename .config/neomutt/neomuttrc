@@ -29,6 +29,7 @@ set index_format="%zs %-20.20F  %s %*   %[%d %b] "
 set editor=`echo \$EDITOR`
 set new_mail_command="notify-send 'Neomutt' '%n new emails' -t 0"
 set mailcap_path="~/.config/neomutt/mailcap"
+unset wait_key
 
 alternative_order text/plain text text/html #prefer plaintext over dumped html
 
