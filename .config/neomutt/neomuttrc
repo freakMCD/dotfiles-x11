@@ -3,49 +3,42 @@ source ~/.config/neomutt/mappings
 source ~/.config/neomutt/credentials # imap_user= imap_pass= smtp_url= smtp_pass=
 
 set from = "vastagox@gmail.com"
-set realname = "Edwin Velarde"
+set real_name = "Edwin Velarde"
 
-# Remote Gmail folders
-set folder = "imaps://imap.gmail.com:993"
-set spoolfile = +INBOX
-#set postponed = "+[Gmail]/Drafts"
-#set trash= "+[Gmail]/Trash"
-mailboxes =INBOX
-unset record
+# Gmail
+set folder = "imaps://imap.gmail.com/"
+set spool_file = +INBOX
+mailboxes = +INBOX
+set postponed="+[Gmail]/Borradores"
 
+# Allow Mutt to open a new IMAP connection automatically.
+unset imap_passive
+
+## Generic
+set move=no
+set timeout=10
+set mail_check = 60
+set mailcap_path="~/.config/neomutt/mailcap"
 set header_cache = "~/.cache/mutt" # Store message headers locally to speed things up.
+set pager_stop=yes
 set sort=reverse-date-received
-set timeout=30
-set imap_keepalive = 300
-set imap_passive=no
-unset imap_idle
-set mail_check = 120
+set quit=ask-yes
 set thorough_search
-#set nohelp
-
-# Index page format. Default "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
-set index_format="%zs %-20.20F  %s %*   %[%d %b] "
+unset record
+unset wait_key
 
 set editor=`echo \$EDITOR`
 set new_mail_command="notify-send 'Neomutt' '%n new emails' -t 0"
-set mailcap_path="~/.config/neomutt/mailcap"
-unset wait_key
 
 alternative_order text/plain text text/html #prefer plaintext over dumped html
-
-# Sidebar
-set sidebar_width=20
 
 # SSL hardening
 set ssl_force_tls=yes
 set ssl_starttls=yes
-set ssl_use_sslv3=no
-set ssl_use_tlsv1=no
-set ssl_use_tlsv1_1=no
-set ssl_use_tlsv1_2=yes
-set ssl_verify_dates=yes
-set ssl_verify_host=yes
 
+# Index page format. Default "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+set index_format="%zs %-20.20F  %s %*   %[%d %b] "
+# Sidebar
+set sidebar_width=20
 
-
-
+#set nohelp

@@ -4,19 +4,26 @@ leader = "<Space>"
 # 'LocalLeader' key binding -- intended for 'in-page' personal maps
 lleader = ","
 
-config.set('hints.selectors', {'videos': ['*[href]'], **c.hints.selectors}, pattern='*')
-config.set('hints.selectors', {'videos': ['ytd-thumbnail > #thumbnail'], **c.hints.selectors}, pattern='*://*.youtube.com/*')
-config.set('hints.selectors', {'videos': ['a[href*="imgur"]'], 'rddt-comments': ['.comments'], 'rddt-expando': ['.expando-button'], 'rddt-titles': ['.title'], **c.hints.selectors}, pattern='*://*.reddit.com/*')
+c.hints.chars = "asdghjkl"
+config.bind('f', 'mode-leave', mode='hint')
 
+config.set('hints.selectors', {'videos': ['a[href]'],**c.hints.selectors}, pattern='*')
+config.set('hints.selectors', {'videos': ['ytd-thumbnail > #thumbnail']}, pattern='*://*.youtube.com/*')
+config.set('hints.selectors', \
+        {'all':      ['.choice, .next-button, .reply-button, .comments, [rel="nofollow"]:not([data-event-action])'], \
+            'videos':   ['a[href*="youtu"]:not([href*="domain"]), a[href*=".gifv"]'], \
+            'expando':  ['.expando-button'], }, pattern='*://*.reddit.com/*')
+config.set('hints.selectors', {'all': ['.nav-main-link.nav-compact.pointer-enabled']}, pattern='*://melvoridle.com/*')
 
 bind = {
 	leader + "js": "config-cycle content.javascript.enabled true false",
-	leader + "t": 'config-cycle tabs.show switching always',
-	leader + "v": "config-source ;; message-info 'qutebrowser reloaded' ",
+	leader + "t": "config-cycle tabs.show switching always",
+	leader + "v": "config-source ;; message-info 'qutebrowser reloaded'",
 
     lleader + "m": "hint videos userscript qutebrowser-mpv",
+    ";" + "m": "hint --rapid videos spawn umpv {hint-url}",
     lleader + "M": "spawn mpv {url}",
-    "e": "hint rddt-expando",
+    "e": "hint expando",
     "<Alt+e>": "hint rddt-comments",
 
 	'/': 'set statusbar.show always;; set-cmd-text /',

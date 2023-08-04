@@ -38,14 +38,17 @@ config.source('theme.py')
 config.source('redirects.py')
 config.source('maps.py')
 
-c.qt.args = ["ignore-gpu-blacklist", "enable-native-gpu-memory-buffers", "num-raster-threads=4", "disable-features=PreloadMediaEngagementData, MediaEngagementBypassAutoplayPolicies"]
+c.qt.args = ["enable-features=VaapiVideoDecoder"]
 
 c.url.searchengines = {
-    "DEFAULT": "https://qwant.com/?q={}", 
-    "al": "https://wiki.archlinux.org/?search={},", 
+    "DEFAULT": "https://lite.duckduckgo.com/lite/?q={}",
+    "al": "https://wiki.archlinux.org/?search={}", 
     "g": "https://www.google.com/search?q={}",
     "gh": "https://github.com/search?q={}",
     "map": "https://www.google.com/maps/search/?api=1&query={}",
     "yt": "farside.link/invidious/search?q={}",
     "r": "reddit.com/r/{}",
+    "R": "https://lite.duckduckgo.com/lite/?q={}%20site%3Areddit.com",
+    "wm": "https://wiki.melvoridle.com/index.php?search={}",
+    "rm": "https://lite.duckduckgo.com/lite/?q={}%20site%3Areddit.com/r/melvoridle",
 }

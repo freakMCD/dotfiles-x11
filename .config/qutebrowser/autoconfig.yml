@@ -52,8 +52,10 @@ settings:
     global: 0.0
   colors.webpage.darkmode.enabled:
     global: true
+  colors.webpage.darkmode.grayscale.all:
+    global: false
   colors.webpage.darkmode.grayscale.images:
-    global: 0.0
+    global: 0.1
   colors.webpage.darkmode.policy.images:
     global: smart
   colors.webpage.darkmode.policy.page:
@@ -94,14 +96,30 @@ settings:
   content.javascript.can_access_clipboard:
     github.com: true
   content.javascript.enabled:
+    '*://*.steamcommunity.com/*': true
+    '*://bancaporinternet.interbank.pe/*': true
+    '*://discord.com/*': true
+    '*://interbank.pe/*': true
+    '*://login.live.com/*': true
     '*://mangareader.to/*': true
+    '*://math.libretexts.org/*': true
+    '*://melvoridle.com/*': true
+    '*://outlook.live.com/*': true
+    '*://pkgs.org/*': true
+    '*://privacynotice.account.microsoft.com/*': true
+    '*://rhel.pkgs.org/*': true
+    '*://store.steampowered.com/*': true
+    '*://twitter.com/*': true
     '*://www.avabur.com/*': true
     '*://www.halhigdon.com/*': true
     '*://www.omaforos.com.ar/*': true
+    '*://www.protondb.com/*': true
+    '*://www.webtoons.com/*': true
     global: false
   content.media.audio_capture:
     https://discord.com: true
   content.notifications.enabled:
+    https://melvoridle.com: true
     https://web.whatsapp.com: true
     https://www.avabur.com: true
     https://www.reddit.com: false
@@ -115,6 +133,7 @@ settings:
     global: true
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: false
+    https://outlook.live.com?mailtouri=%25s: false
   content.user_stylesheets:
     global: null
   content.webgl:
@@ -172,10 +191,7 @@ settings:
   messages.timeout:
     global: 1000
   qt.args:
-    global:
-    - ignore-gpu-blacklist
-    - enable-native-gpu-memory-buffers
-    - num-raster-threads=4
+    global: null
   qt.force_software_rendering:
     global: none
   search.incremental:
@@ -185,7 +201,7 @@ settings:
   statusbar.position:
     global: bottom
   statusbar.show:
-    global: in-mode
+    global: always
   tabs.favicons.scale:
     global: 0.8
   tabs.favicons.show:
@@ -215,3 +231,11 @@ settings:
       yt: https://invidious.baczek.me/search?q={}
   url.start_pages:
     global: about:blank
+  url.yank_ignored_parameters:
+    global:
+    - ref
+    - utm_source
+    - utm_medium
+    - utm_campaign
+    - utm_term
+    - utm_content
