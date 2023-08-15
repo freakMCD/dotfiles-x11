@@ -2,7 +2,6 @@ alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias aliasrc="nvim ~/.bash_aliases && source ~/.bashrc"
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
-alias anime="animdl stream"
 alias bc="bc -l"
 alias mp3dl="yt-dlp --extract-audio --audio-format mp3"
 alias playlist="mpv --shuffle --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
@@ -20,6 +19,7 @@ alias gpg-restore="gpg --import-options restore --import private.gpg"
 alias install="sudo dnf install"
 alias search="sudo dnf search"
 alias update="sudo dnf upgrade --refresh --exclude=kernel* --exclude=texlive* --exclude=libreoffice*"
+#alias update-mesa"sudo dnf update --enablerepo=updates-testing,rpmfusion-free-updates-testing mesa*"
 alias upgrade="sudo dnf upgrade --refresh --exclude=texlive* --exclude=libreoffice* "
 alias remove="sudo dnf remove"
 alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
@@ -34,5 +34,13 @@ function whatrequires () {
 
 function dict () {
     curl -s 'dict://dict.org/d:'"$@"'' | nvim +Man!
+}
+
+function anime() {
+    animdl stream "$1" -r $2
+}
+
+function ttv () {
+    streamlink --twitch-ttvlol --twitch-proxy-playlist=https://eu.luminous.dev,https://as.luminous.dev --title '{author} - {title} - {category}' twitch.tv/$@ --player-args '--loop-playlist' >/dev/null 2>&1 &exit
 }
 

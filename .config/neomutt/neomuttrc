@@ -37,7 +37,7 @@ set ssl_force_tls=yes
 set ssl_starttls=yes
 
 # Index page format. Default "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
-set index_format="%zs %-20.20F  %s %*   %[%d %b] "
+set index_format="%zs %-20.20F  %s %*   %[%d %b | %H:%M] "
 # Sidebar
 set sidebar_width=20
 

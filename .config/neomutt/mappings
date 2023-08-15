@@ -17,4 +17,3 @@ bind index,pager \Cn sidebar-next-new
 bind index,pager \CB sidebar-toggle-visible
 
 macro index,pager B "<view-attachments><search>html<enter><view-mailcap><exit><exit>"
-macro index,pager T "<shell-escape>streamlink --twitch-ttvlol --twitch-proxy-playlist=https://eu.luminous.dev,https://as.luminous.dev --title '{author} - {title} - {category}' twitch.tv/insym --player-args '--volume=80 --loop-playlist=inf' >/dev/null 2>&1 &exit<enter>"

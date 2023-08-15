@@ -14,6 +14,7 @@ mpc random on && mpc add / &
 dunst &
 
 #start dwm
-~/bin/startup/mpcsignal &
-~/bin/startup/dwm-status &
+~/bin/startup/signals/mpc_status &
+~/bin/startup/signals/net_status &
+~/bin/startup/dwm-status & 
 exec ~/bin/startdwm

@@ -23,6 +23,7 @@ setup_repos() {
 
 install_basics() {
     # Multimedia codecs and printing packages
+    sudo dnf pciutils cpu-x 
     sudo dnf install @multimedia @printing --exclude=qt5-qtwebengine-freeworld,pipewire-codec-aptx 
 
     # Basics

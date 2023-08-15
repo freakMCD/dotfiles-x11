@@ -38,7 +38,7 @@ config.source('theme.py')
 config.source('redirects.py')
 config.source('maps.py')
 
-c.qt.args = ["enable-features=VaapiVideoDecoder"]
+#c.qt.args = ["disable-gpu"]
 
 c.url.searchengines = {
     "DEFAULT": "https://lite.duckduckgo.com/lite/?q={}",

@@ -27,7 +27,6 @@ function mute_notification {
     else
         volume_notification
     fi
-    canberra-gtk-play -i audio-volume-change -d "changeVolume"
 }
 
 function mic_notification {

@@ -99,23 +99,31 @@ settings:
     '*://*.steamcommunity.com/*': true
     '*://bancaporinternet.interbank.pe/*': true
     '*://discord.com/*': true
+    '*://fedora.pkgs.org/*': true
+    '*://gitlab.freedesktop.org/*': true
     '*://interbank.pe/*': true
     '*://login.live.com/*': true
     '*://mangareader.to/*': true
     '*://math.libretexts.org/*': true
     '*://melvoridle.com/*': true
+    '*://onepace.net/*': true
     '*://outlook.live.com/*': true
     '*://pkgs.org/*': true
     '*://privacynotice.account.microsoft.com/*': true
     '*://rhel.pkgs.org/*': true
     '*://store.steampowered.com/*': true
     '*://twitter.com/*': true
+    '*://unitru.edu.pe/*': true
+    '*://web.archive.org/*': true
     '*://www.avabur.com/*': true
     '*://www.halhigdon.com/*': true
+    '*://www.msi.com/*': true
+    '*://www.msn.com/*': true
+    '*://www.nerdfonts.com/*': true
     '*://www.omaforos.com.ar/*': true
     '*://www.protondb.com/*': true
     '*://www.webtoons.com/*': true
-    global: false
+    global: true
   content.media.audio_capture:
     https://discord.com: true
   content.notifications.enabled:
@@ -177,7 +185,7 @@ settings:
   fonts.hints:
     global: bold 10.5pt default_family
   hints.chars:
-    global: qwertasdfgzxcvb
+    global: asdghzxcvb
   hints.mode:
     global: letter
   hints.radius:
@@ -201,7 +209,7 @@ settings:
   statusbar.position:
     global: bottom
   statusbar.show:
-    global: always
+    global: in-mode
   tabs.favicons.scale:
     global: 0.8
   tabs.favicons.show:
