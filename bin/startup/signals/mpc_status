@@ -1,0 +1,8 @@
+#!/bin/bash
+# Signal to display current song in dwm-status
+
+sleep 5
+while true; do
+    mpc idle player   
+    kill -RTMIN+1 $(cat ~/.cache/pidofbar)
+done
