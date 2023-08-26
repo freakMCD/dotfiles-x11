@@ -49,6 +49,4 @@ c.url.searchengines = {
     "yt": "farside.link/invidious/search?q={}",
     "r": "reddit.com/r/{}",
     "R": "https://lite.duckduckgo.com/lite/?q={}%20site%3Areddit.com",
-    "wm": "https://wiki.melvoridle.com/index.php?search={}",
-    "rm": "https://lite.duckduckgo.com/lite/?q={}%20site%3Areddit.com/r/melvoridle",
 }

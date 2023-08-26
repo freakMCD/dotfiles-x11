@@ -97,8 +97,12 @@ settings:
     github.com: true
   content.javascript.enabled:
     '*://*.steamcommunity.com/*': true
+    '*://1337x.to/*': true
+    '*://account.live.com/*': true
     '*://bancaporinternet.interbank.pe/*': true
+    '*://bodhi.fedoraproject.org/*': true
     '*://discord.com/*': true
+    '*://faccfm.unitru.edu.pe/*': true
     '*://fedora.pkgs.org/*': true
     '*://gitlab.freedesktop.org/*': true
     '*://interbank.pe/*': true
@@ -114,15 +118,20 @@ settings:
     '*://store.steampowered.com/*': true
     '*://twitter.com/*': true
     '*://unitru.edu.pe/*': true
+    '*://users.wix.com/*': true
     '*://web.archive.org/*': true
+    '*://www.admisionunt.info/*': true
     '*://www.avabur.com/*': true
+    '*://www.facebook.com/*': true
     '*://www.halhigdon.com/*': true
     '*://www.msi.com/*': true
     '*://www.msn.com/*': true
     '*://www.nerdfonts.com/*': true
     '*://www.omaforos.com.ar/*': true
     '*://www.protondb.com/*': true
+    '*://www.shellcheck.net/*': true
     '*://www.webtoons.com/*': true
+    '*://www.wix.com/*': true
     global: true
   content.media.audio_capture:
     https://discord.com: true
@@ -201,7 +210,7 @@ settings:
   qt.args:
     global: null
   qt.force_software_rendering:
-    global: none
+    global: software-opengl
   search.incremental:
     global: false
   session.default_name:

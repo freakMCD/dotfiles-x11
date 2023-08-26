@@ -2,9 +2,13 @@ Blogs
 https://terrytao.wordpress.com/feed/ "~Terence Tao Blog Entries" Blog
 https://suckless.org/atom.xml dwm
 
+Fedora
+https://bodhi.fedoraproject.org/rss/updates/?search=mpv&status=stable&releases=F38 "mpv"
+https://bodhi.fedoraproject.org/rss/updates/?search=&packages=qutebrowser&releases=F38 "qutebrowser"
+https://bodhi.fedoraproject.org/rss/updates/?search=wine&status=stable&releases=F38 "wine"
+
 Animation
 https://raw.githubusercontent.com/ArjixWasTaken/anime-rss/main/animepahe/animepahe-rss.xml Anime
-http://feeds.feedburner.com/crunchyroll/one-piece Anime
 https://createfeed.fivefilters.org/extract.php?url=https%3A%2F%2Fmangareader.to%2Fone-piece-3&in_id_or_class=en-chapters&max=5&order=document&guid=0 Manga
 https://createfeed.fivefilters.org/extract.php?url=https%3A%2F%2Fmangareader.to%2Fblue-lock-225&in_id_or_class=en-chapters&max=5&order=document&guid=0 Manga
 https://createfeed.fivefilters.org/extract.php?url=https%3A%2F%2Fmangareader.to%2Fonepunch-man-40&in_id_or_class=en-chapters&max=5&order=document&guid=0 Manga
@@ -13,4 +17,7 @@ https://www.webtoons.com/en/supernatural/im-the-grim-reaper/rss?title_no=1697 We
 
 Youtube
 https://yewtu.be/feed/channel/UCYO_jab_esuFRV4b17AJtAw "~3Blue1Brown" Math 
+https://yewtu.be/feed/channel/UC5uNya42ayhsRnZOR3mO6NA "~Insym" youtube
+
+
 ═══
