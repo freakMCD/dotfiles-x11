@@ -24,6 +24,7 @@ bind = {
     lleader + "m": "hint videos userscript qutebrowser-mpv",
     ";" + "m": "hint --rapid videos spawn umpv {hint-url}",
     lleader + "M": "spawn mpv {url}",
+    lleader + "v": "hint videos spawn mpv {hint-url}",
     ## Custom Selectors
     "e": "hint button",
 

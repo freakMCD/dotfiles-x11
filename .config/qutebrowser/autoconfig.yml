@@ -16,7 +16,7 @@ settings:
   auto_save.interval:
     global: 18000000
   auto_save.session:
-    global: true
+    global: false
   bindings.commands:
     global:
       command:
@@ -93,20 +93,27 @@ settings:
     global: true
   content.fullscreen.overlay_timeout:
     global: 3000
+  content.headers.user_agent:
+    global: Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko)
+      {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}
   content.javascript.can_access_clipboard:
     github.com: true
   content.javascript.enabled:
     '*://*.steamcommunity.com/*': true
     '*://1337x.to/*': true
     '*://account.live.com/*': true
+    '*://admisionunt.info/*': true
     '*://bancaporinternet.interbank.pe/*': true
     '*://bodhi.fedoraproject.org/*': true
     '*://discord.com/*': true
+    '*://enlinea.minedu.gob.pe/*': true
     '*://faccfm.unitru.edu.pe/*': true
     '*://fedora.pkgs.org/*': true
     '*://gitlab.freedesktop.org/*': true
     '*://interbank.pe/*': true
     '*://login.live.com/*': true
+    '*://lutris.net/*': true
+    '*://m.twitch.tv/*': true
     '*://mangareader.to/*': true
     '*://math.libretexts.org/*': true
     '*://melvoridle.com/*': true

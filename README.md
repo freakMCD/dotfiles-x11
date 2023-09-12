@@ -66,6 +66,12 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 
     yadm update-index --assume-unchanged <filepath>
 
+**When you have local repo but lost refs from remote repo**
+    yadm init
+    yadm remote add origin <url>
+    yadm fetch
+    yadm reset origin/master
+
 ### pass
 
     export PASSWORD_STORE_GPG_OPTS='--pinentry-mode=loopback --passphrase <passphrase>'
@@ -81,17 +87,4 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 **Connect to ftp server**
 
     lftp ftp://192.168.1.3:2121
-
-**Copy Local directory to remote**
-
-    cd Music
-    mirror -R --only-missing --no-recursion
-
-**Print Local working directory**
-
-    lftp 192.168.1.3:~> lpwd
-    /home/edwin/Music/2015-2022
-
-
-
 

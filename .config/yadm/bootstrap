@@ -27,12 +27,13 @@ install_basics() {
     sudo dnf install @multimedia @printing --exclude=qt5-qtwebengine-freeworld,pipewire-codec-aptx 
 
     # Basics
-    sudo dnf install feh maim lftp xev xclip xprop xdotool\
+    sudo dnf install cpu-x feh maim lftp pciutils xev xclip xprop xdotool\
     fd-find fzf mpd mpc mpv pass newsboat neomutt cyrus-sasl-plain neovim puddletag \
     ueberzug weechat zathura zathura-pdf-mupdf\
     gcc gdouros-symbola-fonts google-noto-cjk-fonts pavucontrol python3-pip python3-devel 
 
     lf-update   
+    # hplip, hplip-gui for hp printers drivers and simple-scan
 }
 
 install_python_packages() {

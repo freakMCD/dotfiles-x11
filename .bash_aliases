@@ -2,13 +2,13 @@ alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias aliasrc="nvim ~/.bash_aliases && source ~/.bashrc"
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
-alias bc="bc -l"
 alias mp3dl="yt-dlp --extract-audio --audio-format mp3"
 alias playlist="mpv --shuffle --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
 alias pywal='wal --saturate 0.5 -i ~/.config/wallpaper --iterative -n -o "~/.config/dunst/wal_dunst.sh"'
 
-alias git-apply="git apply --reject --whitespace=fix"
 alias rclone="rclone -P"
+alias neomutt="st -n neomutt -g 80x25+297+1 -e neomutt &exit"
+alias newsboat="st -n newsboat -g 80x25+297+1 -e newsboat &exit"
 
 # gpg aliases
 alias gpg-list="gpg --list-secret-keys --keyid-format LONG"
@@ -24,10 +24,6 @@ alias upgrade="sudo dnf upgrade --refresh --exclude=texlive* --exclude=libreoffi
 alias remove="sudo dnf remove"
 alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
 
-yadm-add-deleted () {
-    yadm status | grep deleted | awk -F ':' '{print $2}' | xargs yadm add
-}
-
 function whatrequires () {
     sudo dnf history "$@"| egrep -w 'install|upgrade'
 }
@@ -37,7 +33,11 @@ function dict () {
 }
 
 function anime() {
-    animdl stream "$1" -r $2
+    if [ $2 = 'last' ]; then
+        animdl stream "$1" -s $2
+    else
+        animdl stream "$1" -r $2 
+    fi
 }
 
 function ttv () {
