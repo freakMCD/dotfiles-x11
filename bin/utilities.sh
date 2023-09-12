@@ -6,17 +6,13 @@ calculator() {
     bc -l
 }
 
-sync_music() {
+sync_android() {
    clear
-   cd ~/Music/2015-2022/
-   lftp ftp://192.168.1.3:2121 -e "
-   cd Music;
-   mirror -R --only-missing --no-recursion;
-   bye"
+   ~/bin/androidsync
 }
 
 PS3='Please enter your number choice: '
-options=("calculator" "sync music" "quit")
+options=("calculator" "sync android" "quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -24,8 +20,8 @@ do
             calculator
             break
             ;;
-        "sync music")
-            sync_music
+        "sync android")
+            sync_android
             break
             ;;
         "quit")
