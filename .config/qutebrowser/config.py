@@ -16,11 +16,10 @@ config.source('theme.py')
 config.source('redirects.py')
 config.source('maps.py')
 
-c.qt.args = ['enable-accelerated-video-decode',
+c.qt.args += ['enable-accelerated-video-decode',
              'enable-gpu-rasterization',
-             'ignore-gpu-blocklist',
+             'ignore-gpu-blacklist',
              'enable-quic',
-             'enable-zero-copy',
 ]
 
 c.url.searchengines = {

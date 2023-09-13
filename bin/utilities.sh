@@ -1,32 +1,43 @@
 #!/bin/bash
-# Sync Files from Linux to android
  
 calculator() {
-    clear
     bc -l
 }
 
 sync_android() {
-   clear
-   ~/bin/androidsync
+    ~/bin/lib/androidsync
 }
 
-PS3='Please enter your number choice: '
-options=("calculator" "sync android" "quit")
-select opt in "${options[@]}"
+appupdate() {
+    ~/bin/lib/appupdate
+}
+
+dlclip() {
+    ~/bin/lib/dlpart
+}
+
+while :
 do
-    case $opt in
-        "calculator")
-            calculator
-            break
-            ;;
-        "sync android")
-            sync_android
-            break
-            ;;
-        "quit")
-            break
-            ;;
-        *) echo "invalid option $REPLY";;
-    esac
+    clear
+    cat<<EOF
+==============================
+ Please enter your choice:
+
+   Calculator       (1)
+   Sync Android     (2)
+   appupdate        (3)
+   dlclip           (4)
+                    (Q)uit
+------------------------------
+EOF
+    read -n1 -s
+    clear
+    case $REPLY in
+    "1") calculator;;
+    "2") sync_android;;
+    "3") appupdate;;   
+    "4") dlclip;;
+    "Q") break;;
+    "q") echo "case sensitive!"; sleep 1;;
+    esac 
 done

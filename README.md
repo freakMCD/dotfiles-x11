@@ -67,6 +67,7 @@ yadm clone https://github.com/freakMCD/dotfiles.git
     yadm update-index --assume-unchanged <filepath>
 
 **When you have local repo but lost refs from remote repo**
+
     yadm init
     yadm remote add origin <url>
     yadm fetch

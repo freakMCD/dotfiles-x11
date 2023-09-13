@@ -12,9 +12,9 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:$HOME/bin/lib:" ]]
 then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+    PATH="$HOME/.local/bin:$HOME/bin:$HOME/bin/lib:$PATH"
 fi
 export PATH
 
@@ -42,7 +42,7 @@ mem() {
 if [ -x "$(command -v fzf)" ]; then
 	source /usr/share/fzf/shell/key-bindings.bash
 	source /etc/bash_completion.d/fzf
-	fdExclude="-E ".cache" -E "repo.git" -E "webengine" -E "lib" -E "[sS]team*" -E "*wine*" -E "dosdevices" -E "drive_c""
+	fdExclude="-E ".cache" -E "repo.git" -E "webengine" -E ".local" -E "[sS]team*" -E "*wine*" -E "dosdevices" -E "drive_c""
 	export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow $fdExclude"
 	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 	export FZF_ALT_C_COMMAND="fd --type d --hidden --follow $fdExclude" 

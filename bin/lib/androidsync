@@ -18,21 +18,21 @@ music() {
 }
 
 PS3='Please enter your number choice: '
-options=("screenshots" "music")
+options=("screenshots" "music" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
         "screenshots")
             screenshots
-            break
             ;;
         "music")
             music
-            break
             ;;
         "Quit")
             break
             ;;
         *) echo "invalid option $REPLY";;
     esac
+read -p "Press Enter to continue"
+break
 done

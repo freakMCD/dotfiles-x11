@@ -1,5 +1,6 @@
 #!/bin/bash
-# Download part of url video with ffmpeg
+
+echo "Download part of online video with yt-dlp & ffmpeg"
 
 echo "Enter URL here"
 read URL 
@@ -14,3 +15,5 @@ echo "Enter FILENAME"
 read OUTPUT
 
 ffmpeg $(yt-dlp -g $URL | sed "s/.*/-ss $START -i &/") -t $DURATION -s '1280x720' $FILENAME.mp4
+
+read -p "Press Enter to continue"

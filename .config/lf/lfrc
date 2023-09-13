@@ -5,27 +5,25 @@ set mouse
 set hidden
 set autoquit
 
-
 set previewer lf-ueberzug-previewer
 set cleaner lf-ueberzug-cleaner
 
-map Y cpsel
+map Y cpsel 
 map a push :mkdir<space>
 
-map w
 map D delete
+
 map gu cd /usr/
 map gm cd ~/Music/2015-2022/
 map ge cd /etc/
 map gn cd ~/Documents/Notes/
-
-map P :link
 
 cmd cpsel ${{
         printf '%s' "${fx}" | xclip -i -selection clipboard
 }}
 
 cmd mkdir %mkdir "$@"
+cmd touch %touch "$@"
 
 # extract the current file with the right command
 cmd extract ${{

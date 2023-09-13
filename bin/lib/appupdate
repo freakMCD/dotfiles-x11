@@ -24,23 +24,21 @@ do
     case $opt in
         "streamlink")
             streamlink
-            break
             ;;
         "trans")
             trans
-            break
             ;;
         "animdl")
             animdl
-            break
             ;;
         "yt-dlp")
             yt-dlp
-            break 
             ;;
         "Quit")
             break
             ;;
         *) echo "invalid option $REPLY";;
     esac
+read -p "Press Enter to continue"
+break
 done
