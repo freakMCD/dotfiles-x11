@@ -2,7 +2,6 @@
 // @match *://*.steampowered.com/*
 // @match *://*.google.com/maps/*
 // @match https://bancaporinternet.interbank.pe/*
-// @match qute://pdfjs/web/*
 // ==/UserScript==
 
 const meta = document.createElement('meta');

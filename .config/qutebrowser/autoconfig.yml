@@ -143,6 +143,7 @@ settings:
   content.media.audio_capture:
     https://discord.com: true
   content.notifications.enabled:
+    https://avabur.com: true
     https://melvoridle.com: true
     https://web.whatsapp.com: true
     https://www.avabur.com: true
@@ -225,7 +226,7 @@ settings:
   statusbar.position:
     global: bottom
   statusbar.show:
-    global: in-mode
+    global: always
   tabs.favicons.scale:
     global: 0.8
   tabs.favicons.show:

@@ -23,7 +23,7 @@ lfcd() {
 	LF_SHELLCD_TEMPDIR="$(mktemp -d -t lf-shellcd-XXXXXX)"
 	export LF_SHELLCD_TEMPDIR
 	lf-ueberzug -last-dir-path "$LF_SHELLCD_TEMPDIR/lastdir" \
-		-command "source '${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc-shell'" "$@"
+		-command "source '${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc-shellcd'" "$@"
 	if [ -e "$LF_SHELLCD_TEMPDIR/changecwd" ] && \
 		dir="$(cat "$LF_SHELLCD_TEMPDIR/lastdir")" 2>/dev/null; then
 		cd "$dir"
@@ -31,4 +31,5 @@ lfcd() {
 	rm -rf "$LF_SHELLCD_TEMPDIR"
 	unset LF_SHELLCD_TEMPDIR
 }
+
 alias lf=lfcd
