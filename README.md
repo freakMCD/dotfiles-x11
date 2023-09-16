@@ -12,7 +12,7 @@
 * **Image Viewer** : feh
 * **PDF Reader**: Zathura
 * **RSS Reader**: Newsboat
-* **Email Client**: Neomutt
+* **Email Client**: Neomutt + Isync + msmtp
 * **Themes on the fly** using pywal
 * **Screenshots**: maim + xclip + xdotool
 * **Basic dotfiles** :
@@ -29,7 +29,8 @@ SystemMaxUse=50M
 HandlePowerKey=ignore
 
 #Replace line in /etc/default/grub
-GRUB_CMDLINE_LINUX="rhgb quiet radeon.cik_support=0 amdgpu.cik_support=1"
+#Fix Risk of Rain 2 slow load
+GRUB_CMDLINE_LINUX="rhgb quiet clocksource=tsc tsc=reliable"
 ```
 
 ## Guide Installation (after Fedora Everything minimal install)
@@ -55,6 +56,10 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 3. Run 'yadm bootstrap' to install the rest
 
 ## Notes
+
+**To change Drive permissions to username**
+
+    sudo chown -v username:username /media/username/disk-name
 
 ### yadm
 

@@ -1,6 +1,12 @@
 
-source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/lf-shell"
-source "$HOME/.local/share/linuxfedora"
+LFSHELL=$XDG_CONFIG_HOME/lf/lf-shell
+     if [ -f "$LFSHELL" ]; then
+         source "$LFSHELL"
+     fi
+
+set -a
+source "$XDG_DATA_HOME/linuxfedora"
+set +a
 
 if [ -e $HOME/.bash_aliases ]; then
     source $HOME/.bash_aliases
@@ -31,7 +37,6 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export HISTFILE="$XDG_STATE_HOME/bash/history"
 export LESSHISTFILE='-'
-
 export PS1='\[\e[0;3;90m\][\[\e[0;3;31m\]\u \[\e[0;1;95m\]\W\[\e[0;3;90m\]] \[\e[0m\]'
 
 mem() { 
