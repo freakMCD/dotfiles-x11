@@ -41,8 +41,8 @@ map = {
         #"www.reddit.com": reddit,
         #"old.reddit.com": reddit,
 
-        #"twitter.com": nitter,
-        #"mobile.twitter.com": nitter,
+        "twitter.com": nitter,
+        "mobile.twitter.com": nitter,
 
 #        "imgur.com" : rimgo,
         "medium.com" : scribe,

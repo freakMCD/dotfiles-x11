@@ -27,12 +27,11 @@ c.qt.args += ['enable-accelerated-video-decode',
              'enable-gpu-rasterization',
              'ignore-gpu-blacklist',
              'enable-quic',
+             'autoplay-policy=user-gesture-require'
 ]
 
 c.url.searchengines = {
     "DEFAULT": "https://lite.duckduckgo.com/lite/?q={}",
-    "al": "https://wiki.archlinux.org/?search={}", 
-    "gh": "https://github.com/search?q={}",
     "yt": "farside.link/invidious/search?q={}",
     "r": "https://lite.duckduckgo.com/lite/?q={}%20site%3Areddit.com",
 }

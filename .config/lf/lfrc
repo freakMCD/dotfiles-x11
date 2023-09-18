@@ -18,6 +18,11 @@ map gm cd ~/Music/2015-2022/
 map ge cd /etc/
 map gn cd ~/Documents/Notes/
 
+map w
+map S $$SHELL
+
+cmd on-quit clear
+
 cmd cpsel ${{
         printf '%s' "${fx}" | xclip -i -selection clipboard
 }}
