@@ -1,28 +1,67 @@
 # General rebindings
+# unbinding x and i because only one key is enough
+bind generic,compose,attach,pager,index i noop    
+bind generic,compose,attach,pager,index x noop    
+                                                  
+# binding q for exiting all menus                 
+bind generic,compose,attach,pager q exit          
+                                                  
+# Navigation
+# ----------------------------------------------------
 
-# Vim like binds
-bind attach,index,pager \CD next-page
-bind attach,index,pager \CU previous-page
-bind pager g top
-bind pager G bottom
-bind attach,index g first-entry
-bind attach,index G last-entry
+bind generic             z         noop
+bind index,pager,attach  g         noop
+bind index,pager         s         noop
+bind generic,pager       t         noop
 
-# navigation settings
-bind index,pager g noop
-macro index,pager gi "<change-folder>=INBOX<enter>" "go to INBOX"
-macro index,pager gp "<change-folder>=[Gmail].Importantes<enter>" "go to im[p]ortante"
-macro index,pager ge "<change-folder>=[Gmail].Enviados<enter>" "go to Enviados"
+bind generic,index,pager \Cf       next-page
+bind generic,index,pager \Cb       previous-page
+bind generic             gg        first-entry
+bind generic,index       G         last-entry
+bind pager               gg        top
+bind pager               G         bottom
+bind generic,index,pager       \Cy       previous-line
+bind generic,index,pager \Ce       next-line
+bind generic,index,pager \Cd       half-down
+bind generic,index,pager \Cu       half-up
+
+# Go to folder...
+macro index,pager gi "<change-folder>=INBOX<enter>" "go to Inbox"
 macro index,pager gd "<change-folder>=[Gmail].Destacados<enter>" "go to Destacados"
+macro index,pager ge "<change-folder>=[Gmail].Enviados<enter>" "go to Enviados"
 macro index,pager gs "<change-folder>=[Gmail].Spam<enter>" "go to Spam"
+macro index,pager gt "<change-folder>=Trash<enter>" "go to Trash"
+macro index,pager gf "<change-folder>?"                   "open mailbox..."
+
+# Saner copy/move dialogs / Send mail
+macro index c "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index m "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+bind index,pager         C         mail
 
 # synchronization settings ['s' to sync]
-macro index S "<shell-escape>mbsync -V gmail<enter>" "sync email"
+macro index S "<shell-escape>mbsync gmail<enter>" "sync email"
+
+# Open html attachment
+macro index,pager B "<view-attachments><search>html<enter><view-mailcap><exit><exit>"
+
+# Actions
+# ----------------------------------------------------
+
+bind  index,pager    a   group-reply
+bind  generic        tt  tag-entry
+bind  pager          tt  tag-message
+macro index,pager    gx  "<pipe-message>urlview<Enter>"                                   "call urlview to extract URLs out of a message"
+macro attach,compose gx  "<pipe-entry>urlview<Enter>"                                     "call urlview to extract URLs out of a message"
+
+# Command Line
+# ----------------------------------------------------
+bind editor \Cp history-up
+bind editor \Cn history-down
 
 # sidebar
-bind index,pager \Ck sidebar-prev
-bind index,pager \Cj sidebar-next
-bind index,pager \Cl sidebar-open
+bind index,pager K sidebar-prev
+bind index,pager J sidebar-next
+bind index,pager L sidebar-open
 bind index,pager b sidebar-toggle-visible
 
-macro index,pager B "<view-attachments><search>html<enter><view-mailcap><exit><exit>"
+

@@ -11,7 +11,7 @@
 * **Music player** with ncmpcpp + mpd + mpc
 * **Image Viewer** : feh
 * **PDF Reader**: Zathura
-* **RSS Reader**: Newsboat
+* **RSS Reader**: Newsraft
 * **Email Client**: Neomutt + Isync + msmtp
 * **Themes on the fly** using pywal
 * **Screenshots**: maim + xclip + xdotool
@@ -80,7 +80,7 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 
 ### pass
 
-    export PASSWORD_STORE_GPG_OPTS='--pinentry-mode=loopback --passphrase <passphrase>'
+    PASSWORD_STORE_GPG_OPTS='--pinentry-mode=loopback --passphrase <passphrase>'
     
 ### nmcli
 
@@ -93,4 +93,10 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 **Connect to ftp server**
 
     lftp ftp://192.168.1.3:2121
+
+### Newsraft Build - Instructions
+
+    git clone https://codeberg.org/grisha/newsraft.git
+    dnf install scdoc gumbo-parser-devel yajl-devel expat-devel ncurses-devel sqlite-devel curl-devel
+
 

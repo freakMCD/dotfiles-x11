@@ -8,7 +8,7 @@ alias pywal='wal --saturate 0.5 -i ~/.config/wallpaper --iterative -n -o "~/.con
 
 alias rclone="rclone -P"
 alias neomutt="st -n neomutt -g 80x25+297+1 -e neomutt &exit"
-alias newsboat="st -n newsboat -g 80x25+297+1 -e newsboat &exit"
+alias newsraft="st -n newsraft -g 80x25+297+1 -e newsraft &exit"
 
 # gpg aliases
 alias gpg-list="gpg --list-secret-keys --keyid-format LONG"

@@ -23,7 +23,7 @@ Flatten .
 Channel gmail
 Far :gmail-remote:
 Near :gmail-local:
-Patterns "[Gmail]/Importantes" "[Gmail]/Destacados" "[Gmail]/Enviados" "[Gmail]/Spam"  
+Patterns INBOX "[Gmail]/Importantes" "[Gmail]/Destacados" "[Gmail]/Enviados" "[Gmail]/Spam"
 SyncState *
 Create Both
 Expunge Both

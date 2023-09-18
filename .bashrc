@@ -4,10 +4,6 @@ LFSHELL=$XDG_CONFIG_HOME/lf/lf-shell
          source "$LFSHELL"
      fi
 
-set -a
-source "$XDG_DATA_HOME/linuxfedora"
-set +a
-
 if [ -e $HOME/.bash_aliases ]; then
     source $HOME/.bash_aliases
 fi
@@ -24,20 +20,26 @@ then
 fi
 export PATH
 
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
+set -a
 
-export TERMINAL='rxvt-unicode'
-export EDITOR='nvim'
-export VISUAL='nvim'
-export MANPAGER='nvim +Man!'
-export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
-export HISTFILE="$XDG_STATE_HOME/bash/history"
-export LESSHISTFILE='-'
-export PS1='\[\e[0;3;90m\][\[\e[0;3;31m\]\u \[\e[0;1;95m\]\W\[\e[0;3;90m\]] \[\e[0m\]'
+source "$XDG_DATA_HOME/linuxfedora"
+BROWSER="qutebrowser"
+XDG_CONFIG_HOME="$HOME/.config"
+XDG_CACHE_HOME="$HOME/.cache"
+XDG_DATA_HOME="$HOME/.local/share"
+XDG_STATE_HOME="$HOME/.local/state"
+
+TERMINAL='rxvt-unicode'
+EDITOR='nvim'
+VISUAL='nvim'
+MANPAGER='nvim +Man!'
+GNUPGHOME="$XDG_DATA_HOME/gnupg"
+TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
+HISTFILE="$XDG_STATE_HOME/bash/history"
+LESSHISTFILE='-'
+PS1='\[\e[0;3;90m\][\[\e[0;3;31m\]\u \[\e[0;1;95m\]\W\[\e[0;3;90m\]] \[\e[0m\]'
+
+set +a
 
 mem() { 
     ps -eo rss,pid,euser,args:100 --sort %mem | grep -v grep | grep -i $@ | awk '{printf $1/1024 "MB"; $1=""; print }'

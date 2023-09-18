@@ -28,7 +28,7 @@ install_basics() {
 
     # Basics
     sudo dnf install cpu-x feh maim lftp pciutils xev xclip xprop xdotool\
-    fd-find fzf mpd mpc mpv pass newsboat neomutt neovim puddletag \
+    fd-find fzf mpd mpc mpv pass neomutt neovim puddletag \
     isync msmtp ueberzug zathura zathura-pdf-mupdf\
     gcc gdouros-symbola-fonts google-noto-cjk-fonts pavucontrol python3-pip python3-devel 
 
@@ -57,10 +57,10 @@ enable_services () {
 
     echo "Starting user timers"
     systemctl enable --now alarm.timer
+    systemctl enable --now mbsync.timer
 
-    echo "Disabling cups, sshd services, dnf-makecache"
+    echo "dnf-makecache"
     systemctl disable --now dnf-makecache.timer
-    systemctl disable --now cups.service
 }
 
 configure_neovim() {
