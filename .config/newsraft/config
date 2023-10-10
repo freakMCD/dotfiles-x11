@@ -1,0 +1,26 @@
+# General
+set scrolloff 5
+set initial-unread-first-sorting true
+
+# Bindings
+
+bind m mark-read; exec MPV='mpv --no-resume-playback' umpv "%l" >/dev/null 2>&1 &exit
+bind q navigate-back
+
+# Format
+set menu-item-entry-format " %u │ %o"
+set menu-explore-item-entry-format " %u │ %-20.20O │ %o"
+
+# Colors
+# Section listing
+set color-list-section-fg green bold 
+set color-list-section-unread-fg magenta bold italic
+
+# Within the feeds comprising a section
+set color-list-feed-fg default 
+set color-list-feed-unread-fg blue italic 
+
+# Individual posts
+set color-list-item-fg default 
+set color-list-item-unread-fg white 
+
