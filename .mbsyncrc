@@ -1,11 +1,11 @@
 # Gmail mailboxes:
 # "[Gmail]/Todos"
-# "[Gmail]/Borradores"
-# "[Gmail]/Importantes"
+# "[Gmail]/Drafts"
 # "[Gmail]/Enviados"
 # "[Gmail]/Spam"
 # "[Gmail]/Destacados"
 # "[Gmail]/Papelera"
+# "[Gmail]/Importantes"
 
 IMAPStore gmail-remote
 Host imap.gmail.com
@@ -23,8 +23,15 @@ Flatten .
 Channel gmail
 Far :gmail-remote:
 Near :gmail-local:
-Patterns INBOX "[Gmail]/Importantes" "[Gmail]/Destacados" "[Gmail]/Enviados" "[Gmail]/Spam"
+Patterns INBOX "[Gmail]/Destacados" "[Gmail]/Enviados" "[Gmail]/Papelera" "Twitch" 
 SyncState *
 Create Both
 Expunge Both
-MaxMessages 0
+
+Channel spam
+Far :gmail-remote:
+Near :gmail-local:
+Patterns "[Gmail]/Spam"
+SyncState *
+Create Both
+Expunge Both

@@ -3,7 +3,7 @@
 ## What's in it?
 
 * **WM**: dwm
-* **Terminal**: st (+tmux)
+* **Terminal**: st
 * **Notifications**: Dunst
 * **Launcher**: fzf
 * **File Manager**: lf
@@ -43,7 +43,7 @@ max_parallel_downloads=10
 ```
 2. Install essential packages
 ```bash
-sudo dnf install @base-x dmenu dunst git libXft-devel libX11-devel qutebrowser tmux
+sudo dnf install @base-x dmenu dunst git libXft-devel libX11-devel qutebrowser
 
 ## Run this first to save git credentials ##
 git config --global credential.helper "store --file ~/.local/share/git-credentials"
@@ -85,14 +85,7 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 ### nmcli
 
     nmcli dev status
-    nmcli dev disconnect <device>
-    nmcli dev connect <device>
-
-### lftp
-
-**Connect to ftp server**
-
-    lftp ftp://192.168.1.3:2121
+    nmcli dev connect/disconnect <device>
 
 ### Newsraft Build - Instructions
 

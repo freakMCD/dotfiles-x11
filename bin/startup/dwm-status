@@ -14,7 +14,7 @@ grey=#888888
 darkgrey=#121212
 
 update_network () {
-    checknet=$(ping -c 1 -q google.com >&/dev/null; echo $?)
+    checknet=$(nslookup google.com >&/dev/null; echo $?)
 
     if [ $checknet -eq 0 ]; then
 		network=" ^c$green^󰈀 up"
@@ -63,17 +63,17 @@ display () {
 # signals for each module to update while updating display. RTMIN is 33
 trap "update_vol;display" "RTMIN"
 trap "update_song;display" "RTMIN+1"
-trap "update_network;display" "RTMIN+2"
 
 while true; do
 	    # how many seconds each module updates
-	    [ $((sec % 60 )) -eq 0 ] && update_time
+        [ $((sec % 5)) -eq 0 ] && update_network
 	    [ $((sec % 15)) -eq 0 ] && update_cpu 
 	    [ $((sec % 15)) -eq 0 ] && update_memory
+	    [ $((sec % 60 )) -eq 0 ] && update_time
 	    [ $((sec % 1800)) -eq 0 ] && update_disk
 	    
 	    # how often the display updates
-	    [ $((sec % 15 )) -eq 0 ] && display
+	    [ $((sec % 5 )) -eq 0 ] && display
 	    sleep 1 & wait && sec=$((sec + 1))
 done
 

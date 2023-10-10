@@ -21,13 +21,10 @@ c.content.javascript.enabled = True
 c.session.lazy_restore = True
 config.source('theme.py')
 config.source('redirects.py')
-config.source('maps.py')
+config.source('mappings.py')
 
-c.qt.args += ['enable-accelerated-video-decode',
-             'enable-gpu-rasterization',
-             'ignore-gpu-blacklist',
-             'enable-quic',
-             'autoplay-policy=user-gesture-require'
+c.qt.args += [  'ignore-gpu-blocklist',
+                'autoplay-policy=user-gesture-require'
 ]
 
 c.url.searchengines = {

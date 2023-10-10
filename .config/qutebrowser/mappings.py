@@ -24,13 +24,13 @@ bind = {
     lleader + "m": "hint videos userscript qutebrowser-mpv",
     ";" + "m": "hint --rapid videos spawn umpv {hint-url}",
     lleader + "M": "spawn mpv {url}",
-    lleader + "v": "hint videos spawn mpv {hint-url}",
+    lleader + "v": "hint videos spawn --detach mpv {hint-url}",
     ## Custom Selectors
     "e": "hint button",
 
 
-	'/': 'set statusbar.show always;; set-cmd-text /',
-	"/": "set statusbar.show always;; set-cmd-text /",
+	'/': 'set statusbar.show always;; cmd-set-text /',
+	"/": "set statusbar.show always;; cmd-set-text /",
 	"J": "tab-next",
 	"K": "tab-prev",
 	"h": "scroll-px -100 0",
@@ -44,9 +44,9 @@ bind = {
 for a, b in bind.items():
     config.bind(a, b)
 
-config.bind('o', 'set statusbar.show always;; set-cmd-text -s :open')
-config.bind('O', 'set statusbar.show always;; set-cmd-text -s :open -t')
-config.bind(':', 'set statusbar.show always;; set-cmd-text :')
+config.bind('o', 'set statusbar.show always;; cmd-set-text -s :open')
+config.bind('O', 'set statusbar.show always;; cmd-set-text -s :open -t')
+config.bind(':', 'set statusbar.show always;; cmd-set-text :')
 config.bind('<Escape>', 'mode-enter normal;; set statusbar.show in-mode', mode='command')
 config.bind('<Return>', 'command-accept;; set statusbar.show in-mode', mode='command')
 

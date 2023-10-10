@@ -303,7 +303,7 @@
 fullscreen = show
 
 [Feed]
-summary = "newsboat|Neomutt|Apagando"
+summary = "Neomutt|Apagando"
 script = "~/.config/dunst/alert"
 
 [Alarmas]

@@ -1,4 +1,3 @@
-
 LFSHELL=$XDG_CONFIG_HOME/lf/lf-shell
      if [ -f "$LFSHELL" ]; then
          source "$LFSHELL"
@@ -21,8 +20,7 @@ fi
 export PATH
 
 set -a
-
-source "$XDG_DATA_HOME/linuxfedora"
+source ~/.local/share/linuxfedora
 BROWSER="qutebrowser"
 XDG_CONFIG_HOME="$HOME/.config"
 XDG_CACHE_HOME="$HOME/.cache"
@@ -38,7 +36,6 @@ TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 HISTFILE="$XDG_STATE_HOME/bash/history"
 LESSHISTFILE='-'
 PS1='\[\e[0;3;90m\][\[\e[0;3;31m\]\u \[\e[0;1;95m\]\W\[\e[0;3;90m\]] \[\e[0m\]'
-
 set +a
 
 mem() { 
@@ -48,29 +45,22 @@ mem() {
 ### FZF ###
 if [ -x "$(command -v fzf)" ]; then
 	source /usr/share/fzf/shell/key-bindings.bash
-	source /etc/bash_completion.d/fzf
-	fdExclude="-E ".cache" -E "repo.git" -E "webengine" -E ".local" -E "[sS]team*" -E "*wine*" -E "dosdevices" -E "drive_c""
-	export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow $fdExclude"
+	source /usr/share/fzf/shell/completion.bash
+    fdExclude="-E '{*[Cc]ache,*.git,z:,.local,.wine}'"
+
+    export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow $fdExclude"
 	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-	export FZF_ALT_C_COMMAND="fd --type d --hidden --follow $fdExclude" 
-	export FZF_DEFAULT_OPTS='--height 60% --reverse'
-	
-	fmpc() {
-	  local song_position
-	  song_position=$(mpc -f "%position%) %artist% - %title%" playlist | \
-	    fzf-tmux --query="$1" --reverse --select-1 --exit-0 | \
-	    sed -n 's/^\([0-9]\+\)).*/\1/p') || return 1
-	  [ -n "$song_position" ] && mpc -q play $song_position
-	}
+	export FZF_ALT_C_COMMAND="fd --type d --hidden --follow $fdExclude"
+	export FZF_DEFAULT_OPTS="--height 60% --reverse"
 	
 	# nvim ** 
 	_fzf_compgen_path() {
-        $FZF_DEFAULT_COMMAND . "$1"
+        eval $FZF_DEFAULT_COMMAND . "$1"
 	}
 	# cd **
 	_fzf_compgen_dir() {
-		$FZF_ALT_C_COMMAND . "$1"
-	}
+        eval $FZF_ALT_C_COMMAND . "$1";
+    }
 	
 	# fe [FUZZY PATTERN] - Open the selected file with the default editor
 	#   - Bypass fuzzy finder if there's only one match (--select-1)
@@ -79,9 +69,17 @@ if [ -x "$(command -v fzf)" ]; then
 	  IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0))
 	  [[ -n "$files" ]] && $EDITOR "${files[@]}"
 	}
-	
+
 	fman() {
 	    man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
+	}
+
+    fmpc() {
+	  local song_position
+	  song_position=$(mpc -f "%position%) %artist% - %title%" playlist | \
+	    fzf --query="$1" --reverse --select-1 --exit-0 | \
+	    sed -n 's/^\([0-9]\+\)).*/\1/p') || return 1
+	  [ -n "$song_position" ] && mpc -q play $song_position
 	}
 fi
 

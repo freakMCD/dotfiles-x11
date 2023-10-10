@@ -6,7 +6,6 @@ set real_name = "Edwin Velarde"
 
 set mbox_type = Maildir
 set folder = "~/.local/share/email/gmail"
-
 set sendmail = "msmtp -C $HOME/.config/neomutt/.msmtprc -a gmail"
 
 # cache settings
@@ -16,38 +15,34 @@ set message_cachedir = "~/.cache/mutt/gmail/message_cache"
 # mailbox settings
 set spool_file = +INBOX
 set postponed = +Drafts 
-set trash = +Trash
+set trash= +[Gmail].Papelera
 unset record
-
-mailboxes +INBOX +[Gmail].Destacados +[Gmail].Spam
+mailboxes +INBOX +Twitch
 
 ## Generic
+set editor=`echo \$EDITOR`
 set mailcap_path="~/.config/neomutt/mailcap"
 set markers = no # Disables the `+` displayed at line wraps
 set pager_stop=yes
-set sort = threads
-set sort_aux = reverse-last-date-received 
+set sort = reverse-last-date-received 
+set use_threads=yes
 set quit=ask-yes
 set thorough_search
 unset mark_old
-unset record
+unset quit
 unset wait_key
-
-
-set editor=`echo \$EDITOR`
-set new_mail_command="notify-send 'Neomutt' '%n new emails' -t 0"
 
 alternative_order text/plain text text/html #prefer plaintext over dumped html
 
 # Index page format. Default "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
-set index_format="%zs  %-20.20F %s %*   %[%d %b] "
-set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+set index_format="%zs  %-20.20F %s %*   %[%b %d] "
 
 # Sidebar
 set sidebar_width=20
 set nohelp
 
 # Status Bar -----------------------------------------
+set status_format = "───[ Folder: %D ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 set status_chars  = " *%A"
 
 

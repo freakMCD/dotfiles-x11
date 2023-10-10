@@ -1,4 +1,4 @@
-# vim: set filetype=sh :
+ vim: set filetype=sh :
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
@@ -9,12 +9,13 @@ fi
 
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
-~/bin/startup/start_if_network_on.sh &
+# Autostart Programs
+~/bin/startup/newsraft.sh &
+st -n neomutt -g 80x25+200+0 neomutt &
 mpc random on && mpc add / &
 dunst &
 
-#start dwm
+# Start dwm
 ~/bin/startup/signals/mpc_status &
-~/bin/startup/signals/net_status &
 ~/bin/startup/dwm-status & 
 exec ~/bin/startdwm
