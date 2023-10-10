@@ -1,7 +1,0 @@
-#!/bin/bash
-# Signal to display network connectivity in dwm-status
-
-while true; do
-    sleep 5
-    kill -RTMIN+2 $(cat ~/.cache/pidofbar)
-done 
