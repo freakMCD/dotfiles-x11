@@ -1,6 +1,6 @@
 from qutebrowser.api import interceptor
 from urllib.parse import urljoin
-from PyQt5.QtCore import QUrl
+from PyQt6.QtCore import QUrl
 import operator
 
 o = operator.methodcaller
@@ -21,8 +21,6 @@ def scribe(url: QUrl) -> bool:
     return farside(url, '/scribe/')
 def invid(url: QUrl) -> bool:
     return farside(url, '/invidious/')
-#def reddit(url: QUrl) -> bool:
-#    return farside(url, '/libreddit/')
 def simplytranslate(url: QUrl) -> bool:
     return farside(url, '/simplytranslate/')
 def proxitok(url: QUrl) -> bool:
@@ -37,14 +35,10 @@ def anonymousoverflow (url: QUrl) -> bool:
     return farside(url, '/anonymousoverflow/')
 
 map = {
-        #"reddit.com": reddit,
-        #"www.reddit.com": reddit,
-        #"old.reddit.com": reddit,
-
         "twitter.com": nitter,
         "mobile.twitter.com": nitter,
 
-#        "imgur.com" : rimgo,
+        "imgur.com" : rimgo,
         "medium.com" : scribe,
         "translate.google.com" : simplytranslate,
         "vm.tiktok.com" : proxitok,
@@ -54,8 +48,7 @@ map = {
         "www.fandom.com": breezewiki,
         "genius.com" : dumb,
         "stackoverflow.com" : anonymousoverflow,
-
-        "twitch.tv" : o(s, 'm.twitch.tv'),
+        
         "tumblr.com" : o(s, 'splashblr.fly.dev'),
         "www.goodreads.com" : o(s, 'bl.vern.cc'),
         }

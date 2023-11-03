@@ -22,23 +22,32 @@ settings:
       command:
         <Escape>: mode-enter normal;; set statusbar.show in-mode
         <Return>: command-accept;; set statusbar.show in-mode
+      hint:
+        e: mode-leave
+        f: mode-leave
       normal:
-        ',M': spawn --detach mpv {url}
-        ',m': hint links userscript qutebrowser-mpv
-        /: set statusbar.show always;; set-cmd-text /
-        ':': 'set statusbar.show always;; set-cmd-text :'
+        ',M': spawn mpv {url}
+        ',m': hint videos userscript qutebrowser-mpv
+        ',v': hint videos spawn --detach mpv {hint-url} --loop-playlist
+        /: set statusbar.show always;; cmd-set-text /
+        ':': 'set statusbar.show always;; cmd-set-text :'
+        ;m: hint --rapid videos spawn umpv {hint-url}
         <Space>js: config-cycle content.javascript.enabled true false
         <Space>t: config-cycle tabs.show switching always
-        <Space>v: config-source
+        <Space>v: config-source ;; message-info 'qutebrowser reloaded'
+        I: hint inputs
         J: tab-next
         K: tab-prev
-        O: set statusbar.show always;; set-cmd-text -s :open -t
+        O: cmd-set-text -s :spawn --userscript /home/edwin/.config/qutebrowser/userscripts/qutebrowser-url-mutator/url_mutator.py
+          /home/edwin/.config/qutebrowser/userscripts/qutebrowser-url-mutator/config.toml
+          "open -t"
+        e: hint button
         h: scroll-px -100 0
-        i: hint inputs
+        i: hint --first inputs
         j: scroll-px 0 200
         k: scroll-px 0 -200
         l: scroll-px 100 0
-        o: set statusbar.show always;; set-cmd-text -s :open
+        o: set statusbar.show always;; cmd-set-text -s :open
         q: null
   changelog_after_upgrade:
     global: never
@@ -95,6 +104,8 @@ settings:
     global: both
   content.canvas_reading:
     global: true
+  content.desktop_capture:
+    https://discord.com: true
   content.fullscreen.overlay_timeout:
     global: 3000
   content.headers.user_agent:
@@ -102,6 +113,7 @@ settings:
       {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}
   content.javascript.clipboard:
     github.com: access
+    global: none
   content.javascript.enabled:
     '*://*.steamcommunity.com/*': true
     '*://1337x.to/*': true
@@ -151,11 +163,7 @@ settings:
   content.mute:
     global: false
   content.notifications.enabled:
-    https://avabur.com: true
-    https://melvoridle.com: true
     https://web.whatsapp.com: true
-    https://www.avabur.com: true
-    https://www.reddit.com: false
   content.notifications.presenter:
     global: auto
   content.notifications.show_origin:
@@ -226,7 +234,7 @@ settings:
   qt.args:
     global: null
   qt.force_software_rendering:
-    global: software-opengl
+    global: none
   scrolling.bar:
     global: always
   search.incremental:

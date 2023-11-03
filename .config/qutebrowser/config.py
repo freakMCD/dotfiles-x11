@@ -24,11 +24,11 @@ config.source('redirects.py')
 config.source('mappings.py')
 
 c.qt.args += [  'ignore-gpu-blocklist',
-                'autoplay-policy=user-gesture-require'
-]
-
+                'autoplay-policy=user-gesture-require',
+              'enable-features=VaapiIgnoreDriverChecks', 
+             ]
 c.url.searchengines = {
-    "DEFAULT": "https://lite.duckduckgo.com/lite/?q={}",
+    "DEFAULT": "https://duckduckgo.com/html/?q={}",
     "yt": "farside.link/invidious/search?q={}",
     "r": "https://lite.duckduckgo.com/lite/?q={}%20site%3Areddit.com",
 }

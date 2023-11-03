@@ -8,7 +8,7 @@ if ps -C mbsync > /dev/null; then
     exit 0
 fi
 
-mbsync -V gmail
+mbsync gmail
 prefix="${HOME}/.local/share/email/gmail"
 
 for file in "$prefix"/*; do
@@ -19,7 +19,7 @@ for file in "$prefix"/*; do
         newcount=$(find "$file"/new -type f -newer ~/.config/neomutt/.mailsynclast 2> /dev/null | wc -l)
         # Send notification if there are new mail
         if [ "$newcount" -gt "0" ]; then
-            /usr/bin/notify-send "New email" "$newcount new messages in =$folder" 
+            /usr/bin/notify-send -t 120000 "New email" "$newcount new messages in =$folder" 
         fi
     fi
 done

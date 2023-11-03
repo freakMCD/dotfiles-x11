@@ -27,7 +27,6 @@ XDG_CACHE_HOME="$HOME/.cache"
 XDG_DATA_HOME="$HOME/.local/share"
 XDG_STATE_HOME="$HOME/.local/state"
 
-TERMINAL='rxvt-unicode'
 EDITOR='nvim'
 VISUAL='nvim'
 MANPAGER='nvim +Man!'
@@ -46,7 +45,7 @@ mem() {
 if [ -x "$(command -v fzf)" ]; then
 	source /usr/share/fzf/shell/key-bindings.bash
 	source /usr/share/fzf/shell/completion.bash
-    fdExclude="-E '{*[Cc]ache,*.git,z:,.local,.wine}'"
+    fdExclude="-E '{*[Cc]ache,*.git,.local}'"
 
     export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow $fdExclude"
 	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

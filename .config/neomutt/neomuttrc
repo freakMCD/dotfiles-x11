@@ -28,7 +28,6 @@ set sort = reverse-last-date-received
 set use_threads=yes
 set quit=ask-yes
 set thorough_search
-unset mark_old
 unset quit
 unset wait_key
 

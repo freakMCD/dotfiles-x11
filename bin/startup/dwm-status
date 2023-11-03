@@ -28,7 +28,7 @@ update_cpu () {
 }
 
 update_memory () { 
-    mem="^c$cyan^󰍛 ^c$white^$(free -h --kilo | awk 'NR==2{print $3 "^c'"$grey"'^/" $2}')"
+    mem="^c$cyan^󰍛 ^c$white^$(awk '/MemT/ {t=$2/1000**2} /^(MemF|Bu|Ca)/ {f+=$2/1000**2} END {printf "%.1fG^c'"$grey"'^/%dG",t-f,t}' /proc/meminfo)"
 }
 
 update_disk () {
@@ -67,8 +67,8 @@ trap "update_song;display" "RTMIN+1"
 while true; do
 	    # how many seconds each module updates
         [ $((sec % 5)) -eq 0 ] && update_network
+	    [ $((sec % 5)) -eq 0 ] && update_memory
 	    [ $((sec % 15)) -eq 0 ] && update_cpu 
-	    [ $((sec % 15)) -eq 0 ] && update_memory
 	    [ $((sec % 60 )) -eq 0 ] && update_time
 	    [ $((sec % 1800)) -eq 0 ] && update_disk
 	    

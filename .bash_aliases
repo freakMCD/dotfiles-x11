@@ -16,11 +16,10 @@ alias gpg-backup="gpg -o private.gpg --export-options backup --export-secret-key
 alias gpg-restore="gpg --import-options restore --import private.gpg"
 
 # Custom dnf alias
-dnfexclude="--exclude=texlive*,libreoffice*,wine*"
+dnfexclude="--exclude=texlive*,libreoffice*"
 alias install="sudo dnf install"
 alias search="sudo dnf search"
 alias update="sudo dnf upgrade --exclude=kernel* $dnfexclude"
-#alias update-mesa"sudo dnf update --enablerepo=updates-testing,rpmfusion-free-updates-testing mesa*"
 alias upgrade="sudo dnf upgrade --refresh $dnfexclude"
 alias remove="sudo dnf remove"
 alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
@@ -34,13 +33,13 @@ function dict () {
 }
 
 function anime() {
-    if [ $2 = 'last' ]; then
-        animdl stream "$1" -s $2
+    if [[ $2 -eq 0 ]]; then
+        animdl stream "$1" -s last
     else
         animdl stream "$1" -r $2
     fi
 }
 
 function ttv () {
-    streamlink  --twitch-ttvlol --twitch-proxy-playlist=https://eu.luminous.dev,https://as.luminous.dev --title '{author} - {title} - {category}' twitch.tv/$@ --player-args '--profile=low-latency --untimed --demuxer-lavf-probe-info=auto --loop-playlist' >/dev/null 2>&1 &exit
+    streamlink  --twitch-proxy-playlist=https://eu.luminous.dev,https://as.luminous.dev --title '{author} - {title} - {category}' twitch.tv/$@ >/dev/null 2>&1 &exit
 }

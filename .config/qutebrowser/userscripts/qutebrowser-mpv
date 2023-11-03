@@ -1,7 +1,7 @@
 #!/bin/sh
 case $QUTE_URL in
     *twitch.tv/*)
-		streamlink --twitch-ttvlol --twitch-proxy-playlist=https://eu.luminous.dev,https://as.luminous.dev --title '{author} - {title} - {category}' $QUTE_URL --player-args '--loop-playlist' >/dev/null 2>&1 &exit
+		streamlink --twitch-proxy-playlist=https://eu.luminous.dev,https://as.luminous.dev --title '{author} - {title} - {category}' $QUTE_URL --player-args '--loop-playlist' >/dev/null 2>&1 &exit
     ;;  
 	*)
 		mpv $QUTE_URL >/dev/null 2>&1 &exit

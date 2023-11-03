@@ -32,16 +32,11 @@ install_basics() {
     isync msmtp ueberzug zathura zathura-pdf-mupdf\
     gcc gdouros-symbola-fonts google-noto-cjk-fonts pavucontrol python3-pip python3-devel 
 
+    echo "Updating lf"
     lf-update   
-    # hplip, hplip-gui for hp printers drivers and simple-scan
-}
-
-install_python_packages() {
-    echo "Installing streamlink, animdl, pywal, yt-dlp"
-    pip install --user --upgrade streamlink
-    pip install --user animdl
+    echo "Installing pywal"
     pip3 install --user pywal
-    python3 -m pip install -U yt-dlp
+    # hplip, hplip-gui for hp printers drivers and simple-scan
 }
 
 install_texlive_packages() {
@@ -63,21 +58,15 @@ enable_services () {
     systemctl disable --now dnf-makecache.timer
 }
 
-configure_neovim() {
-
-}
-
 
 usage() {
     echo "$0: Install packages and software"
     echo
-    echo "Usage: $0 [-dbtpah]"
+    echo "Usage: $0 [-dbth]"
     echo
     echo "-d: Install dwm, st"
     echo "-b: install basics and Setup Repos"
     echo "-t: install TeXlive packages"
-    echo "-p: install Python packages"
-    echo "-a: do all of the above"
     echo "-h: print this usage text and exit"
 }
 
@@ -88,8 +77,7 @@ then
 fi
 
 # parse options
-while getopts "sbtah" OPTION
-do
+while getopts "dbth" OPTION; do
     case $OPTION in
         d)
             install_suckless
@@ -102,30 +90,13 @@ do
             enable_services
             exit 0
             ;;
-        p)
-            install_python_packages
-            exit 0
-            ;;            
         t)
             install_texlive_packages
-            exit 0
-            ;;
-        a)
-            setup_repos
-            install_basics
-            configure_neovim
-            install_python_packages
-            install_texlive_packages
-            enable_services
             exit 0
             ;;
         h)
             usage
             exit 0
-            ;;
-        ?)
-            usage
-            exit 1
             ;;
     esac
 done

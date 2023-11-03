@@ -8,27 +8,22 @@ c.hints.chars = "asdghzxcvb"
 config.bind('f', 'mode-leave', mode='hint')
 config.bind('e', 'mode-leave', mode='hint')
 
-config.set('hints.selectors', {'videos': ['a[href]'],**c.hints.selectors}, pattern='*')
-config.set('hints.selectors', {'videos': ['ytd-thumbnail > #thumbnail']}, pattern='*://*.youtube.com/*')
-config.set('hints.selectors', \
-        {'all':  ['.comments, .expando-button, .reply-button, .next-button, .md-container a[href]'], \
-         'videos':  ['a[href*="youtu"]:not([href*="domain"]), a[href*=".gifv"]'], \
-         'button'   :  ['.choice'],}, pattern='*://*.reddit.com/*')
-config.set('hints.selectors', {'all': ['.pointer-enabled:not(.nav-main-link), button'], 'button': ['.nav-main-link.nav-compact.pointer-enabled']}, pattern='*://melvoridle.com/*')
+config.set('hints.selectors', {'videos': ['a[href*="youtu"], a[href*=".gifv"]'],**c.hints.selectors}, pattern='*')
+config.set('hints.selectors', {'videos': ['#video-title']}, pattern='*://*.youtube.com/*')
+config.set('hints.selectors', {'videos': ['a[data-a-target*="preview-card-image"]']}, pattern='*://*.twitch.tv/*')
 
 bind = {
 	leader + "js": "config-cycle content.javascript.enabled true false",
 	leader + "t": "config-cycle tabs.show switching always",
 	leader + "v": "config-source ;; message-info 'qutebrowser reloaded'",
+
     ## mpv 
     lleader + "m": "hint videos userscript qutebrowser-mpv",
     ";" + "m": "hint --rapid videos spawn umpv {hint-url}",
     lleader + "M": "spawn mpv {url}",
-    lleader + "v": "hint videos spawn --detach mpv {hint-url}",
+    lleader + "v": "hint videos spawn --detach mpv {hint-url} --loop-playlist",
+
     ## Custom Selectors
-    "e": "hint button",
-
-
 	'/': 'set statusbar.show always;; cmd-set-text /',
 	"/": "set statusbar.show always;; cmd-set-text /",
 	"J": "tab-next",
@@ -37,6 +32,7 @@ bind = {
 	"j": "scroll-px 0 200",
 	"k": "scroll-px 0 -200",
 	"l": "scroll-px 100 0",
+
     ## hints
 	"i": "hint --first inputs",
     "I": "hint inputs",

@@ -13,3 +13,4 @@ playlist_display_mode = columns
 follow_now_playing_lyrics = no
 startup_screen = playlist
 jump_to_now_playing_song_at_start = yes
+lyrics_fetchers = musixmatch, sing365, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, zeneszoveg, internet
