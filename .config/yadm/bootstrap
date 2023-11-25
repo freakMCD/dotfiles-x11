@@ -34,8 +34,6 @@ install_basics() {
 
     echo "Updating lf"
     lf-update   
-    echo "Installing pywal"
-    pip3 install --user pywal
     # hplip, hplip-gui for hp printers drivers and simple-scan
 }
 

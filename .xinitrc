@@ -10,6 +10,7 @@ fi
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 # Autostart Programs
+~/.fehbg &
 ~/bin/startup/newsraft.sh &
 st -n neomutt -g 80x25+200+0 neomutt &
 mpc random on && mpc add / &

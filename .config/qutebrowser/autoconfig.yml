@@ -16,7 +16,7 @@ settings:
   auto_save.interval:
     global: 18000000
   auto_save.session:
-    global: false
+    global: true
   bindings.commands:
     global:
       command:
@@ -56,9 +56,9 @@ settings:
   colors.hints.bg:
     global: '#43aec0'
   colors.webpage.bg:
-    global: '#202020'
+    global: '#1e1e2e'
   colors.webpage.darkmode.algorithm:
-    global: lightness-cielab
+    global: lightness-hsl
   colors.webpage.darkmode.contrast:
     global: 0.0
   colors.webpage.darkmode.enabled:
@@ -70,7 +70,7 @@ settings:
   colors.webpage.darkmode.increase_text_contrast:
     global: false
   colors.webpage.darkmode.policy.images:
-    global: never
+    global: smart
   colors.webpage.darkmode.policy.page:
     global: smart
   colors.webpage.darkmode.threshold.background:
@@ -156,6 +156,8 @@ settings:
     '*://www.webtoons.com/*': true
     '*://www.wix.com/*': true
     global: true
+  content.local_content_can_access_remote_urls:
+    global: false
   content.media.audio_capture:
     https://discord.com: true
   content.mouse_lock:
@@ -164,6 +166,7 @@ settings:
     global: false
   content.notifications.enabled:
     https://web.whatsapp.com: true
+    https://www.reddit.com: false
   content.notifications.presenter:
     global: auto
   content.notifications.show_origin:
@@ -176,7 +179,7 @@ settings:
     https://mail.google.com?extsrc=mailto&url=%25s: false
     https://outlook.live.com?mailtouri=%25s: false
   content.user_stylesheets:
-    global: null
+    global: ~/.config/qutebrowser/css/catppuccin-mocha-everywhere.css
   content.webgl:
     global: false
   content.webrtc_ip_handling_policy:
@@ -236,7 +239,7 @@ settings:
   qt.force_software_rendering:
     global: none
   scrolling.bar:
-    global: always
+    global: never
   search.incremental:
     global: false
   session.default_name:

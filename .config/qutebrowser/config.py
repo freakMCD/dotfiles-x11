@@ -1,6 +1,27 @@
-# load additional settings configured via autoconfig.yml
+import os
+from urllib.request import urlopen
+
+# load your autoconfig, use this, if the rest of your config is empty!
 config.load_autoconfig()
 
+if not os.path.exists(config.configdir / "theme.py"):
+    theme = "https://raw.githubusercontent.com/catppuccin/qutebrowser/main/setup.py"
+    with urlopen(theme) as themehtml:
+        with open(config.configdir / "theme.py", "a") as file:
+            file.writelines(themehtml.read().decode("utf-8"))
+
+if os.path.exists(config.configdir / "theme.py"):
+    import theme
+    theme.setup(c, 'mocha', True)
+
+c.content.user_stylesheets = ["~/.config/qutebrowser/css/catppuccin-mocha-everywhere.css"]
+config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/css/catppuccin-mocha-everywhere.css" "~/.config/qutebrowser/css/catppuccin-frappe-everywhere.css" "~/.config/qutebrowser/css/catppuccin-macchiato-everywhere.css" ')
+                            
+
+config.source('redirects.py')
+config.source('mappings.py')
+
+# Adblock
 c.content.blocking.enabled = True
 c.content.blocking.method = "both"
 c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt',
@@ -19,16 +40,17 @@ c.content.javascript.enabled = True
 
 # Prevents *all* tabs from being loaded on restore, only loads on activating them
 c.session.lazy_restore = True
-config.source('theme.py')
-config.source('redirects.py')
-config.source('mappings.py')
+c.tabs.show = "switching"
+
 
 c.qt.args += [  'ignore-gpu-blocklist',
                 'autoplay-policy=user-gesture-require',
               'enable-features=VaapiIgnoreDriverChecks', 
              ]
 c.url.searchengines = {
-    "DEFAULT": "https://duckduckgo.com/html/?q={}",
+    "DEFAULT": "https://lite.duckduckgo.com/lite/?q={}",
     "yt": "farside.link/invidious/search?q={}",
     "r": "https://lite.duckduckgo.com/lite/?q={}%20site%3Areddit.com",
+    "tw": "farside.link/nitter/{}",
 }
+

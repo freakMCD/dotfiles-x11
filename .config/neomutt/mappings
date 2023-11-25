@@ -31,6 +31,7 @@ macro index,pager gd "<change-folder>=[Gmail].Destacados<enter>" "go to Destacad
 macro index,pager ge "<change-folder>=[Gmail].Enviados<enter>" "go to Enviados"
 macro index,pager gs "<change-folder>=[Gmail].Spam<enter>" "go to Spam"
 macro index,pager gp "<change-folder>=[Gmail].Papelera<enter>" "go to Papelera"
+macro index,pager gb "<change-folder>=Interbank<enter>" "go to Interbank"
 macro index,pager gt "<change-folder>=Twitch<enter>" "go to Twitch"
 macro index,pager gf "<change-folder>?"                   "open mailbox..."
 

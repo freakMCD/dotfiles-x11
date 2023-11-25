@@ -303,11 +303,11 @@
 fullscreen = show
 
 [Feed]
-summary = "New email|Apagando"
+summary = "Newsraft|New email|Apagando"
 script = "~/.config/dunst/alert"
 
 [Alarmas]
-summary = "ejercicio"
+summary = "Workout|Network"
 script = "~/.config/dunst/alarms/alarms.sh"
 
 

@@ -27,6 +27,7 @@ XDG_CACHE_HOME="$HOME/.cache"
 XDG_DATA_HOME="$HOME/.local/share"
 XDG_STATE_HOME="$HOME/.local/state"
 
+TERM='st-256color'
 EDITOR='nvim'
 VISUAL='nvim'
 MANPAGER='nvim +Man!'
@@ -35,6 +36,7 @@ TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 HISTFILE="$XDG_STATE_HOME/bash/history"
 LESSHISTFILE='-'
 PS1='\[\e[0;3;90m\][\[\e[0;3;31m\]\u \[\e[0;1;95m\]\W\[\e[0;3;90m\]] \[\e[0m\]'
+TMOUT=300
 set +a
 
 mem() { 
@@ -50,7 +52,10 @@ if [ -x "$(command -v fzf)" ]; then
     export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow $fdExclude"
 	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 	export FZF_ALT_C_COMMAND="fd --type d --hidden --follow $fdExclude"
-	export FZF_DEFAULT_OPTS="--height 60% --reverse"
+    export FZF_DEFAULT_OPTS="--height 60% --reverse \
+    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+    --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 	
 	# nvim ** 
 	_fzf_compgen_path() {

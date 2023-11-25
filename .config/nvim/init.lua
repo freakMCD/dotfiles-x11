@@ -1,47 +1,60 @@
+-- Install lazy.nvim automatically
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-    use 'wbthomason/packer.nvim'    
-    use 'dylanaraps/wal.vim'
+require("lazy").setup({
+    'nvim-lualine/lualine.nvim', dependencies = {'kyazdani42/nvim-web-devicons' },
 
-    use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+	'lervag/vimtex',   
 
-    use 'lervag/vimtex'
+   {
+    'hrsh7th/nvim-cmp', 
+    -- load cmp on InsertEnter
+    event = "InsertEnter",
+    dependencies = {
+	 'hrsh7th/cmp-buffer',
+	 'hrsh7th/cmp-path',
+	 'hrsh7th/cmp-cmdline',
+     --LuaSnip
+     'L3MON4D3/LuaSnip',
+     'saadparwaiz1/cmp_luasnip',
+     'rafamadriz/friendly-snippets',
+	},
+   },
+   
+    {"catppuccin/nvim", name = "catppuccin", priority = 1000 },
+   
+})
 
-	use 'hrsh7th/cmp-buffer'
-	use 'hrsh7th/cmp-path'
-	use 'hrsh7th/cmp-cmdline'
-	use 'hrsh7th/nvim-cmp'
+vim.cmd.colorscheme "catppuccin"
 
-    -- For luasnip users.
-    use 'L3MON4D3/LuaSnip'
-    use 'saadparwaiz1/cmp_luasnip'
-    use "rafamadriz/friendly-snippets"
+require('lualine').setup {
+  options = {
+    theme = 'catppuccin'
+  }
+}
 
-
-local custom_wal = require'lualine.themes.pywal'
--- Change the background of lualine_b section for normal mode
-custom_wal.normal.b.bg = '#252525'
-
+ -- Luasnip Tab completion related config 
 local has_words_before = function()
   unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-require('lualine').setup({
-    options = { 
-        theme = custom_wal,
-    },
-})
-
 -- Set up nvim-cmp.
 vim.opt.completeopt = "menu,menuone,noselect"
-local cmp = require('cmp')
 local luasnip = require('luasnip')
+local cmp = require('cmp')
 local kind_icons = {
   Text = "",
   Method = "",
@@ -143,7 +156,6 @@ cmp.setup({
   })
 
 vim.cmd([[
-    colorscheme wal
 	set clipboard+=unnamedplus
 	set conceallevel=1
 	set confirm
@@ -163,9 +175,6 @@ vim.cmd([[
 	filetype plugin indent on
 	filetype on
 	let g:markdown_fenced_languages = ['bash']
-
-    hi LineNr ctermbg=NONE ctermfg=238
-    hi Pmenu ctermbg=233 ctermfg=7
 
 	let g:vimtex_view_method='zathura'
 	let g:tex_conceal='abdmg'
@@ -197,5 +206,5 @@ vim.cmd([[
 
 ]])
 
-end)
+
 

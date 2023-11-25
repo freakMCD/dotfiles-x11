@@ -4,8 +4,9 @@ set initial-unread-first-sorting true
 
 # Bindings
 
-bind m mark-read; exec MPV='mpv --no-resume-playback' umpv "%l" >/dev/null 2>&1 &exit
+bind m mark-read; exec nohup mpv "%l" >/dev/null 2>&1 &
 bind q navigate-back
+set open-in-browser-command qutebrowser "%l" >/dev/null 2>&1 &exit
 
 # Format
 set menu-item-entry-format " %u │ %o"
@@ -13,14 +14,16 @@ set menu-explore-item-entry-format " %u │ %-20.20O │ %o"
 
 # Colors
 # Section listing
-set color-list-section-fg green bold 
+set color-list-section-fg white bold
 set color-list-section-unread-fg magenta bold italic
 
 # Within the feeds comprising a section
-set color-list-feed-fg default 
-set color-list-feed-unread-fg blue italic 
+set color-list-feed-fg black
+set color-list-feed-unread-fg magenta italic
 
 # Individual posts
-set color-list-item-fg default 
-set color-list-item-unread-fg white 
+set color-list-item-fg white
+set color-list-item-unread-fg default bold italic
+
+set color-list-item-important-fg yellow
 
