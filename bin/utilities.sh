@@ -20,7 +20,7 @@ while :
 do
     clear
     cat<<EOF
-==============================
+
  Please enter your choice:
 
    Calculator       (1)
@@ -28,7 +28,6 @@ do
    appupdate        (3)
    dlclip           (4)
                     (Q)uit
-------------------------------
 EOF
     read -n1 -s
     clear

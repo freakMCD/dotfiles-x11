@@ -14,7 +14,7 @@ prefix="${HOME}/.local/share/email/gmail"
 for file in "$prefix"/*; do
     # Only for specified mailboxes
     folder="${file#"$prefix"/}"
-    if [[ "$folder" == INBOX || "$folder" == Twitch ]]; then
+    if [[ "$folder" == INBOX || $folder" == Github || "$folder" == Interbank || "$folder" == Twitch " ]]; then
         # Find all unread mail whose file is newer that the last time this script was run and count them
         newcount=$(find "$file"/new -type f -newer ~/.config/neomutt/.mailsynclast 2> /dev/null | wc -l)
         # Send notification if there are new mail

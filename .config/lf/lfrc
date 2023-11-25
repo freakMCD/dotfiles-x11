@@ -9,6 +9,7 @@ set previewer lf-ueberzug-previewer
 set cleaner lf-ueberzug-cleaner
 
 map Y cpsel 
+map P :link
 map a push :mkdir<space>
 
 map D delete

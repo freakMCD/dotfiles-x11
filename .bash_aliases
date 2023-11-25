@@ -4,7 +4,6 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 alias mp3dl="yt-dlp --extract-audio --audio-format mp3"
 alias playlist="mpv --shuffle --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
-alias pywal='wal --saturate 0.5 -i ~/.config/wallpaper --iterative -n -o "~/.config/dunst/wal_dunst.sh"'
 
 alias rclone="rclone -P"
 alias neomutt="st -n neomutt -g 80x25+200+0 -e neomutt &exit"
@@ -24,15 +23,7 @@ alias upgrade="sudo dnf upgrade --refresh $dnfexclude"
 alias remove="sudo dnf remove"
 alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
 
-function whatrequires () {
-    sudo dnf history "$@"| grep -E -w 'install|upgrade'
-}
-
-function dict () {
-    curl -s 'dict://dict.org/d:'"$@"'' | nvim +Man!
-}
-
-function anime() {
+anime () {
     if [[ $2 -eq 0 ]]; then
         animdl stream "$1" -s last
     else
@@ -40,6 +31,19 @@ function anime() {
     fi
 }
 
-function ttv () {
-    streamlink  --twitch-proxy-playlist=https://eu.luminous.dev,https://as.luminous.dev --title '{author} - {title} - {category}' twitch.tv/$@ >/dev/null 2>&1 &exit
+stage () {
+        $1 ls-files -z --$2 | xargs -0 $1 add  
 }
+
+ttv () { 
+    streamlink  --twitch-proxy-playlist=https://eu.luminous.dev,https://as.luminous.dev --title '{author} - {title} - {category}' twitch.tv/$@ --player-args '--loop-playlist' >/dev/null 2>&1 &exit
+}
+
+dict () { 
+    curl -s 'dict://dict.org/d:'"$@"'' | nvim +Man!
+}
+
+whatrequires () {
+    sudo dnf history "$@"| grep -E -w 'install|upgrade' 
+}
+

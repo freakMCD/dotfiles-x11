@@ -23,7 +23,7 @@ Flatten .
 Channel gmail
 Far :gmail-remote:
 Near :gmail-local:
-Patterns INBOX "[Gmail]/Destacados" "[Gmail]/Enviados" "[Gmail]/Papelera" "Twitch" 
+Patterns INBOX "[Gmail]/Destacados" "[Gmail]/Enviados" "[Gmail]/Papelera" "Github" "Interbank" "Twitch"
 SyncState *
 Create Both
 Expunge Both

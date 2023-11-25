@@ -261,7 +261,7 @@ settings:
   tabs.position:
     global: top
   tabs.show:
-    global: always
+    global: switching
   tabs.title.alignment:
     global: center
   url.default_page:
