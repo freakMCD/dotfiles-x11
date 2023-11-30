@@ -8,13 +8,13 @@ sec=0
 
 # Colors
 white=#cdd6f4
-black=#1E1D2D
+black=#11111b
 green=#ABE9B3
 blue=#96CDFB
 grey=#6c7086
 red=#F28FAD
 darkblue=#83bae8
-darkgrey=#11111b
+darkgrey=#1e1e2e
 
 update_network () {
     checknet=$(nslookup google.com >&/dev/null; echo $?)

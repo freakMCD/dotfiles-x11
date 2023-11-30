@@ -12,19 +12,23 @@ hr = 'a[href^="https"][href*='
 config.set('hints.selectors', {'videos': [hr+'youtu]', hr+'clips]', hr+'gifv]', hr+'"redd.it"'],**c.hints.selectors}, pattern='*')
 config.set('hints.selectors', {'videos': ['a[id*="video-title"]']}, pattern='*://*.youtube.com/*')
 config.set('hints.selectors', {'videos': ['a[data-a-target*="preview-card-image"]']}, pattern='*://*.twitch.tv/*')
+config.set('hints.selectors', {'all': ['.comments, .expando-button, .reply-button, .next-button, .md-container a[href]'],
+                               'button': ['.choice'],
+                               'videos': [hr+'youtu]', hr+'clips]', hr+'gifv]', hr+'"redd.it"']}, pattern='*://*.reddit.com/*')
 
 bind = {
 	leader + "js": "config-cycle content.javascript.enabled true false",
 	leader + "t": "config-cycle tabs.show switching always",
 	leader + "v": "config-source ;; message-info 'qutebrowser reloaded'",
-
     ## mpv 
     lleader + "m": "hint videos userscript qutebrowser-mpv",
     ";" + "m": "hint --rapid videos spawn umpv {hint-url}",
     lleader + "M": "hint links spawn --detach mpv {hint-url}",
-    lleader + "v": "hint videos spawn --detach mpv {hint-url} --loop-playlist",
-
-    ## Custom Selectors
+    ## hints
+    "e": "hint button",
+	"i": "hint --first inputs",
+    "I": "hint inputs",
+    ## qutebrowser mappings
 	'/': 'set statusbar.show always;; cmd-set-text /',
 	"/": "set statusbar.show always;; cmd-set-text /",
 	"J": "tab-prev",
@@ -33,10 +37,6 @@ bind = {
 	"j": "scroll-px 0 200",
 	"k": "scroll-px 0 -200",
 	"l": "scroll-px 100 0",
-
-    ## hints
-	"i": "hint --first inputs",
-    "I": "hint inputs",
 }
 for a, b in bind.items():
     config.bind(a, b)

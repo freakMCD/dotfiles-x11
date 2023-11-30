@@ -47,7 +47,7 @@ mem() {
 if [ -x "$(command -v fzf)" ]; then
 	source /usr/share/fzf/shell/key-bindings.bash
 	source /usr/share/fzf/shell/completion.bash
-    fdExclude="-E '{*[Cc]ache,*.git,.local}'"
+    fdExclude="-E '{*[Cc]ache,*.git,.local,r2modman*}'"
 
     export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow $fdExclude"
 	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -63,7 +63,7 @@ if [ -x "$(command -v fzf)" ]; then
 	}
 	# cd **
 	_fzf_compgen_dir() {
-        eval $FZF_ALT_C_COMMAND . "$1";
+        eval $FZF_ALT_C_COMMAND . "$1"
     }
 	
 	# fe [FUZZY PATTERN] - Open the selected file with the default editor

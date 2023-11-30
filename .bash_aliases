@@ -2,7 +2,7 @@ alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias aliasrc="nvim ~/.bash_aliases && source ~/.bash_aliases"
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
-alias mp3dl="yt-dlp --extract-audio --audio-format mp3"
+alias mp3dl='yt-dlp --restrict-filenames --extract-audio --audio-format mp3 --no-playlist'
 alias playlist="mpv --shuffle --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
 
 alias rclone="rclone -P"
@@ -24,15 +24,17 @@ alias remove="sudo dnf remove"
 alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
 
 anime () {
-    if [[ $2 -eq 0 ]]; then
-        animdl stream "$1" -s last
+    if [[ $1 == "schedule" ]]; then
+        animdl "$1"
+    elif [[ -z $2 ]]; then
+            animdl stream "$1" -s last
     else
-        animdl stream "$1" -r $2
+            animdl stream "$1" -r $2
     fi
 }
 
 stage () {
-        $1 ls-files -z --$2 | xargs -0 $1 add  
+    $1 ls-files -z --$2 | xargs -0 $1 add  
 }
 
 ttv () { 
@@ -42,6 +44,8 @@ ttv () {
 dict () { 
     curl -s 'dict://dict.org/d:'"$@"'' | nvim +Man!
 }
+
+
 
 whatrequires () {
     sudo dnf history "$@"| grep -E -w 'install|upgrade' 

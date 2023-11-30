@@ -58,7 +58,7 @@ settings:
   colors.webpage.bg:
     global: '#1e1e2e'
   colors.webpage.darkmode.algorithm:
-    global: lightness-hsl
+    global: lightness-cielab
   colors.webpage.darkmode.contrast:
     global: 0.0
   colors.webpage.darkmode.enabled:
@@ -218,6 +218,8 @@ settings:
     - --choosefile={}
   fonts.default_family:
     global: JetBrainsMono Nerd Font
+  fonts.default_size:
+    global: 10pt
   fonts.hints:
     global: bold 10.5pt default_family
   hints.chars:
@@ -261,7 +263,7 @@ settings:
   tabs.position:
     global: top
   tabs.show:
-    global: switching
+    global: always
   tabs.title.alignment:
     global: center
   url.default_page:
