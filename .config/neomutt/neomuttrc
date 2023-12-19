@@ -22,16 +22,19 @@ mailboxes +INBOX +Github +Interbank +Twitch
 ## Generic
 set editor=`echo \$EDITOR`
 set mailcap_path="~/.config/neomutt/mailcap"
-set markers = no # Disables the `+` displayed at line wraps
-set pager_stop=yes
+set pager_stop
 set sort = reverse-last-date-received 
 set use_threads=yes
 set quit=ask-yes
 set thorough_search
+set tilde
+unset markers # Disables the `+` displayed at line wraps
 unset quit
-unset wait_key
 
-alternative_order text/plain text text/html #prefer plaintext over dumped html
+
+# Set preffered view modes
+auto_view text/html text/calendar application/ics # view html automatically
+alternative_order text/html text/plain text/enriched text/*
 
 # Index page format. Default "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
 set index_format="%zs  %-20.20F %s %*   %[%b %d] "

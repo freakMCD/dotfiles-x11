@@ -24,7 +24,6 @@ require("lazy").setup({
     dependencies = {
 	 'hrsh7th/cmp-buffer',
 	 'hrsh7th/cmp-path',
-	 'hrsh7th/cmp-cmdline',
      --LuaSnip
      'L3MON4D3/LuaSnip',
      'saadparwaiz1/cmp_luasnip',
@@ -36,7 +35,7 @@ require("lazy").setup({
    
 })
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd('colorscheme catppuccin')
 
 require('lualine').setup {
   options = {
@@ -145,18 +144,8 @@ cmp.setup({
     })
   })
 
-  -- Use cmdline & path source for ':' 
-    cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({
-        { name = 'path' }
-      }, {
-        { name = 'cmdline' }
-    })
-  })
-
 vim.cmd([[
-	set clipboard+=unnamedplus
+    set clipboard=unnamedplus
 	set conceallevel=1
 	set confirm
 	set history=1000
@@ -175,6 +164,7 @@ vim.cmd([[
 	filetype plugin indent on
 	filetype on
 	let g:markdown_fenced_languages = ['bash']
+    highlight Normal ctermbg=NONE guibg=NONE
 
 	let g:vimtex_view_method='zathura'
 	let g:tex_conceal='abdmg'
@@ -205,6 +195,4 @@ vim.cmd([[
 	augroup END
 
 ]])
-
-
 

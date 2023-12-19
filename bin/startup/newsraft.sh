@@ -22,7 +22,7 @@ do
     unread=$(sqlite3 -line ~/.local/share/newsraft/newsraft.sqlite3 'SELECT COUNT() FROM items WHERE unread = 1' | sed s/"COUNT() = "//g)
 
     if [[ $unread != "0" ]]; then
-        notify-send -t 120000 "Newsraft" "$unread feeds unread"
+        notify-send -t 30000 "Newsraft" "$unread feeds unread"
     fi
     $newsraft &
     now=$(date +%s) # timestamp in seconds

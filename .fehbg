@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale '/home/edwin/.config/wal/catppuccin-wallpaper.png'
+feh --no-fehbg --bg-scale '/home/edwin/.config/wal/mountains.jpg' 

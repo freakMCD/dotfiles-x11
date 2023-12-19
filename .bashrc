@@ -26,6 +26,7 @@ XDG_CONFIG_HOME="$HOME/.config"
 XDG_CACHE_HOME="$HOME/.cache"
 XDG_DATA_HOME="$HOME/.local/share"
 XDG_STATE_HOME="$HOME/.local/state"
+WINEPREFIX="/media/data/.wine"
 
 TERM='st-256color'
 EDITOR='nvim'
@@ -48,12 +49,11 @@ if [ -x "$(command -v fzf)" ]; then
 	source /usr/share/fzf/shell/key-bindings.bash
 	source /usr/share/fzf/shell/completion.bash
     fdExclude="-E '{*[Cc]ache,*.git,.local,r2modman*}'"
-
-    export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow $fdExclude"
-	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-	export FZF_ALT_C_COMMAND="fd --type d --hidden --follow $fdExclude"
+    export FZF_DEFAULT_COMMAND="fd -t f -H -L "$fdExclude""
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="fd -t d -H -L "$fdExclude""
     export FZF_DEFAULT_OPTS="--height 60% --reverse \
-    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+    --color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8 \
     --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
     --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 	

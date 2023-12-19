@@ -70,7 +70,7 @@ settings:
   colors.webpage.darkmode.increase_text_contrast:
     global: false
   colors.webpage.darkmode.policy.images:
-    global: smart
+    global: never
   colors.webpage.darkmode.policy.page:
     global: smart
   colors.webpage.darkmode.threshold.background:
@@ -108,6 +108,8 @@ settings:
     https://discord.com: true
   content.fullscreen.overlay_timeout:
     global: 3000
+  content.geolocation:
+    global: false
   content.headers.user_agent:
     global: Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko)
       {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}
@@ -184,10 +186,12 @@ settings:
     global: false
   content.webrtc_ip_handling_policy:
     global: all-interfaces
+  downloads.location.directory:
+    global: /media/data/
   downloads.position:
     global: top
   downloads.remove_finished:
-    global: -1
+    global: 60
   editor.command:
     global:
     - urxvt
@@ -287,3 +291,5 @@ settings:
     - utm_campaign
     - utm_term
     - utm_content
+  window.transparent:
+    global: false

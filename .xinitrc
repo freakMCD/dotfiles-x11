@@ -15,6 +15,7 @@ fi
 st -n neomutt -g 80x25+200+0 neomutt &
 mpc random on && mpc add / &
 dunst &
+picom -b
 
 # Start dwm
 ~/bin/startup/signals/mpc_status &

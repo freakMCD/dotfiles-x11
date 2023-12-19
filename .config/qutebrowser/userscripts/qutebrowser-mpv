@@ -1,19 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
 vod_url="(\.*twitch\.tv\/videos\/\.*)"
 case $QUTE_URL in
     *twitch.tv/*)
         if [[ $QUTE_URL =~ $vod_url ]]; then
-            mpv $QUTE_URL --loop-playlist >/dev/null 2>&1 &exit
+            mpv $QUTE_URL --loop-playlist &>/dev/null &exit
         else
 		    streamlink --twitch-proxy-playlist=https://eu.luminous.dev,https://as.luminous.dev --title '{author} - {title} - {category}' $QUTE_URL --player-args '--loop-playlist' >/dev/null 2>&1 &exit
         fi
         ;;
-    *imgur.com/*)
-        mpv $QUTE_URL --volume=40 --wid=$(xdotool getactivewindow) >/dev/null 2>&1
-        ;;
 	*)
-        mpv $QUTE_URL --volume=40 >/dev/null 2>&1
+        mpv $QUTE_URL &>/dev/null &exit
         ;;
 esac
 

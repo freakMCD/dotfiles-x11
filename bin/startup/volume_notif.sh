@@ -16,6 +16,7 @@ function volume_notification {
 
     # Play the volume changed sound
     canberra-gtk-play -i audio-volume-change -d "changeVolume"
+    kill -RTMIN $(cat ~/.cache/pidofbar)
 }
 
 function mute_notification {
@@ -27,6 +28,7 @@ function mute_notification {
     else
         volume_notification
     fi
+    kill -RTMIN $(cat ~/.cache/pidofbar)
 }
 
 function mic_notification {

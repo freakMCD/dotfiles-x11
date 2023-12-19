@@ -6,7 +6,6 @@ default_player: mpv
 players:
     mpv:
         executable: mpv
-        opts: ['--no-terminal']
 
 fzf:
     executable: fzf

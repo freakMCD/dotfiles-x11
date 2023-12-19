@@ -15,7 +15,7 @@ if os.path.exists(config.configdir / "theme.py"):
     theme.setup(c, 'mocha', True)
 
 c.content.user_stylesheets = ["~/.config/qutebrowser/css/catppuccin-mocha-everywhere.css"]
-config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/css/catppuccin-mocha-everywhere.css" "~/.config/qutebrowser/css/catppuccin-frappe-everywhere.css" "~/.config/qutebrowser/css/catppuccin-macchiato-everywhere.css" ')
+config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/css/catppuccin-mocha-everywhere.css"')
                             
 
 config.source('redirects.py')
@@ -49,8 +49,8 @@ c.qt.args += [  'ignore-gpu-blocklist',
              ]
 c.url.searchengines = {
     "DEFAULT": "https://lite.duckduckgo.com/lite/?q={}",
+    "r": "lite.duckduckgo.com/lite/?q={}%20site%3Areddit.com",
     "yt": "farside.link/invidious/search?q={}",
-    "r": "https://lite.duckduckgo.com/lite/?q={}%20site%3Areddit.com",
-    "tw": "farside.link/nitter/{}",
+    "chat": "twitch.tv/popout/{}/chat?popout=",
 }
 

@@ -1,3 +1,5 @@
+# vim: filetype=neomuttrc
+#
 # General rebindings
 # unbinding x and i because only one key is enough
 bind generic,compose,attach,pager,index i noop    
@@ -10,6 +12,7 @@ bind generic,compose,attach,pager q exit
 # ----------------------------------------------------
 
 bind generic             z         noop
+bind index,pager,attach  b         noop
 bind index,pager,attach  g         noop
 bind index,pager         s         noop
 bind generic,pager       t         noop
@@ -36,12 +39,12 @@ bind index,pager         C         mail
 # synchronization settings ['s' to sync]
 macro index S "<shell-escape>systemctl --user start mbsync.service &<enter>" "sync email"
 
-# Open html attachment
-macro index,pager B "<view-attachments><search>html<enter><view-mailcap><exit><exit>"
+## Make quick html view macro
+bind index,pager V  noop        ## Unbinds V from version
+macro index,pager V "<view-attachments><search>html<enter><view-mailcap><exit>"
 
 # Actions
 # ----------------------------------------------------
-
 bind  index,pager    a   group-reply
 bind  generic        tt  tag-entry
 bind  pager          tt  tag-message
@@ -57,5 +60,4 @@ bind editor \Cn history-down
 bind index,pager \Ck sidebar-prev
 bind index,pager \Cj sidebar-next
 bind index,pager \Cl sidebar-open
-bind index,pager b sidebar-toggle-visible
 
