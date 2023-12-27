@@ -8,7 +8,7 @@ function get_volume {
 }
 
 function volume_notification {
-    volume=`get_volume`
+    volume=$(get_volume)
 
     # Show the volume notification
     dunstify -a "changeVolume" -u low -h string:x-dunst-stack-tag:$msgTag \
@@ -28,7 +28,7 @@ function mute_notification {
     else
         volume_notification
     fi
-    kill -RTMIN $(cat ~/.cache/pidofbar)
+    kill -RTMIN "$(cat ~/.cache/pidofbar)"
 }
 
 function mic_notification {

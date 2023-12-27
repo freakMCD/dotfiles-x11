@@ -31,15 +31,15 @@ require("lazy").setup({
 	},
    },
    
-    {"catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    {"sainnhe/gruvbox-material", name = "gruvbox", priority = 1000 },
    
 })
 
-vim.cmd('colorscheme catppuccin')
+vim.cmd('colorscheme gruvbox')
 
 require('lualine').setup {
   options = {
-    theme = 'catppuccin'
+    theme = 'gruvbox'
   }
 }
 

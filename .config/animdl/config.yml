@@ -1,4 +1,3 @@
-#default_provider: allanime
 default_provider: animepahe
 quality_string: best
 default_player: mpv

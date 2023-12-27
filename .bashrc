@@ -53,17 +53,17 @@ if [ -x "$(command -v fzf)" ]; then
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_ALT_C_COMMAND="fd -t d -H -L "$fdExclude""
     export FZF_DEFAULT_OPTS="--height 60% --reverse \
-    --color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8 \
-    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-    --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+    --color=bg+:#32302f,spinner:#e2d3ba,hl:#ef938e \
+    --color=fg:#e2d3ba,header:#ef938e,info:#e1acbb,pointer:#e2d3ba \
+    --color=marker:#e2d3ba,fg+:#e2d3ba,prompt:#e1acbb,hl+:#ef938e"
 	
 	# nvim ** 
 	_fzf_compgen_path() {
-        eval $FZF_DEFAULT_COMMAND . "$1"
+        eval $FZF_DEFAULT_COMMAND . "$HOME"
 	}
 	# cd **
 	_fzf_compgen_dir() {
-        eval $FZF_ALT_C_COMMAND . "$1"
+        eval $FZF_ALT_C_COMMAND . "$HOME"
     }
 	
 	# fe [FUZZY PATTERN] - Open the selected file with the default editor

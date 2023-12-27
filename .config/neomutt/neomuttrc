@@ -22,6 +22,7 @@ mailboxes +INBOX +Github +Interbank +Twitch
 ## Generic
 set editor=`echo \$EDITOR`
 set mailcap_path="~/.config/neomutt/mailcap"
+set mark_old
 set pager_stop
 set sort = reverse-last-date-received 
 set use_threads=yes

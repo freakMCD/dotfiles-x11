@@ -4,22 +4,15 @@ from urllib.request import urlopen
 # load your autoconfig, use this, if the rest of your config is empty!
 config.load_autoconfig()
 
-if not os.path.exists(config.configdir / "theme.py"):
-    theme = "https://raw.githubusercontent.com/catppuccin/qutebrowser/main/setup.py"
-    with urlopen(theme) as themehtml:
-        with open(config.configdir / "theme.py", "a") as file:
-            file.writelines(themehtml.read().decode("utf-8"))
 
-if os.path.exists(config.configdir / "theme.py"):
-    import theme
-    theme.setup(c, 'mocha', True)
 
-c.content.user_stylesheets = ["~/.config/qutebrowser/css/catppuccin-mocha-everywhere.css"]
-config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/css/catppuccin-mocha-everywhere.css"')
+c.content.user_stylesheets = ["~/.config/qutebrowser/css/gruvbox-all-sites.css"]
+config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/css/catppuccin-mocha-everywhere.css" "~/.config/qutebrowser/css/gruvbox-all-sites.css"')
                             
 
 config.source('redirects.py')
 config.source('mappings.py')
+config.source('gruvbox.py')
 
 # Adblock
 c.content.blocking.enabled = True

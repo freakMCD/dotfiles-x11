@@ -7,68 +7,70 @@ check=1
 sec=0
 
 # Colors
-white=#cdd6f4
-black=#11111b
-green=#ABE9B3
-blue=#96CDFB
-grey=#6c7086
-red=#F28FAD
-darkblue=#83bae8
-darkgrey=#1e1e2e
+green=^c#a9b665^
+grey=^c#7c6f64^
+red=^c#ea6962^
+orange=^c#e78a4e^
+yellow=^c#d8a657^
+purple=^c#d3869b^
 
 update_network () {
-    checknet=$(nslookup google.com >&/dev/null; echo $?)
+    checknet=$(nslookup google.com >&/dev/null; printf $?)
 
     if [ $checknet -eq 0 ]; then
-		network=" ^c$green^󰈀 up"
+		network=" ${green}󰈀 up"
         if [ $check -eq 1 ]; then
             notify-send "Network" "Connected"
             check=0
         fi
     else 
-		network=" ^c$red^󰈀 down"
+		network=" ${red}󰈀 down"
         if [ $check -eq 0 ]; then
             notify-send "Network" "Disconnected"
             check=1
         fi
 	fi
+    network="$network^d^"
 }
 
 update_cpu () {
-    cpu="^c$black^^b$green^ CPU ^c$white^^b$darkgrey^ $(grep -o "^[^ ]*" /proc/loadavg) ^d^"
+    read -r cpu x </proc/loadavg
+    cpu="${yellow} CPU^d^ $cpu"
 }
 
 update_memory () { 
-    mem="^c$blue^^b$black^ 󰍛 ^c$white^$(awk '/MemT/ {t=$2/1000**2} /^(MemF|Bu|Ca)/ {f+=$2/1000**2} END {printf "%.1fG^c'"$darkblue"'^/%dG",t-f,t}' /proc/meminfo)"
+    mem="${yellow} 󰍛 ^d^$(awk '/MemT/ {t=$2/1000**2} /^(MemF|Bu|Ca)/ {f+=$2/1000**2} END {printf "%.1fG'"${orange}"'/%dG",t-f,t}' /proc/meminfo)^d^"
 }
 
 update_disk () {
-    disk="^c$blue^  ^c$white^$(df -Ph | grep "/dev/sda3" | awk {'print $5'})"
+    disk="${yellow}  ^d^$(df -Ph | grep "/dev/sda3" | awk {'print $5'})"
 }
 
 update_time() { 
-    time="$(date "+ ^c$blue^  ^c$white^ %a-%d-%b ^c$black^^b$darkblue^ 󰥔 ^c$black^^b$blue^ %R")"
+    time="$(date '+%b %d (%a) %R')"
 }
 
 # modules that don't update on their own
 # they are also run at the start for getting the initial value
-update_vol () { 
-    vol="$([ "$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')" = "no" ] && printf "^c$blue^󰕾^c$white^^f2^" || printf "^c$red^󰝟^f2^") $(pactl get-sink-volume 0 | awk '{print $5}')"
+update_vol() { 
+    icon="$( [[ $(pactl get-sink-mute @DEFAULT_SINK@ | awk '{printf $2}') == "no" ]] && printf "${yellow}󰕾" || printf "${red}󰝟")"
+    value="$(pactl get-sink-volume 0 | awk '{printf $5}')"
+    vol=" $icon^f2^^d^ $value"
 }
 update_vol
 
 update_song () {
     if [[ $(mpc status %state%) == 'playing' ]]; then
-        song="^c$blue^ ^c$white^ $(mpc current)"
+        song="${purple}  $(mpc current) ^d^"
     elif [[ $(mpc status %state%) == 'paused' ]]; then
-        song="^c$grey^  $(mpc current)" 
+        song="${grey} $(mpc current) ^d^" 
     else 
         song="fail"
     fi
 }
 
 display () {
-    xprop -root -set WM_NAME "$song       $vol  $cpu $network $mem $disk $time  "
+    xprop -root -set WM_NAME "$song    $network  $vol  $cpu  $mem  $disk   ~ $time "
 }
 
 # signals for each module to update while updating display. RTMIN is 33
