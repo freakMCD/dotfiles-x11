@@ -1,8 +1,0 @@
-[Unit]
-Description=Exercise Alarm 
-
-[Service]
-#Export .local/bin to path for script find yt-dlp
-Environment=PATH=%h/.local/bin:/usr/bin
-ExecStart=%h//bin/auto/alarm.sh
-

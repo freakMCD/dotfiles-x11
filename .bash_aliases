@@ -3,7 +3,7 @@ alias aliasrc="nvim ~/.bash_aliases && source ~/.bash_aliases"
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 alias mp3dl='yt-dlp --restrict-filenames --extract-audio --audio-format mp3 --no-playlist'
-alias playlist="mpv --shuffle --volume=50 --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
+alias playlist="mpv --shuffle --volume=75 --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
 
 alias neomutt="st -n neomutt -g 80x25+200+0 -e neomutt &exit"
 alias newsraft="st -n newsraft -g 80x25+200+0 -e newsraft &exit"

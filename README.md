@@ -61,7 +61,9 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 
     sudo chown -v username:username /media/username/disk-name
 
-### yadm
+### git and yadm examples
+
+    git remote set-url --push origin https://github.com/freakMCD/<reponame>.git
 
 **To commit all changes**
 

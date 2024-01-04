@@ -13,16 +13,12 @@ trans() {
     wget -O ~/bin/trans git.io/trans && chmod +x ~/bin/trans
 }
 
-animdl() {
-    pip install --user --upgrade animdl 
-}
-
 yt-dlp() {
     pip install --user --upgrade yt-dlp
 }
 
 PS3='Please enter your number choice: '
-options=("streamlink" "ttvlol" "trans" "animdl" "yt-dlp" "Quit")
+options=("streamlink" "ttvlol" "trans" "yt-dlp" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -34,9 +30,6 @@ do
             ;;
         "trans")
             trans
-            ;;
-        "animdl")
-            animdl
             ;;
         "yt-dlp")
             yt-dlp

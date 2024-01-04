@@ -1,8 +1,17 @@
-#!/bin/bash
+#!/bin/sh
 # Signal to display current song in dwm-status
 
-sleep 5
-while true; do
+purple=^c#d3869b^
+grey=^c#7c6f64^
+
+while true
+do
+    if [[ $(mpc status %state%) == 'playing' ]]; then
+        song="${purple}  $(mpc current) ^d^"
+    elif [[ $(mpc status %state%) == 'paused' ]]; then
+        song="${grey} $(mpc current) ^d^" 
+    fi
+
+    printf "$song" > ~/bin/startup/signals/current_song
     mpc idle player   
-    kill -RTMIN+1 $(cat ~/.cache/pidofbar)
 done

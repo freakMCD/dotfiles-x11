@@ -14,7 +14,7 @@ done
 
 sleep 10
 
-interval=3600
+interval=7200
 while :
 do
     pkill -x newsraft

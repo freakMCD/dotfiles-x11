@@ -9,6 +9,9 @@ install_suckless() {
     cd ..
     git clone https://github.com/freakMCD/st && cd st
     sudo make clean install
+    cd ..
+    git clone https://github.com/freakMCD/slstatus && cd st
+    sudo make clean install
 }
 
 setup_repos() {
@@ -49,7 +52,6 @@ enable_services () {
     systemctl --user enable --now mpd.service 
 
     echo "Starting user timers"
-    systemctl enable --now alarm.timer
     systemctl enable --now mbsync.timer
 
     echo "dnf-makecache"

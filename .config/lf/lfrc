@@ -19,6 +19,7 @@ map gm cd ~/Documents/MATH
 map ge cd /etc/
 map gu cd /usr/
 map gn cd ~/Documents/Notes/
+map gs cd ~/.local/share/Steam/steamapps/
 
 map w
 map S $$SHELL
@@ -85,4 +86,25 @@ cmd open &{{
    esac
 }}
 
+cmd paste-overwrite &{{
+	set -f
+    mode=$(head -1 ~/.local/share/lf/files)
+    list=$(sed 1d ~/.local/share/lf/files)	
+    set -- _ $list; shift
+	[ $# -gt 0 ] || exit
+	case $mode in
+		copy)
+			rsync -r "$@" ./
+			;;
+		move)
+			rsync -r --remove-source-files "$@" ./
+			;;
+	esac
+	lf -remote 'save\nmove\n'
+	lf -remote "send $id load"
+	lf -remote "send $id echo \"\033[0;32mpasted $# file(s)\033[0m\""
+}}
 
+map p
+map pp paste
+map po paste-overwrite
