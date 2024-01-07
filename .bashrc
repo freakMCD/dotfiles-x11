@@ -12,32 +12,12 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:$HOME/bin/lib:" ]]
-then
-    PATH="$HOME/.local/bin:$HOME/bin:$HOME/bin/lib:$PATH"
-fi
-export PATH
-
 set -a
-source ~/.local/share/linuxfedora
-BROWSER="qutebrowser"
-XDG_CONFIG_HOME="$HOME/.config"
-XDG_CACHE_HOME="$HOME/.cache"
-XDG_DATA_HOME="$HOME/.local/share"
-XDG_STATE_HOME="$HOME/.local/state"
-WINEPREFIX="/media/data/.wine"
-
-TERM='st-256color'
-EDITOR='nvim'
-VISUAL='nvim'
-MANPAGER='nvim +Man!'
-GNUPGHOME="$XDG_DATA_HOME/gnupg"
-TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 HISTFILE="$XDG_STATE_HOME/bash/history"
+HISTCONTROL=ignoreboth
 LESSHISTFILE='-'
 PS1='\[\e[0;3;90m\][\[\e[0;3;31m\]\u \[\e[0;1;95m\]\W\[\e[0;3;90m\]] \[\e[0m\]'
-TMOUT=300
+PS4='Line ${LINENO}: '
 set +a
 
 mem() { 

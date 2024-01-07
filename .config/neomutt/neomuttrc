@@ -24,14 +24,15 @@ set editor=`echo \$EDITOR`
 set mailcap_path="~/.config/neomutt/mailcap"
 set mark_old
 set pager_stop
-set sort = reverse-last-date-received 
-set use_threads=yes
+set sort = reverse-date-received
+set sort_aux = reverse-last-date-received
 set quit=ask-yes
 set thorough_search
 set tilde
 unset markers # Disables the `+` displayed at line wraps
 unset quit
-
+## Threads
+set use_threads=yes
 
 # Set preffered view modes
 auto_view text/html text/calendar application/ics # view html automatically

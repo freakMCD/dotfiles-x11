@@ -13,6 +13,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    'kovetskiy/sxhkd-vim',
+
     'nvim-lualine/lualine.nvim', dependencies = {'kyazdani42/nvim-web-devicons' },
 
 	'lervag/vimtex',   
