@@ -55,15 +55,22 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 ```
 3. Run 'yadm bootstrap' to install the rest
 
-## Notes
-
+<details><summary>
+<h2>Notes</h2>
+</summary>
 **To change Drive permissions to username**
 
     sudo chown -v username:username /media/username/disk-name
 
 ### git and yadm examples
 
+**Set url to push commits**
+
     git remote set-url --push origin https://github.com/freakMCD/<reponame>.git
+
+**Delete last commit from remote repo but keep it locally**
+
+    git push origin +HEAD^:master
 
 **Undo last commit --amend**
 
@@ -98,4 +105,4 @@ yadm clone https://github.com/freakMCD/dotfiles.git
     git clone https://codeberg.org/grisha/newsraft.git
     dnf install gumbo-parser-devel yajl-devel expat-devel ncurses-devel sqlite-devel curl-devel
 
-
+</details>

@@ -23,18 +23,6 @@ alias upgrade="sudo dnf upgrade --refresh $dnfexclude"
 alias remove="sudo dnf remove"
 alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
 
-anime () {
-    FLAGS=("--player-opts=--really-quiet")
-
-    if [[ $1 == "schedule" ]]; then
-        animdl "$1"
-    elif [[ -z $2 ]]; then
-            animdl stream "$1" -s last "${FLAGS[@]}"
-    else
-            animdl stream "$1" -r $2 "${FLAGS[@]}"
-    fi
-}
-
 stage () {
     $1 ls-files -z --$2 | xargs -0 $1 add  
 }
