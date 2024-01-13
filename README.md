@@ -13,7 +13,7 @@
 * **PDF Reader**: Zathura
 * **RSS Reader**: Newsraft
 * **Email Client**: Neomutt + Isync + msmtp
-* **Themes on the fly** using pywal
+* **Theme** : gruvbox
 * **Screenshots**: maim + xclip + xdotool
 * **Basic dotfiles** :
     - .bashrc & .bash_profile

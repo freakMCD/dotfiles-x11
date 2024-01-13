@@ -1,17 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 # Signal to display current song in dwm-status
 
-purple=^c#d3869b^
-grey=^c#7c6f64^
-
-while true
-do
-    if [[ $(mpc status %state%) == 'playing' ]]; then
-        song="${purple}  $(mpc current) ^d^"
-    elif [[ $(mpc status %state%) == 'paused' ]]; then
-        song="${grey} $(mpc current) ^d^" 
-    fi
-
-    printf "$song" > ~/bin/startup/signals/current_song
+sleep 5
+while true; do
     mpc idle player   
+    aslstatus-update cmd:sh
 done

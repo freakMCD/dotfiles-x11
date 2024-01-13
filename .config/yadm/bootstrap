@@ -31,7 +31,7 @@ install_basics() {
 
     # Basics
     sudo dnf install feh maim picom lftp sxhkd xev xclip xprop xdotool w3m\
-    fd-find fzf mpd mpc mpv pass neomutt neovim puddletag \
+    fd-find fzf mpd mpc mpv mpv-mpris pass neomutt neovim puddletag \
     isync msmtp ueberzug zathura zathura-pdf-mupdf\
     gcc gdouros-symbola-fonts google-noto-cjk-fonts pavucontrol python3-pip python3-devel 
     

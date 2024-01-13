@@ -19,6 +19,6 @@ picom -b
 
 # Start dwm
 ~/bin/startup/signals/mpc_status &
-slstatus &
+aslstatus &
 sxhkd &
 exec ~/bin/startdwm

@@ -1,52 +1,38 @@
-# Reload sxhkdrc
-super + shift + r
-    pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
-
 # Apagar
 super + F4
     notify-send Apagando...; pkill qutebrowser; pkill zathura; sleep 2; shutdown now
 
+# Reload sxhkdrc
+super + shift + r
+    pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+
 # scratchpads
-super + p
-    ~/bin/scratchpad.sh apps-launcher 60x15+600-20 ~/bin/startup/launcher-desktop.sh
+super + {p,P,KP_Home,KP_Begin,KP_End}
+    ~/bin/scratchpad.sh \
+	{apps-launcher 60x15+600-20 ~/bin/startup/launcher-desktop.sh \
+    ,games-launcher 40x10+600+20 ~/bin/fzf-steam.sh \
+	,st-floating 100x24+0+0	\
+	,utilities 60x15+600-20 ~/bin/utilities.sh \
+	,trans 50x12-200+0 'trans -4 -I' \
+	}
 
-super + P
-	~/bin/scratchpad.sh games-launcher 40x10+600+20 ~/bin/fzf-steam.sh
-
-super + KP_Home
-    ~/bin/scratchpad.sh st-floating 100x24+0+0
-
-super + KP_Begin
-    ~/bin/scratchpad.sh utilities 60x15+600-20 ~/bin/utilities.sh
-
-super + KP_End
-    ~/bin/scratchpad.sh trans 50x12-200+0 'trans -4 -I'
 
 # mpc
-mod5 + {p,Left,Right}
+mod5 + {p, Left, Right}
     mpc {toggle,prev,next}
 
-mod5 + {Up,Down,Delete}
-    ~/bin/startup/volume_notif.sh {up,down,mute}
+# control volume and notify
+mod5 + {Up,Down}
+    ~/bin/startup/volume_notif.sh {up,down}
 
-super + Delete
-    ~/bin/startup/volume_notif.sh mic 
+{mod5,super} + Delete
+    ~/bin/startup/volume_notif.sh {mute,mic}
+
 
 # Screenshots
-Print 
-    maim | xclip -selection clipboard -t image/png
+{_,shift,control} + Print 
+    maim {_,-B -i $(xdotool getactivewindow),-s} | xclip -selection clipboard -t image/jpg
 
-shift + Print
-    maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+super + {_,shift,control} + Print
+    maim {_,-B -i $(xdotool getactivewindow),-s} ~/Pictures/screenshots/$(date +%s).jpg
 
-control + Print 
-    maim -s | xclip -selection clipboard -t image/png
-
-super + Print
-    maim ~/Pictures/screenshots/$(date +%s).png
-
-super + shift + Print
-    maim -i $(xdotool getactivewindow) ~/Pictures/screenshots/$(date +%s).png
-
-super + control + Print
-    maim -s ~/Pictures/screenshots/$(date +%s).png

@@ -50,5 +50,7 @@ fi
 
 cd ~/.local/share/applications/steam && eval $(cat "$(ls -1 | sed -e 's/\.env$//' | fzf ).env")
 
-setsid /bin/sh -c "steamlx steam://rungameid/$GAME_ID" &>/dev/null &
-sleep 0.01
+if [[ "$GAME_ID" != "" ]]; then
+    setsid /bin/sh -c "steamlx steam://rungameid/$GAME_ID" &>/dev/null &
+    sleep 0.01
+fi

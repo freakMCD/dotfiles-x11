@@ -8,6 +8,7 @@ for ((i=0; i<r; i++)); do
     if nslookup google.com 1>/dev/null 2>&1 
     then
         $newsraft &
+        aslstatus-update cmd:curl
         break
     fi
 done
@@ -17,6 +18,7 @@ sleep 10
 interval=7200
 while :
 do
+    sleep $((interval - now % interval))
     pkill -x newsraft
     sleep 1
     unread=$(sqlite3 -line ~/.local/share/newsraft/newsraft.sqlite3 'SELECT COUNT() FROM items WHERE unread = 1' | sed s/"COUNT() = "//g)
@@ -26,5 +28,4 @@ do
     fi
     $newsraft &
     now=$(date +%s) # timestamp in seconds
-    sleep $((interval - now % interval))
 done

@@ -11,8 +11,7 @@ function volume_notification {
     volume=$(get_volume)
 
     # Show the volume notification
-    dunstify -a "changeVolume" -u low -h string:x-dunst-stack-tag:$msgTag \
-    -h int:value:"$volume" "Volume: ${volume}%"
+    notify-send -r 2000 -u low -h int:value:"$volume" "Volume: ${volume}%"
 
     # Play the volume changed sound
     canberra-gtk-play -i audio-volume-change -d "changeVolume"
@@ -23,9 +22,9 @@ function mute_notification {
 
     if [ $muted == 'yes' ]
     then
-        dunstify -a "changeVolume" -t 0 -h string:x-dunst-stack-tag:$msgTag "muted"
+        notify-send -r 2000 -t 0 "muted"
     else
-        volume_notification
+        notify-send -r 2000 -t 1000 "unmuted"
     fi
 }
 
