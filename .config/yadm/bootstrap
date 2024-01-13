@@ -10,7 +10,7 @@ install_suckless() {
     git clone https://github.com/freakMCD/st && cd st
     sudo make clean install
     cd ..
-    git clone https://github.com/freakMCD/slstatus && cd st
+    git clone https://github.com/freakMCD/aslstatus && cd aslstatus
     sudo make clean install
 }
 

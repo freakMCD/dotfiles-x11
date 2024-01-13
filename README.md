@@ -65,6 +65,10 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 
     git remote set-url --push origin https://github.com/freakMCD/<reponame>.git
 
+**Undo last commit --amend**
+
+    git reset --soft HEAD@{1}
+
 **To commit all changes**
 
     yadm add -u
@@ -92,6 +96,6 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 ### Newsraft Build - Instructions
 
     git clone https://codeberg.org/grisha/newsraft.git
-    dnf install scdoc gumbo-parser-devel yajl-devel expat-devel ncurses-devel sqlite-devel curl-devel
+    dnf install gumbo-parser-devel yajl-devel expat-devel ncurses-devel sqlite-devel curl-devel
 
 
