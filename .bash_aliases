@@ -1,13 +1,11 @@
-alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias aliasrc="nvim ~/.bash_aliases && source ~/.bash_aliases"
+alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
+alias dus='du -h --max-depth=1 | sort -hr' # Disk Usage Sorted
+alias rclone="rclone -P"
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
+alias mymusic='mpv --shuffle --volume=67 --save-position-on-quit=no "https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt"'
 alias mp3dl='yt-dlp --restrict-filenames --extract-audio --audio-format mp3 --no-playlist'
-alias playlist="mpv --shuffle --volume=75 --save-position-on-quit=no https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt & exit"
-
-alias neomutt="st -n neomutt -g 80x25+200+0 -e neomutt &exit"
-alias newsraft="st -n newsraft -g 80x25+200+0 -e newsraft &exit"
-alias rclone="rclone -P"
 
 # gpg aliases
 alias gpg-list="gpg --list-secret-keys --keyid-format LONG"
@@ -24,18 +22,18 @@ alias remove="sudo dnf remove"
 alias update-grub="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
 
 stage () {
+    printf "First argument: yadm or git\nSecond argument: modified or deleted\n\n"
     $1 ls-files -z --$2 | xargs -0 $1 add  
-}
-
-ttv () { 
-    streamlink  --twitch-proxy-playlist=https://eu.luminous.dev,https://as.luminous.dev --title '{author} - {title} - {category}' twitch.tv/$@ --player-args '--loop-playlist' >/dev/null 2>&1 &exit
 }
 
 dict () { 
     curl -s 'dict://dict.org/d:'"$@"'' | nvim +Man!
 }
 
-whatrequires () {
+dnfhist () {
     sudo dnf history "$@"| grep -E -w 'install|upgrade' 
 }
 
+mpv() {
+    nohup /usr/bin/mpv --force-window=yes "$@" &>/dev/null & exit
+}

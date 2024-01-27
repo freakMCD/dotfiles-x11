@@ -7,10 +7,12 @@ super + shift + r
     pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 
 # scratchpads
-super + {p,P,KP_Home,KP_Begin,KP_End}
+super + {KP_Down,KP_Next,p,P,KP_Home,KP_Begin,KP_End}
     ~/bin/scratchpad.sh \
-	{apps-launcher 60x15+600-20 ~/bin/startup/launcher-desktop.sh \
-    ,games-launcher 40x10+600+20 ~/bin/fzf-steam.sh \
+	{neomutt 80x25+200+0 neomutt \
+	,newsraft 80x25+200+0 newsraft \
+	,apps-launcher 60x15+600-20 ~/bin/lib/launcher-desktop.sh \
+    ,games-launcher 40x10+600+20 ~/bin/lib/fzf-steam.sh \
 	,st-floating 100x24+0+0	\
 	,utilities 60x15+600-20 ~/bin/utilities.sh \
 	,trans 50x12-200+0 'trans -4 -I' \
@@ -23,11 +25,14 @@ mod5 + {p, Left, Right}
 
 # control volume and notify
 mod5 + {Up,Down}
-    ~/bin/startup/volume_notif.sh {up,down}
+    ~/bin/lib/volume_notif.sh {up,down}
 
 {mod5,super} + Delete
-    ~/bin/startup/volume_notif.sh {mute,mic}
+    ~/bin/lib/volume_notif.sh {mute,mic}
 
+# Recording
+control + {alt,shift} + {r,w}
+	record_video.sh {audioless,audio} {desktop,window} 
 
 # Screenshots
 {_,shift,control} + Print 
@@ -35,4 +40,5 @@ mod5 + {Up,Down}
 
 super + {_,shift,control} + Print
     maim {_,-B -i $(xdotool getactivewindow),-s} ~/Pictures/screenshots/$(date +%s).jpg
+
 

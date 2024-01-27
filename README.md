@@ -1,14 +1,18 @@
-# dotfiles
+dotfiles
+========
 
-## What's in it?
+Overview
+--------
+This repository contains my dotfiles and system configuration. Below is a summary of what's included.
 
-* **WM**: dwm
-* **Terminal**: st
+* **WM**: [dwm](https://github.com/freakMCD/dwm)
+* **StatusBar** : [aslstatus](https://github.com/freakMCD/aslstatus)
+* **Terminal**: [st](https://github.com/freakMCD/st)
 * **Notifications**: Dunst
 * **Launcher**: fzf
 * **File Manager**: lf
 * **Text Editor**: Neovim
-* **Music player** with ncmpcpp + mpd + mpc
+* **Music player** ncmpcpp + mpd + mpc
 * **Image Viewer** : feh
 * **PDF Reader**: Zathura
 * **RSS Reader**: Newsraft
@@ -20,28 +24,28 @@
     - .Xresources
     - .xinitrc
 
-## System Config
+## System Configuration
 ```bash
-#Replace line in /etc/systemd/journald.conf
+# Replace line in /etc/systemd/journald.conf
 SystemMaxUse=50M
 
-#Replace line in /etc/systemd/logind.conf 
+# Replace line in /etc/systemd/logind.conf 
 HandlePowerKey=ignore
 
-#Replace line in /etc/default/grub
-#Fix Risk of Rain 2 slow load
+# Replace line in /etc/default/grub
+# Fix Risk of Rain 2 slow load
 GRUB_CMDLINE_LINUX="rhgb quiet clocksource=tsc tsc=reliable"
 ```
 
 ## Guide Installation (after Fedora Everything minimal install)
 
-1. Don't Install weak deps
+**1. Disable weak dependancies**
 ```bash
 #Add lines in /etc/dnf/dnf.conf
 install_weak_deps=false 
 max_parallel_downloads=10 
 ```
-2. Install essential packages
+**2. Install essential packages**
 ```bash
 sudo dnf install @base-x dmenu dunst git libXft-devel libX11-devel qutebrowser
 
@@ -53,56 +57,53 @@ mkdir -p ~/.local/bin
 curl -fLo ~/.local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x ~/.local/bin/yadm
 yadm clone https://github.com/freakMCD/dotfiles.git 
 ```
-3. Run 'yadm bootstrap' to install the rest
+**3. Run 'yadm bootstrap' to install the rest**
 
 <details><summary>
 <h2>Notes</h2>
 </summary>
-**To change Drive permissions to username**
 
-    sudo chown -v username:username /media/username/disk-name
+### Bash git and yadm examples
+```bash
+# Set url to push commits
+git remote set-url --push origin https://github.com/freakMCD/<reponame>.git
 
-### git and yadm examples
+# Delete last commit from remote repo but keep it locally
+git push origin +HEAD^:master
 
-**Set url to push commits**
+# Undo last commit
+git reset --soft HEAD@{1}
 
-    git remote set-url --push origin https://github.com/freakMCD/<reponame>.git
+# To commit all changes**
+yadm add -u
 
-**Delete last commit from remote repo but keep it locally**
+# For files you will never edit (e.g. "LICENSE")
+yadm update-index --assume-unchanged <filepath>
 
-    git push origin +HEAD^:master
+# When you have local repo but lost refs from remote repo
+yadm init
+yadm remote add origin <url>
+yadm fetch
+yadm reset origin/master
+```
+### Other
+```bash
+# To change Drive permissions to username
+sudo chown -v username:username /media/username/disk-name
 
-**Undo last commit --amend**
-
-    git reset --soft HEAD@{1}
-
-**To commit all changes**
-
-    yadm add -u
-
-**For files you will never edit (e.g. "LICENSE")**
-
-    yadm update-index --assume-unchanged <filepath>
-
-**When you have local repo but lost refs from remote repo**
-
-    yadm init
-    yadm remote add origin <url>
-    yadm fetch
-    yadm reset origin/master
-
-### pass
-
-    PASSWORD_STORE_GPG_OPTS='--pinentry-mode=loopback --passphrase <passphrase>'
+# pass
+PASSWORD_STORE_GPG_OPTS='--pinentry-mode=loopback --passphrase <passphrase>'
     
-### nmcli
+# nmcli
+nmcli dev status
+nmcli dev connect/disconnect <device>
 
-    nmcli dev status
-    nmcli dev connect/disconnect <device>
+# Newsraft Build - Instructions
+git clone https://codeberg.org/grisha/newsraft.git
+sudo dnf install gumbo-parser-devel yajl-devel expat-devel ncurses-devel sqlite-devel curl-devel
 
-### Newsraft Build - Instructions
-
-    git clone https://codeberg.org/grisha/newsraft.git
-    dnf install gumbo-parser-devel yajl-devel expat-devel ncurses-devel sqlite-devel curl-devel
-
+# PulseAudio Control (pactl) 
+pactl list sinks # It list the sinks beggining with "SINK #INDEX"
+pactl set-default-source <INDEX> # for example "pactl set-default-source 52"
+```
 </details>

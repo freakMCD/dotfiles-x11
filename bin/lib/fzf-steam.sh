@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Credits to: https://github.com/gennarocc/fzf-steam
 # Generates .desktop entries for all installed Steam games with box art for
 # the icons to be used with a specifically configured Rofi launcher
 

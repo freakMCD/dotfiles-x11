@@ -3,10 +3,10 @@ set scrolloff 5
 set initial-unread-first-sorting true
 
 # Bindings
-
-bind m mark-read; exec nohup umpv "%l" >/dev/null 2>&1 &
+bind o mark-read; exec qutebrowser "%l"
+bind m exec nohup mpv "%l" >/dev/null 2>&1 &
+bind M mark-read; exec nohup mpv --save-position-on-quit=no "%l" >/dev/null 2>&1 &
 bind q navigate-back
-set open-in-browser-command qutebrowser "%l" >/dev/null 2>&1 &exit
 
 # Format
 set menu-item-entry-format " %u │ %o"

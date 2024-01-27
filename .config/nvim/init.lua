@@ -14,10 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     'kovetskiy/sxhkd-vim',
-
+    'lervag/vimtex',
     'nvim-lualine/lualine.nvim', dependencies = {'kyazdani42/nvim-web-devicons' },
-
-	'lervag/vimtex',   
 
    {
     'hrsh7th/nvim-cmp', 
@@ -33,7 +31,7 @@ require("lazy").setup({
 	},
    },
    
-    {"sainnhe/gruvbox-material", name = "gruvbox", priority = 1000 },
+    {"morhetz/gruvbox", priority = 1000 },
    
 })
 
@@ -45,7 +43,7 @@ require('lualine').setup {
   }
 }
 
- -- Luasnip Tab completion related config 
+-- Luasnip Tab completion related config 
 local has_words_before = function()
   unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -54,8 +52,11 @@ end
 
 -- Set up nvim-cmp.
 vim.opt.completeopt = "menu,menuone,noselect"
-local luasnip = require('luasnip')
+
+require("luasnip.loaders.from_vscode").lazy_load()
+
 local cmp = require('cmp')
+local luasnip = require('luasnip')
 local kind_icons = {
   Text = "",
   Method = "",
@@ -83,8 +84,7 @@ local kind_icons = {
   Operator = "",
   TypeParameter = ""
 }
-
-require("luasnip.loaders.from_vscode").lazy_load()
+local select_opts = {behavior = cmp.SelectBehavior.Select}
 
 cmp.setup({
 
@@ -103,98 +103,92 @@ cmp.setup({
     },
 
     window = {
-      documentation = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
     },
-
-    mapping = cmp.mapping.preset.insert({
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        
+    mapping = {
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ['<C-y>'] = cmp.mapping.confirm({select = true}),
+      ['<CR>'] = cmp.mapping.confirm({select = false}),
 
-      ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
-        -- they way you will only jump inside the snippet region
-        elseif luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        elseif has_words_before() then
-          cmp.complete()
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
+    -- Snippets
+	  ['<C-f>'] = cmp.mapping(function(fallback)
+	    if luasnip.jumpable(1) then
+	      luasnip.jump(1)
+	    else
+	      fallback()
+	    end
+	  end, {'i', 's'}),
+
+	  ['<C-b>'] = cmp.mapping(function(fallback)
+	    if luasnip.jumpable(-1) then
+	      luasnip.jump(-1)
+	    else
+	      fallback()
+	    end
+	  end, {'i', 's'}),
+
+    -- Completion with tab
+	  ['<Tab>'] = cmp.mapping(function(fallback)
+	    local col = vim.fn.col('.') - 1
+	  
+	    if cmp.visible() then
+	      cmp.select_next_item(select_opts)
+	    elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+	      fallback()
+	    else
+	      cmp.complete()
+	    end
+	  end, {'i', 's'}),
   
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
-          luasnip.jump(-1)
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-      }),
+	  ['<S-Tab>'] = cmp.mapping(function(fallback)
+	    if cmp.visible() then
+	      cmp.select_prev_item(select_opts)
+	    else
+	      fallback()
+	    end
+	  end, {'i', 's'}),
+   },
 
-    sources = cmp.config.sources({
+    sources = {
       { name = 'path'},
       { name = 'nvim_lsp', keyword_length = 1},
       { name = 'buffer', keyword_length = 3},
       { name = 'luasnip', keyword_length = 2}, -- For luasnip users.
-    })
-  })
+    },
+})
 
-vim.cmd([[
-    set clipboard=unnamedplus
-	set conceallevel=1
-	set confirm
-	set history=1000
-	set ignorecase
-	set mouse=a
-	set number
-	set expandtab
-	set shiftwidth=4
-	set softtabstop=4
-	set tabstop=4
-	set smartcase
-	set smartindent
-	set smarttab
-	set splitbelow
-	set title
-	filetype plugin indent on
-	filetype on
-	let g:markdown_fenced_languages = ['bash']
-    highlight Normal ctermbg=NONE guibg=NONE
+local opt = vim.opt
 
-	let g:vimtex_view_method='zathura'
-	let g:tex_conceal='abdmg'
-	let g:vimtex_quickfix_mode=0
-	let g:vimtex_compiler_latexmk = {
-	            \ 'build_dir' : 'build',
-	            \}
-	" vimtex
-	augroup vimtex
-	  au!
-	  au User VimtexEventView call b:vimtex.viewer.xdo_focus_vim()
-		au User VimtexEventInitPost VimtexCompile
-	  au User VimtexEventCompileSuccess VimtexView
-	augroup END
-	
-	" Close viewers when VimTeX buffers are closed
-	function! CloseViewers()
-	  if executable('xdotool')
-	      \ && exists('b:vimtex.viewer.xwin_id')
-	      \ && b:vimtex.viewer.xwin_id > 0
-	    call system('xdotool windowclose '. b:vimtex.viewer.xwin_id)
-	  endif
-	endfunction
-	
-	augroup vimtex_event_2
-	  au!
-	  au User VimtexEventQuit call CloseViewers()
-	augroup END
+-- Set Options
+opt.clipboard = "unnamedplus"
+opt.confirm = true
+opt.history = 1000
+opt.ignorecase = true
+opt.mouse = ""
+opt.number = true
+opt.expandtab = true
+opt.shiftwidth = 4
+opt.softtabstop = 4
+opt.tabstop = 4
+opt.smartcase = true
+opt.smartindent = true
+opt.smarttab = true
+opt.splitbelow = true
+opt.title = true
+vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
+opt.wrap = true
+opt.linebreak = true
+opt.showbreak = '▸'  -- You can change this to any character you prefer
+opt.breakindent = true
 
-]])
+-- Vimtex
+vim.cmd("filetype plugin indent on")
+opt.conceallevel = 1
+vim.g.vimtex_view_method = 'zathura'
+vim.g.vimtex_quickfix_mode = 0
+vim.g.vimtex_compiler_latexmk = {
+  out_dir = 'build'
+}
 

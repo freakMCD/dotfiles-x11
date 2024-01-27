@@ -49,7 +49,7 @@
     horizontal_padding = 15
     text_icon_padding = 15
 
-    frame_width = 2
+    frame_width = 1
 
     gap_size = 6 #Size of gap to display between notifications - requires a compositor
     

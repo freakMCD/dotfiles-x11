@@ -1,10 +1,10 @@
-LFSHELL=$XDG_CONFIG_HOME/lf/lf-shell
+LFSHELL="$XDG_CONFIG_HOME/lf/lf-shell"
      if [ -f "$LFSHELL" ]; then
          source "$LFSHELL"
      fi
 
-if [ -e $HOME/.bash_aliases ]; then
-    source $HOME/.bash_aliases
+if [ -e "$HOME/.bash_aliases" ]; then
+    source "$HOME/.bash_aliases"
 fi
 
 # Source global definitions

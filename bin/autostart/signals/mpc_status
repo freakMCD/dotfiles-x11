@@ -1,7 +1,6 @@
 #!/bin/bash
 # Signal to display current song in dwm-status
 
-sleep 5
 while true; do
     mpc idle player   
     aslstatus-update cmd:sh

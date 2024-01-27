@@ -16,7 +16,7 @@ settings:
   auto_save.interval:
     global: 18000000
   auto_save.session:
-    global: false
+    global: true
   bindings.commands:
     global:
       command:

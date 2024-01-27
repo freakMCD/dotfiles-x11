@@ -1,8 +1,6 @@
 #!/bin/bash
 # changeVolume
 
-msgTag="myvolume"
-
 function get_volume {
     pactl get-sink-volume 0 | awk '{print $5}' | cut -d '%' -f 1
 }
