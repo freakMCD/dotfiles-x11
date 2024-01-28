@@ -162,7 +162,6 @@ cmp.setup({
 local opt = vim.opt
 
 -- Set Options
-opt.clipboard = "unnamedplus"
 opt.confirm = true
 opt.history = 1000
 opt.ignorecase = true
@@ -192,3 +191,4 @@ vim.g.vimtex_compiler_latexmk = {
   out_dir = 'build'
 }
 
+vim.api.nvim_set_keymap('x', '<C-r>', '"hy:s/<C-r>h/', { noremap = true, silent = true })
