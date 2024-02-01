@@ -1,6 +1,7 @@
 # General
 set scrolloff 5
-set initial-unread-first-sorting true
+set menu-item-sorting unread-desc
+set notification-command notify-send 'Newsraft brought %q news!'; paplay ~/.config/dunst/alarms/sms-alert-1-daniel_simon.wav &
 
 # Bindings
 bind o mark-read; exec nohup qutebrowser "%l" >/dev/null 2>&1 &
@@ -14,16 +15,16 @@ set menu-explore-item-entry-format " %u │ %-20.20O │ %o"
 
 # Colors
 # Section listing
-set color-list-section-fg blue bold
-set color-list-section-unread-fg red bold italic
+set color-list-section blue bold
+set color-list-section-unread red bold italic
 
 # Within the feeds comprising a section
-set color-list-feed-fg green
-set color-list-feed-unread-fg magenta italic
+set color-list-feed green
+set color-list-feed-unread magenta italic
 
 # Individual posts
-set color-list-item-fg white
-set color-list-item-unread-fg default bold italic
+set color-list-item white
+set color-list-item-unread default bold italic
 
-set color-list-item-important-fg yellow
+set color-list-item-important yellow
 

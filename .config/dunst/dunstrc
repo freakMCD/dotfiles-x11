@@ -301,7 +301,7 @@
 #    fullscreen = show
 
 [Feed]
-summary = "New email|Apagando"
+summary = "Apagando"
 script = "~/.config/dunst/alert"
 
 [Alarmas]

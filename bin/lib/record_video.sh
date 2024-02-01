@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the output file
-output_file=~/Pictures/recordings/recording_$(date +"%Y%m%d_%H%M%S").mp4
+output_file=~/MediaHub/recordings/recording_$(date +"%Y%m%d_%H%M%S").mp4
 
 # Get information about the focused window using xdotool
 eval $(xdotool getwindowfocus getwindowgeometry --shell)

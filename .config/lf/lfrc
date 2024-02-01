@@ -20,6 +20,7 @@ map ge cd /etc/
 map gu cd /usr/
 map gn cd ~/Documents/Notes/
 map gs cd ~/.local/share/Steam/steamapps/common/
+map gr cd ~/MediaHub/recordings/
 
 map w
 map S $$SHELL

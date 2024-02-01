@@ -24,14 +24,17 @@ Channel gmail
 Far :gmail-remote:
 Near :gmail-local:
 Patterns INBOX "[Gmail]/Destacados" "[Gmail]/Enviados" "[Gmail]/Papelera" "Github" "Interbank"
-SyncState *
 Create Both
 Expunge Both
+SyncState *
+
 
 Channel spam
 Far :gmail-remote:
 Near :gmail-local:
 Patterns "[Gmail]/Spam"
-SyncState *
 Create Both
 Expunge Both
+SyncState *
+
+

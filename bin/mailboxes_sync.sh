@@ -20,7 +20,7 @@ for file in "$prefix"/*; do
         # Send notification if there are new mail
         if [ "$newcount" -gt "0" ]; then
             for newemail in "$file"/new/*; do
-                sender=$(grep -o '^From: \(.*\)$' "$newemail" \
+                sender=$(grep -o '^From: \(.*\)$' "$newemail" | sed "s/^From: //g" \
                         | perl -pe 'use MIME::EncWords(decode_mimewords); $_=decode_mimewords($_);')
                 subject=$(grep -o '^Subject: \(.*\)$' "$newemail" | sed "s/^Subject: //g" \
                         | perl -pe 'use MIME::EncWords(decode_mimewords); $_=decode_mimewords($_);')

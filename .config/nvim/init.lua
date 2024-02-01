@@ -159,36 +159,38 @@ cmp.setup({
     },
 })
 
-local opt = vim.opt
+local set = vim.opt
 
--- Set Options
-opt.confirm = true
-opt.history = 1000
-opt.ignorecase = true
-opt.mouse = ""
-opt.number = true
-opt.expandtab = true
-opt.shiftwidth = 4
-opt.softtabstop = 4
-opt.tabstop = 4
-opt.smartcase = true
-opt.smartindent = true
-opt.smarttab = true
-opt.splitbelow = true
-opt.title = true
-vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
-opt.wrap = true
-opt.linebreak = true
-opt.showbreak = '▸'  -- You can change this to any character you prefer
-opt.breakindent = true
+-- Set setions
+set.confirm = true
+set.history = 1000
+set.ignorecase = true
+set.mouse = ""
+set.number = true
+set.expandtab = true
+set.shiftwidth = 4
+set.softtabstop = 4
+set.tabstop = 4
+set.smartcase = true
+set.smartindent = true
+set.smarttab = true
+set.splitbelow = true
+set.title = true
+set.wrap = true
+set.linebreak = true
+set.showbreak = '▸'  -- You can change this to any character you prefer
+set.breakindent = true
+vim.cmd[[ 
+    highlight Normal ctermbg=NONE guibg=NONE
+    filetype plugin indent on
+]]
 
 -- Vimtex
-vim.cmd("filetype plugin indent on")
-opt.conceallevel = 1
+set.conceallevel = 1
 vim.g.vimtex_view_method = 'zathura'
 vim.g.vimtex_quickfix_mode = 0
 vim.g.vimtex_compiler_latexmk = {
   out_dir = 'build'
 }
 
-vim.api.nvim_set_keymap('x', '<C-r>', '"hy:s/<C-r>h/', { noremap = true, silent = true })
+vim.keymap.set('x', '<C-r>', '"hy:s/<C-r>h/')

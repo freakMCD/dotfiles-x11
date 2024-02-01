@@ -39,6 +39,6 @@ control + {alt,shift} + {r,w}
     maim {_,-B -i $(xdotool getactivewindow),-s} | xclip -selection clipboard -t image/jpg
 
 super + {_,shift,control} + Print
-    maim {_,-B -i $(xdotool getactivewindow),-s} ~/Pictures/screenshots/$(date +%s).jpg
+    maim {_,-B -i $(xdotool getactivewindow),-s} ~/MediaHub/screenshots/$(date +%s).jpg
 
 
