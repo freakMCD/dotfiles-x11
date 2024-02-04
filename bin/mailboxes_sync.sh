@@ -20,9 +20,9 @@ for file in "$prefix"/*; do
         # Send notification if there are new mail
         if [ "$newcount" -gt "0" ]; then
             for newemail in "$file"/new/*; do
-                sender=$(grep -o '^From: \(.*\)$' "$newemail" | sed "s/^From: //g" \
+                sender=$(sed -n '/^From: /s/^From: //p' "$newemail" \
                         | perl -pe 'use MIME::EncWords(decode_mimewords); $_=decode_mimewords($_);')
-                subject=$(grep -o '^Subject: \(.*\)$' "$newemail" | sed "s/^Subject: //g" \
+                subject=$(sed -n '/^Subject: /s/^Subject: //p' "$newemail" | sed "s/^Subject: //g" \
                         | perl -pe 'use MIME::EncWords(decode_mimewords); $_=decode_mimewords($_);')
                 /usr/bin/notify-send -t 60000 "$sender" "$subject" 
                 #/usr/bin/notify-send -t 120000 "New email" "$newcount new messages in =$folder" 

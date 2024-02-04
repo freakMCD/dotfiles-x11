@@ -108,8 +108,7 @@ settings:
   content.blocking.method:
     global: both
   content.blocking.whitelist:
-    global:
-    - https://click.redditmail.com
+    global: null
   content.canvas_reading:
     global: true
   content.desktop_capture:
@@ -176,7 +175,6 @@ settings:
     global: false
   content.notifications.enabled:
     https://web.whatsapp.com: true
-    https://www.reddit.com: false
   content.notifications.presenter:
     global: auto
   content.notifications.show_origin:

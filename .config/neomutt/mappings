@@ -10,7 +10,6 @@ bind generic,compose,attach,pager q exit
                                                   
 # Navigation
 # ----------------------------------------------------
-
 bind generic             z         noop
 bind index,pager,attach  b         noop
 bind index,pager,attach  g         noop
