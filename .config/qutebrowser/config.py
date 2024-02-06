@@ -29,7 +29,7 @@ c.content.javascript.enabled = True
 
 # Prevents *all* tabs from being loaded on restore, only loads on activating them
 c.session.lazy_restore = True
-c.tabs.show = "switching"
+c.tabs.show = "always"
 
 c.qt.args += [  'ignore-gpu-blocklist',
                 'autoplay-policy=user-gesture-require',

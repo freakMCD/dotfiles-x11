@@ -63,7 +63,7 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 <h2>Notes</h2>
 </summary>
 
-### Bash git and yadm examples
+**git and yadm examples**
 ```bash
 # Set url to push commits
 git remote set-url --push origin https://github.com/freakMCD/<reponame>.git
@@ -86,7 +86,7 @@ yadm remote add origin <url>
 yadm fetch
 yadm reset origin/master
 ```
-### Other
+**Other**
 ```bash
 # To change Drive permissions to username
 sudo chown -v username:username /media/username/disk-name

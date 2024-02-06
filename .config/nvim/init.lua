@@ -162,6 +162,7 @@ cmp.setup({
 local set = vim.opt
 
 -- Set setions
+vim.g.mapleader = ','
 set.confirm = true
 set.history = 1000
 set.ignorecase = true
@@ -194,3 +195,17 @@ vim.g.vimtex_compiler_latexmk = {
 }
 
 vim.keymap.set('x', '<C-r>', '"hy:s/<C-r>h/')
+
+-- Copy to clipboard
+vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>Y', '"+yg_', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>Y', '"+yg_', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>y', '"+y', { noremap = true })
+
+-- Paste from clipboard
+vim.api.nvim_set_keymap('n', '<leader>p', '"+p', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>P', '"+P', { noremap = true })
+vim.api.nvim_set_keymap('v', '<leader>p', '"+p', { noremap = true })
+vim.api.nvim_set_keymap('v', '<leader>P', '"+P', { noremap = true })
+
+

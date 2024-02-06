@@ -22,10 +22,8 @@ mailboxes +INBOX +Github +Interbank
 ## Generic
 set editor=`echo \$EDITOR`
 set mailcap_path="~/.config/neomutt/mailcap"
-set mark_old
 set pager_stop
-set sort = threads
-set sort_aux = reverse-date
+set use_threads=threads sort=reverse-last-date sort_aux=date
 set quit=ask-yes
 set thorough_search
 set tilde
@@ -36,8 +34,13 @@ unset quit
 auto_view text/html text/calendar application/ics # view html automatically
 alternative_order text/html text/plain text/enriched text/*
 
+# Define colors
+color index_author italic white black '~f .'
+color index_date color245 black '~f .'
+
+set narrow_tree
 # Index page format. Default "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
-set index_format="%zs  %-20.20F %s %*   %[%b %d] "
+set index_format='%-15.15L    %s %*     %<[y?%<[m?%<[7d?%<[d?%[  %H:%M ]&%8[%A]>&%[    %a %d]>&%[  %b %d]>&%[%d/%m/%y]>'
 
 # Sidebar
 set sidebar_width=20
@@ -46,5 +49,4 @@ set nohelp
 # Status Bar -----------------------------------------
 set status_format = "───[ Folder: %D ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 set status_chars  = " *%A"
-
 

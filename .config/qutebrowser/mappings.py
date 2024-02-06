@@ -8,10 +8,21 @@ c.hints.chars = "asdghzxcvb"
 config.bind('f', 'mode-leave', mode='hint')
 config.bind('e', 'mode-leave', mode='hint')
 
-hr = 'a[href^="https"][href*='
-config.set('hints.selectors', {'videos': [hr+'youtu]', hr+'clips]', hr+'gifv]', hr+'"redd.it"'],**c.hints.selectors}, pattern='*')
-config.set('hints.selectors', {'videos': ['a[id*="video-title"]']}, pattern='*://*.youtube.com/*')
-config.set('hints.selectors', {'videos': ['article[data-a-target*="vod"]']}, pattern='*://*.twitch.tv/*')
+# Common prefix for video link selectors
+prefix = 'a[href*='
+# Video link selectors
+video_selector_parts = ['youtu', 'share/', 'reel/']
+# Full video link selector 
+video_selector = ' , '.join([f'{prefix}"{part}"]' for part in video_selector_parts])
+
+# Specific selectors
+twitch_selector= 'a[data-a-target*="preview-card-image-link"]'
+youtube_selector = 'a[id*="video-title"]'
+
+# Set selectors for video hints
+config.set('hints.selectors', {'videos': [video_selector]}, pattern='*')
+config.set('hints.selectors', {'videos': [twitch_selector]}, pattern='*://*.twitch.tv/*')
+config.set('hints.selectors', {'videos': [youtube_selector]}, pattern='*://*.youtube.com/*')
 
 bind = {
     "gd": "open https://discord.com/channels/@me",

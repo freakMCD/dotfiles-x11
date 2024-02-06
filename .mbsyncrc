@@ -9,16 +9,15 @@
 
 IMAPStore gmail-remote
 Host imap.gmail.com
+SSLType IMAPS
 User vastagox@gmail.com
 PassCmd "pass gmailapp/vastagox"
-SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore gmail-local
-Subfolders Verbatim
 Path ~/.local/share/email/gmail/
 INBOX ~/.local/share/email/gmail/INBOX
-Flatten .
+Subfolders Verbatim
 
 Channel gmail
 Far :gmail-remote:
@@ -36,5 +35,4 @@ Patterns "[Gmail]/Spam"
 Create Both
 Expunge Both
 SyncState *
-
 
