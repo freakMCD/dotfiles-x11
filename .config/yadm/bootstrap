@@ -20,7 +20,6 @@ setup_repos() {
         https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-"$REL".noarch.rpm \
         https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$REL".noarch.rpm \
 
-    sudo dnf copr enable tokariew/ueberzug
     sudo dnf update --refresh
 }
 
@@ -30,9 +29,9 @@ install_basics() {
     sudo dnf install @multimedia @printing --exclude=qt5-qtwebengine-freeworld,pipewire-codec-aptx 
 
     # Basics
-    sudo dnf install feh maim picom lftp sxhkd xev xclip xprop xdotool w3m\
+    sudo dnf install feh maim picom lftp pulseaudio-utils sxhkd xev xclip xprop xdotool w3m\
     fd-find fzf mpd mpc mpv mpv-mpris pass neomutt neovim puddletag \
-    isync msmtp ueberzug zathura zathura-pdf-mupdf\
+    isync msmtp zathura zathura-pdf-mupdf\
     gcc gdouros-symbola-fonts google-noto-cjk-fonts pavucontrol python3-pip python3-devel 
     
     # For Steam

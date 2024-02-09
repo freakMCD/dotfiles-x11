@@ -5,8 +5,8 @@ set mouse
 set hidden
 set autoquit
 
-set previewer lf-ueberzug-previewer
-set cleaner lf-ueberzug-cleaner
+#set previewer lf-ueberzug-previewer
+#set cleaner lf-ueberzug-cleaner
 
 map Y cpsel 
 map P :link

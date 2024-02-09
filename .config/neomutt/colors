@@ -1,8 +1,12 @@
 color normal		  default default         # Text is "Text"
+
 color index		    color2 default ~N       # New Messages are Green
 color index		    color1 default ~F       # Flagged messages are Red
 color index		    color13 default ~T      # Tagged Messages are Red
 color index		    color1 default ~D       # Messages to delete are Red
+color index_author italic white black '~f .'
+color index_date color245 black '~f .'
+
 color attachment	color5 default          # Attachments are Pink
 color signature	  color8 default          # Signatures are Surface 2
 color search		  color4 default          # Highlighted results are Blue

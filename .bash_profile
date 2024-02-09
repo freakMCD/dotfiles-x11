@@ -18,6 +18,7 @@ set -a
     XDG_CACHE_HOME="$HOME/.cache"
     XDG_DATA_HOME="$HOME/.local/share"
     XDG_STATE_HOME="$HOME/.local/state"
+    CARGO_HOME="$HOME/.local/share/.cargo/"
 
     TERM='st-256color'
     EDITOR='nvim'

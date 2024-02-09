@@ -52,6 +52,9 @@ fi
 cd ~/.local/share/applications/steam && eval $(cat "$(ls -1 | sed -e 's/\.env$//' | fzf ).env")
 
 if [[ "$GAME_ID" != "" ]]; then
+    if [[ "$GAME_ID" == "367520" ]];then
+        cp -f "$HOME/.config/unity3d/sections_saves/user1.dat_Greenpath_Transition" "$HOME/.config/unity3d/Team Cherry/Hollow Knight/user1.dat"
+    fi
     setsid /bin/sh -c "steamlx steam://rungameid/$GAME_ID" &>/dev/null &
     sleep 0.01
 fi
