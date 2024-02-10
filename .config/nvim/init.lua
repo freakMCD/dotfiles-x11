@@ -196,6 +196,8 @@ vim.g.vimtex_compiler_latexmk = {
 
 vim.keymap.set('x', '<C-r>', '"hy:s/<C-r>h/')
 
+vim.api.nvim_set_keymap('n', '<C-t>', ':tabnew<CR>', { noremap = true, silent = true })
+
 -- Copy to clipboard
 vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>Y', '"+yg_', { noremap = true })
@@ -207,5 +209,4 @@ vim.api.nvim_set_keymap('n', '<leader>p', '"+p', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>P', '"+P', { noremap = true })
 vim.api.nvim_set_keymap('v', '<leader>p', '"+p', { noremap = true })
 vim.api.nvim_set_keymap('v', '<leader>P', '"+P', { noremap = true })
-
 

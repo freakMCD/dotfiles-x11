@@ -69,7 +69,7 @@ yadm clone https://github.com/freakMCD/dotfiles.git
 git remote set-url --push origin https://github.com/freakMCD/<reponame>.git
 
 # Delete last commit from remote repo but keep it locally
-git push origin +HEAD^:master
+git push origin +HEAD^:main
 
 # Undo last commit
 git reset --soft HEAD@{1}
