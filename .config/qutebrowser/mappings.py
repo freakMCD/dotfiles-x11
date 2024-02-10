@@ -34,9 +34,8 @@ bind = {
 	leader + "t": "config-cycle tabs.show switching always",
 	leader + "v": "config-source ;; message-info 'qutebrowser reloaded'",
     ## mpv 
-    lleader + "m": "hint videos spawn --detach mpv {hint-url} --force-window=yes",
+    lleader + "m": "hint videos spawn --detach mpv --ytdl-format='bestvideo[height<=720]+bestaudio/best' {hint-url} --force-window=yes",
     lleader + "M": "hint links spawn --detach mpv {hint-url} --force-window=yes",
-    ";" + "m": "hint --rapid videos spawn umpv {hint-url}",
     ## hints
     "e": "hint button",
 	"i": "hint --first inputs",

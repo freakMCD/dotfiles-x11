@@ -24,7 +24,6 @@ set editor=`echo \$EDITOR`
 set use_threads=yes
 set pager_stop
 set use_threads=yes sort=reverse-last-date sort_aux=reverse-date
-set duplicate_threads=no
 set thorough_search
 set tilde
 unset markers # Disables the `+` displayed at line wraps

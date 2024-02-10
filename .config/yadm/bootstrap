@@ -29,15 +29,13 @@ install_basics() {
     sudo dnf install @multimedia @printing --exclude=qt5-qtwebengine-freeworld,pipewire-codec-aptx 
 
     # Basics
-    sudo dnf install feh maim picom lftp pulseaudio-utils sxhkd xev xclip xprop xdotool w3m\
+    sudo dnf install feh maim picom lftp pulseaudio-utils sxhkd xev xclip xprop xdotool w3m unar\
     fd-find fzf mpd mpc mpv mpv-mpris pass neomutt neovim puddletag \
     isync msmtp zathura zathura-pdf-mupdf\
     gcc gdouros-symbola-fonts google-noto-cjk-fonts pavucontrol python3-pip python3-devel 
     
     # For Steam
     sudo dnf install lsof
-    echo "Updating lf"
-    lf-update   
     # hplip, hplip-gui for hp printers drivers and simple-scan
 }
 
