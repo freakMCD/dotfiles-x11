@@ -7,7 +7,7 @@
 # 
 # MIT License, Copyright © [2022] Mathieu Laparie <mlaparie [at] disr [dot] it>
 
-store="$HOME/.password-store/"
+store="$HOME/.PrivateHub/password-store/"
 swapfile="/swap/swapfile" # Set path to any swapfile not listed in /etc/fstab
 
 # Open pass tomb, if any
@@ -20,13 +20,13 @@ fi
 main() {
     while :; do
         clear
-        selection=$(fd .gpg ~/.password-store/ -d 8 \
+        selection=$(fd .gpg ${store} -d 8 \
                       | fzf --query "${tmp}" \
                             --prompt="# " \
                             --ansi \
                             --extended \
                             --no-border \
-                            --with-nth 5.. \
+                            --with-nth 6.. \
                             --delimiter "/" \
                             --layout=reverse-list \
                             --no-multi \

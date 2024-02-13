@@ -99,7 +99,7 @@ settings:
     - https://easylist.to/easylist/easylist.txt
     - https://easylist.to/easylist/easyprivacy.txt
   content.blocking.enabled:
-    global: true
+    global: false
   content.blocking.hosts.block_subdomains:
     global: false
   content.blocking.hosts.lists:
@@ -122,7 +122,7 @@ settings:
       {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}
   content.javascript.clipboard:
     github.com: access
-    global: none
+    global: access
   content.javascript.enabled:
     '*://*.steamcommunity.com/*': true
     '*://1337x.to/*': true

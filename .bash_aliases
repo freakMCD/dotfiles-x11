@@ -7,7 +7,6 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias mymusic='mpv --shuffle --volume=67 --save-position-on-quit=no "https://www.youtube.com/playlist?list=PL4CmunqMOJjLhWvgQUXWvewHEOoPAVAkt"'
 alias mp3dl='yt-dlp --restrict-filenames --extract-audio --audio-format mp3 --no-playlist'
 alias litedlp="yt-dlp -f 'bestvideo[height<=720]+bestaudio/best'"
-alias livesplit="cd /media/data/Downloads/livesplit-one-desktop && ./target/release/livesplit-one &exit"
 
 # gpg aliases
 alias gpg-list="gpg --list-secret-keys --keyid-format LONG"

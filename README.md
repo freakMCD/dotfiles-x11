@@ -77,6 +77,9 @@ git reset --soft HEAD@{1}
 # To commit all changes**
 yadm add -u
 
+# To untrack a file
+yadm rm --cached <filename>
+
 # For files you will never edit (e.g. "LICENSE")
 yadm update-index --assume-unchanged <filepath>
 
@@ -85,6 +88,9 @@ yadm init
 yadm remote add origin <url>
 yadm fetch
 yadm reset origin/master
+
+# Delete build folder and test.txt file from all commits
+$ git filter-repo --path build/ --path test.txt  --invert-paths
 ```
 **Other**
 ```bash
